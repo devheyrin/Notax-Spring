@@ -1,12 +1,7 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page import="java.util.*" %>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
-<html xmlns:th="https://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="${path}/resources/css/main-category.css">
+    <link rel="stylesheet" href="../css/main-category.css">
     <!-- 슬라이더 !-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <!--체크박스 !-->
@@ -18,7 +13,7 @@
     <!--셀렉트 박스 !-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/flatly/bootstrap.min.css">
-    <link rel="stylesheet" href="${path}/resources/css/feastSelect.css">
+    <link rel="stylesheet" href="../css/feastSelect.css">
     <!-- Bootstrap  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
@@ -27,22 +22,21 @@
     <!-- Required stuff -->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
-    <link rel="stylesheet" href="../static/css/tranquil-heart.min.css">
+    <link rel="stylesheet" href="../css/tranquil-heart.min.css">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../static/css/main-category">
-    <script src="../static/js/feastSelect.js"></script>
-    <%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>--%>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/feastSelect.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <script src="../static/js/main-category.js"></script>
+    <script src="../js/main-category.js"></script>
     <title>대분류 페이지</title>
 </head>
-<body class="mainscreen">
+<body>
 <h1>대분류 페이지</h1>
-<a href="login.html">로그인페이지로 이동</a>
-<a href="my_page.html">마이페이지 - 관심상품으로 이동</a>
-<a href="main-category.html">대분류페이지로 이동</a>
-<a href="middle-category.html">중분류페이지로 이동</a>
-<a href="detail.html">상품 상세 페이지로 이동</a>
+<a href="login">로그인페이지로 이동</a>
+<a href="mypage">마이페이지 - 관심상품으로 이동</a>
+<a href="main-category">대분류페이지로 이동</a>
+<a href="middle-category">중분류페이지로 이동</a>
+<a href="detail">상품 상세 페이지로 이동</a>
 
 <br/>
 <!-- 조건 창 !-->
@@ -52,10 +46,10 @@
     <div class="category-name">
         <div class="home-container nav-item">
             <a href="/" class="home">
-                <img class="home-icon" src="../static/img/home-icon.png"/>홈
+                <img class="home-icon" src="../img/home-icon.png"/>홈
             </a>
         </div>
-        <img class="arrow-right-icon" src="../static/img/noun-arrow-right.png"/>
+        <img class="arrow-right-icon" src="../img/noun-arrow-right.png"/>
         <div class="form-group nav-item">
             <select class="form-control example2 main-category" name="example-2">
                 <option value="10031760">스킨케어</option>
@@ -90,7 +84,9 @@
     </script>
     <!--검색박스 !-->
     <div class="search">
-        <form class="search-box" action="../../../../../../JavaWebProjects/SpringCloneTest/NoTax/src/main/webapp/WEB-INF/views" method="post">
+        <form class="search-box"
+              action="../../../../../../JavaWebProjects/SpringCloneTest/NoTax/src/main/webapp/WEB-INF/views"
+              method="post">
             <input class="search-txt" type="text" placeholder="카테고리 내 상품검색">
             <button class="btn btn-outline-dark" type="button">찾기</button>
         </form>
@@ -102,9 +98,9 @@
 <!-- 메인 슬라이드 !-->
 <div class="main-container">
     <div class="slider photo-area" id="slider">
-        <div><img src="../static/img/main-category.jpg"></div>
-        <div><img src="../static/img/main-category.jpg"></div>
-        <div><img src="../static/img/main-category.jpg"></div>
+        <div><img src="../img/main-category.jpg"></div>
+        <div><img src="../img/main-category.jpg"></div>
+        <div><img src="../img/main-category.jpg"></div>
     </div>
 </div>
 <!-- 조건 선택 !-->
@@ -224,7 +220,7 @@
         <!-- 가격 !-->
         <tr class="select-line">
             <td class="select-topic">가격</td>
-            <td style="margin-left : 14px;" >
+            <td style="margin-left : 14px;">
                 <input type="text" id="amount" readonly style="border:0; color:black; font-weight:bold;">
                 <div id="slider-range"></div>
             </td>
@@ -282,7 +278,7 @@
             <a href="" class="">
                 <span class="unit_no">1</span>
                 <div class="unit_img">
-                    <img class="values-img" src="../static/img/test1.jpeg">
+                    <img class="values-img" src="../img/test1.jpeg">
                 </div>
                 <div class="unit_flag thmb_flag">
                     <span class="cod1">세일</span>
@@ -312,7 +308,7 @@
             <a href="" class="">
                 <span class="unit_no">2</span>
                 <div class="unit_img">
-                    <img class="values-img" src="../static/img/test2.jpeg">
+                    <img class="values-img" src="../img/test2.jpeg">
                 </div>
                 <div class="unit_flag thmb_flag">
                     <span class="cod1">세일</span>
@@ -342,7 +338,7 @@
             <a href="" class="">
                 <span class="unit_no">3</span>
                 <div class="unit_img">
-                    <img class="values-img" src="../static/img/test3.jpeg">
+                    <img class="values-img" src="../img/test3.jpeg">
                 </div>
                 <div class="unit_flag thmb_flag">
                     <span class="cod1">세일</span>
@@ -372,7 +368,7 @@
             <a href="" class="">
                 <span class="unit_no">4</span>
                 <div class="unit_img">
-                    <img class="values-img" src="../static/img/test1.jpeg">
+                    <img class="values-img" src="../img/test1.jpeg">
                 </div>
                 <div class="unit_flag thmb_flag">
                     <span class="cod1">세일</span>
