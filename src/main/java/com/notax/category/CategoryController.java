@@ -20,4 +20,5 @@ public class CategoryController {
     public String sub() {
         return "sub-category";
     }
+
 }
