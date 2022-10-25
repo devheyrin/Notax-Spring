@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.flex-row-container {
+    display: flex;
+    flex-direction: row;
+}
+
+ul li {
+    background-color: black;
+    width: 250px;
+    padding: 10px;
+}
+
+ul {
+    background-color: black;
+    padding: 20px;
+}
+
+a, a:visited, a:active, a:hover { color: white; }
+a {
+    font-size: 30px;
+    text-decoration-line: none;
+}
+
+.tabscroll_activeNavi {
+                  background-color: white;
+                  border-width: 2px 2px 0 2px;
+                  border-color: black;
+                  border-style: solid
+              }
+
+.tabscroll_activeNavi a, .tabscroll_activeNavi a:visited, .tabscroll_activeNavi a:active, .tabscroll_activeNavi a:hover { color: black; }
+
+article {
+    border-width: 0 2px 2px 2px;
+    border-color: black;
+    border-style: solid;
+    width: 100%;
+    padding: 100px;
+}
+
+/*selectbox*/
+.select {
+    width: 200px;
+    height: 40px;
+    margin-top: 10px ;
+    background-size: 20px;
+    padding: 5px 30px 5px 10px;
+    border-radius: 4px;
+    outline: 0 none;
+    text-align: center;
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+}
+
+/*selectbox option*/
+.select option {
+    background: black;
+    color: #fff;
+    padding: 3px 0;
+}
+
+/*백화점 이름 및 등급 selectbox*/
+.select_box1 {
+    display: flex;
+    justify-content: space-between;
+}
+.select_box2{
+    display: flex;
+    justify-content: space-between;
+}
+.select_box3 {
+    display: flex;
+    justify-content: space-between;
+}
+.select_box4 {
+    display: flex;
+    justify-content: space-between;
+}
+.select_box5 {
+    display: flex;
+    justify-content: space-between;
+}
+.select_box6 {
+    display: flex;
+    justify-content: space-between;
+}
+.select_box7 {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*전체 div*/
+#select_form{
+    width: 480px;
+    margin: auto;
+}
+/*전체 div 안에 h1*/
+#select_form > h1{
+    text-align: center;
+}
+
+/*수정버튼*/
+.modify_btn{
+    width: 100%;
+    margin: 20px 0 0 0;
+    padding: 10px 0 10px 0;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #000000;
+    box-sizing: border-box;
+}
+.modify_btn:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+
+/* 관심상품 조회 */
+
+body{
+    margin: 0;
+}
+
+.mypage-left-bar {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    width: 150px;
+    background: #000;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+}
+.mypage-left-bar >ul{
+    padding: 10px 0 10px 0;
+
+}
+.cart_nav ul{
+    display: flex;
+}
+.cart_nav li {
+    list-style: none;
+}
+
+.mypage-left-bar li a {
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 0;
+    padding : 10px 0 10px;
+    text-align: center;
+}
+
+li a:hover {
+    background: #fff;
+    color: #000;
+}
+
+li a.home {
+    background : #fff;
+    color: #000;
+}
+
+
+.cart_size{
+    width: 520px;
+    margin: auto;
+
+}
+.subject_table {
+    border-top: 2px solid;
+    border-bottom: 1px solid;
+}
+.th_product{
+    padding-left: 160px;
+}
+.th_price{
+    padding-left: 244px;
+}
+
+.cart_table{
+    height: 160px;
+}
+
+.cart_table{
+    border-bottom: 1px solid;
+}
+.cart_img img{
+    width: 90px;
+    height: 90px;
+}
+.product_btn{
+    padding-left: 15px;
+}
+.product-Item{
+    display: flex;
+    padding-left: 10px;
+}
+.cart_info{
+    padding-left: 30px;
+    width: 250px;
+}
+.priceArea{
+    width: 106px;
+}
+

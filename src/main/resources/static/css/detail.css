@@ -1,0 +1,301 @@
+* {
+    box-sizing: border-box;
+    font-family: 'campton','Apple SD Gothic Neo',NanumBarunGothic,'나눔바른고딕',Malgun Gothic,'맑은 고딕',dotum,sans-serif;
+
+}
+
+.product-detail-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    margin: 0 auto;
+    max-width: 1300px;
+    min-width: 900px;
+    padding: 20px 50px 0;
+    justify-content: space-between;
+}
+
+.product-name div {
+    margin: 5px 0;
+}
+
+.product-name .brand {
+    font-size: 16px;
+}
+
+.product-name .name {
+    font-size: 28px;
+}
+
+.product-area {
+    margin: 0 auto;
+    max-width: 1300px;
+    min-width: 900px;
+    padding: 20px 50px 0;
+
+}
+
+.bx-wrapper {
+    height: 430px;
+}
+
+.product-area .photo-area {
+    width: 47%;
+}
+
+.photo-area .photo {
+    border: 1px solid black;
+    display: block;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.photo-area .photo-nav {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.product-area .info-area {
+    width: 100%;
+    flex: 1;
+    margin-left: 45px;
+    border-top: 1px solid black;
+}
+
+.info-area .duty-free-shop {
+    font-size: 20px;
+    padding: 10px 0;
+}
+
+.info-area .duty-free-shop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #dcdbdb;
+    align-items: center;
+}
+
+.coupons {
+    display: none;
+    padding: 10px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.info-area .coupon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20px;
+    font-size: 17px;
+    padding: 5px;
+}
+
+.toggle-btn {
+    cursor: pointer;
+}
+
+.css-plf4nv {
+    width: 12px;
+    height: 6px;
+    margin-left: 8px;
+    box-sizing: content-box;
+    padding: 3px;
+}
+
+/* 찜하기 버튼 css */
+button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    -webkit-text-size-adjust: none;
+    font-family: 'campton', 'Apple SD Gothic Neo', NanumBarunGothic, '나눔바른고딕', Malgun Gothic, '맑은 고딕', dotum, sans-serif;
+    -webkit-box-pack: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    line-height: 1;
+    color: #000000;
+}
+
+svg {
+    cursor: pointer;
+    -webkit-text-size-adjust: none;
+    font-family: 'campton','Apple SD Gothic Neo',NanumBarunGothic,'나눔바른고딕',Malgun Gothic,'맑은 고딕',dotum,sans-serif;
+    font-size: 20px;
+    line-height: 1;
+    color: #000000;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 7px;
+}
+
+button:hover path {
+    /* 찜 버튼 색상 변경 */
+    fill: rgb(255, 72, 0);
+    fill-rule: evenodd;
+    stroke: rgb(255, 72, 0);
+    stroke-width: 0.7;
+}
+
+.e1gbu2jd2 {
+    cursor: pointer;
+    -webkit-text-size-adjust: none;
+    font-family: 'campton','Apple SD Gothic Neo',NanumBarunGothic,'나눔바른고딕',Malgun Gothic,'맑은 고딕',dotum,sans-serif;
+    line-height: 1;
+    color: #000000;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+
+/* 찜하기 버튼 css 끝 */
+
+
+/* 카테고리 내비게이션 시작 */
+.category-nav {
+    margin: 0 auto;
+    max-width: 1300px;
+    min-width: 900px;
+    padding: 20px 50px 0;
+}
+
+.navigator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-item {
+    margin: 0 10px;
+}
+
+.home {
+    color: black;
+
+}
+
+.home-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+}
+
+.home-container {
+    position: relative;
+    right: 10px;
+}
+
+.arrow-right-icon {
+    width: 13px;
+    height: 14px;
+    margin-right: 4px;
+    margin-bottom: 3px;
+}
+/* 카테고리 내비게이션 끝 */
+
+/* 상품 상세설명 */
+.product-detail-area {
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 20px 50px 50px 50px;
+
+}
+
+.product-detail-title {
+    font-size: 22px;
+}
+
+.product-detail-table {
+    -webkit-text-size-adjust: none;
+    font-family: 'campton','Apple SD Gothic Neo',NanumBarunGothic,'나눔바른고딕',Malgun Gothic,'맑은 고딕',dotum,sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    text-align: left;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    border-width: 4px 1px 1px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0) rgb(212, 212, 212) rgb(212, 212, 212);
+    border-image: initial;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    margin-top: 12px;
+}
+
+.product-detail-table td {
+    padding: 18px 20px;
+    border-style: solid;
+    border-color: rgb(212, 212, 212);
+    border-image: initial;
+    border-width: 1px 0px 0px 1px;
+    overflow-wrap: break-word;
+}
+
+.pretty .state label:after, .pretty .state label:before {
+    content: '';
+    width: calc(1em + 2px);
+    height: calc(1em + 2px);
+    display: block;
+    box-sizing: border-box;
+    border-radius: 0;
+    border: 1px solid grey;
+    z-index: 0;
+    position: absolute;
+    left: 0;
+    top: -1px;
+    background-color: transparent;
+}
+
+.pretty.p-svg .state .svg {
+    position: absolute;
+    font-size: 1em;
+    width: 22px;
+    height: 22px;
+    left: 0;
+    z-index: 1;
+    text-align: center;
+    line-height: normal;
+    top: -1px;
+    border: 1px solid transparent;
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+

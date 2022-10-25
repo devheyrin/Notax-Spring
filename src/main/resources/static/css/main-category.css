@@ -1,0 +1,168 @@
+
+.mainscreen {
+    background-color: white;
+}
+
+.category-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.home-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+}
+
+.home-container {
+    position: relative;
+    right: 10px;
+}
+
+.arrow-right-icon {
+    width: 13px;
+    height: 14px;
+    margin-right: 4px;
+    margin-bottom: 3px;
+}
+
+.nav-item {
+    margin: 0 13px;
+}
+
+.search-txt {
+    margin-top: 10px;
+    height: 35px;
+}
+
+.cateHeader-container {
+    max-width: 2000px;
+    min-width: 900px;
+    margin: 0 auto;
+    padding: 10px 200px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.select-line {
+    text-align: center;
+    display: flex;
+    border-bottom: thin solid black;
+}
+
+.select-box {
+    margin: auto;
+    text-align: center;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    border-collapse: collapse;
+    border-left: none;
+    width: 2000px;
+}
+
+.select-topic {
+    border-bottom: thin solid white;
+    background-color: black;
+    color: white;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-item {
+    margin: 14px;
+    text-align: center;
+}
+
+.main-container {
+    margin: 0 auto;
+    max-width: 2000px;
+    min-width: 900px;
+    padding: 10px 200px 0;
+    text-align: center;
+}
+
+img {
+    height: 400px;
+    width: 1000px;
+}
+
+.choosebax {
+    display: flex;
+    background-color: white;
+    margin: 5px auto;
+    max-width: 2000px;
+    min-width: 900px;
+    padding: 10px 200px 0;
+    text-align: center;
+}
+
+.Sort-container {
+    align-items: flex-end;
+    justify-content: right;
+    max-width: 2000px;
+    min-width: 900px;
+    margin: 0 auto;
+    padding: 10px 200px 0;
+}
+
+.reset-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#reset {
+    height: 50px;
+    width: 150px;
+}
+
+#reset {
+    text-align: center;
+}
+
+.sort-value {
+    float: right;
+    align-items: flex-end;
+    justify-content: left;
+    margin: 0 auto;
+}
+
+.values-container {
+    align-items: flex-end;
+    justify-content: right;
+    max-width: 2000px;
+    min-width: 900px;
+    margin: 0 auto;
+    padding: 10px 200px 0;
+
+}
+
+.values {
+    display: flex;
+    height: 350px;
+    width: 250px;
+    float: left;
+    font-size: 12px;
+    text-align: center;
+}
+
+.values-img {
+    height: 250px;
+    width: 230px;
+}
+
+.price {
+    height: 25px;
+    width: 60px;
+}
+
+
+
+
