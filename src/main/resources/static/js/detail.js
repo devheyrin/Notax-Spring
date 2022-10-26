@@ -2,8 +2,8 @@
 $(function (){
    $(".toggle-btn").click(function (){
       console.log($(this).attr("id"));
-      let toggle_id = $(this).attr("id").slice(-1);
-      let coupon = $('#coupon'+toggle_id);
+      let dfs_id = $(this).attr("id").slice(-1);
+      let coupon = $('#coupon'+dfs_id);
       coupon.toggle();
    });
 });
