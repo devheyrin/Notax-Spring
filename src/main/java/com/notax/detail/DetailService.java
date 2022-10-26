@@ -10,7 +10,7 @@ public class DetailService {
     @Autowired
     DetailDAO detailDAO;
 
-    public ProductVO selectProductById() {
-        return detailDAO.selectProductById();
+    public ProductVO selectProductById(int pd_no) {
+        return detailDAO.selectProductById(pd_no);
     }
 }
