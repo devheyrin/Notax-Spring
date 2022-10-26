@@ -1,8 +1,10 @@
 /* 쿠폰 토글 */
 $(function (){
    $(".toggle-btn").click(function (){
-      let next = $(this).parent().parent().next();
-      next.toggle();
+      console.log($(this).attr("id"));
+      let toggle_id = $(this).attr("id").slice(-1);
+      let coupon = $('#coupon'+toggle_id);
+      coupon.toggle();
    });
 });
 
