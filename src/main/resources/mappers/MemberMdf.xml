@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.notax.mypage.MypageDAO">
+    <update id="updateMemberMdfById" resultType="MemberMdfVO">
+        UPDATE user_tb
+        SET email=#{email}, id=#{id},  nickname=#{nickname}, address=#{address}, profileImg=#{profileImg}
+        WHERE ID=#{id}
+    </update>
+</mapper>
