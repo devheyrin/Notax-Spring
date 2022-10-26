@@ -90,6 +90,11 @@
     align-items: center;
 }
 
+.sale-percent {
+    color: red;
+    font-size: 1rem;
+}
+
 .coupons {
     display: none;
     padding: 10px;
