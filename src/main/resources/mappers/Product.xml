@@ -28,9 +28,21 @@
             DUTY_FREE_SHOP_TB dfst
         WHERE
             pbdfst.dfs_no = dfst.DFS_NO AND
-            PBDFST.pd_no = 1
+            PBDFST.pd_no = #{pd_no}
         GROUP BY DFST.DFS_NAME
         ORDER BY dfs_no
+    </select>
+
+    <select id="selectCouponList" resultType="CouponVO">
+        SELECT
+            c.CP_NAME,
+            ctt.CP_TYPE_NAME CP_UNIT,
+            c.DISCOUNT_AMT,
+            c.DFS_NO
+        FROM
+            COUPON c, COUPON_TYPE_TB ctt
+        WHERE
+            c.CP_TYPE_NO = ctt.CP_TYPE_NO
     </select>
 
 </mapper>

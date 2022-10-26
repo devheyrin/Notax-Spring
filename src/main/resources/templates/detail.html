@@ -127,25 +127,17 @@
                 </div>
                 <!--            <%&#45;&#45;      쿠폰 영역      &#45;&#45;%>-->
                 <div class="coupons" th:id="'coupon' + ${price.dfs_no}">
-                    <div class="coupon-container">
-                        <div>쿠폰이름</div>
+
+                    <div th:if="${}">적용 가능한 쿠폰이 없습니다.</div>
+                    <div class="coupon-container" th:each="coupon : ${price.coupon_list}" >
+
+                        <div class="coupon-name" th:text="${coupon.cp_name}">쿠폰이름</div>
                         <div class="pretty p-svg p-plain">
                             <input type="checkbox" class="ck-discount"/>
                             <div class="state">
                                 <img class="svg"
                                      src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                                <label>100</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="coupon-container">
-                        <div>쿠폰이름</div>
-                        <div class="pretty p-svg p-plain">
-                            <input type="checkbox" class="ck-discount"/>
-                            <div class="state">
-                                <img class="svg"
-                                     src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                                <label>90</label>
+                                <label class="coupon-price" th:text="${coupon.discount_amt}">100</label>
                             </div>
                         </div>
                     </div>
