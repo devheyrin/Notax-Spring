@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.notax.category.CategoryDAO">
-    <select id="selectProductByMain" resultType="ProductCategoryVO">
+    <select id="selectProductByMain" resultType="ProductCategoryVO" parameterType="int">
         select
-            b.brand_name, p.pd_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price
+            rownum, ma.main_no, b.brand_name, p.pd_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price
         from
              products_tb p, sub_category_tb s, middle_category_tb mi, main_category_tb ma, products_by_duty_free_shop_tb pd, brand_tb b, products_photo_tb pp
         where ma.main_no = mi.main_no and
@@ -14,6 +14,39 @@
               p.pd_no = pd.pd_no and
               p.brand_no = b.brand_no and
               p.pd_no = pp.pd_no and
-              ma.main_no = 5 and p.pd_no = 23
+              ma.main_no = #{main_no}
+    </select>
+    <select id="selectDuty" resultType="ProductCategoryVO">
+        select
+            dfs_name
+        from
+            duty_free_shop_tb
+    </select>
+    <select id="selectMiddle" resultType="ProductCategoryVO" parameterType="int">
+        select
+            mid_name
+        from
+            middle_category_tb mi, main_category_tb ma
+        where
+            mi.main_no = ma.main_no and
+            ma.main_no = #{main_no}
+    </select>
+    <select id="selectBrand" resultType="ProductCategoryVO" parameterType="int">
+        select distinct
+            brand_name
+        from
+            middle_category_tb mi, main_category_tb ma, sub_category_tb s, products_tb p, brand_tb b
+        where
+            mi.main_no = ma.main_no and
+            mi.mid_cate_no = s.mid_cate_no and
+            s.sub_no = p.sub_no and
+            p.brand_no = b.brand_no and
+            ma.main_no = #{main_no}
+    </select>
+    <select id="selectMain" resultType="ProductCategoryVO">
+        select
+            main_no, main_name
+        from
+            main_category_tb
     </select>
 </mapper>
