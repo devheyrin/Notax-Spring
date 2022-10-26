@@ -1,5 +1,6 @@
 package com.notax.mypage;
 
+
 import com.notax.vo.MemberMdfVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import javax.websocket.Session;
 
 public class MypageController {
     @RequestMapping("/mypage")
+
     public String mypage() {
         return "mypage";
     }
@@ -29,7 +31,4 @@ public class MypageController {
        MemberMdfVO memberMdfVO = MypageService.(id);
    }
 }*/
-
-
-
 
