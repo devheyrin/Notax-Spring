@@ -4,6 +4,132 @@
 
 }
 
+
+/*회원가입 크기*/
+#join_form {
+    width: 460px;
+}
+/*회원가입 Title*/
+.jointit {
+    text-align: center;
+    font-weight: 700;
+    font-size: 34px;
+}
+
+/*이름 및 성별*/
+.groupC{
+    display: flex;
+    justify-content: space-between;
+}
+/*경고창*/
+#join_form div > span{
+    display: block;
+    margin: -6px 110px -2px;
+    font-size: 12px;
+    line-height: 14px;
+    color: red;
+}
+
+.join-wrapper{
+    margin: auto;
+    width: 520px;
+    height: 350px;
+    box-sizing: border-box;
+}
+
+#join_form > div {
+    padding-bottom: 35px;
+    margin-top: -30px;
+}
+.id_box > label{
+    padding-right: 60px;
+}
+.id_box >  input {
+    width: 353px;
+    padding: 10px 0;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+#join_form div > input[type = password]{
+    width: 353px;
+    padding: 10px 10px 10px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+
+.pass_box > label {
+    padding-right: 46px;
+}
+
+.name_box > label {
+    width: 353px;
+    padding: 10px 0;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+.bir_wrap > label {
+    padding-right: 47px;
+}
+
+#join_form div > input{
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    background-color: #F8F8F8;
+    padding: 10px 74px 10px;
+}
+
+
+.gender_select input[type=radio]{
+    display: none;
+}
+.gender_select input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    width: 50px;
+    border: 2px solid #333;
+    line-height: 24px;
+    text-align: center;
+    font-weight:bold;
+    font-size:13px;
+    border-radius: 8px;
+}
+.gender_select input[type=radio]+label{
+    background-color: #fff;
+    color: #333;
+    height: 25px;
+    padding-top: 5px;
+    font-size: medium;
+}
+.gender_select input[type=radio]:checked+label{
+    background-color: #333;
+    color: #fff;
+}
+
+#join_form > input[type="submit"]{
+    width: 77%;
+    color: #fff;
+    font-size: 16px;
+    background-color: #000000;
+    margin-top: -10px;
+    border-radius: 6px;
+    padding: 10px 0 10px;
+    border-color: black;
+    border-style: solid;
+}
+#join_form > input[type="submit"]:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.bir_wrap > input{
+    width: 353px;
+    padding: 10px 0 10px;
+}
 .flex-row-container {
     display: flex;
     flex-direction: row;
@@ -17,7 +143,7 @@ ul li {
 
 ul {
     background-color: black;
-    padding: 20px;
+    padding: 10px;
 }
 
 a, a:visited, a:active, a:hover { color: white; }
@@ -36,11 +162,11 @@ a {
 .tabscroll_activeNavi a, .tabscroll_activeNavi a:visited, .tabscroll_activeNavi a:active, .tabscroll_activeNavi a:hover { color: black; }
 
 article {
-    border-width: 0 2px 2px 2px;
+    border-width: 0px 2px 0px 2px;
     border-color: black;
     border-style: solid;
     width: 100%;
-    padding: 100px;
+    padding: 200px;
 }
 
 /*selectbox*/
