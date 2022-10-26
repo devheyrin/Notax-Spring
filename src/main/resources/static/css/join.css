@@ -16,6 +16,7 @@
     display: flex;
     justify-content: space-between;
 }
+
 /*경고창*/
 #join_form div > span{
     display: block;
@@ -123,4 +124,10 @@
 .bir_wrap > input{
     width: 353px;
     padding: 10px 0 10px;
+}
+.user_email > label{
+    padding-right: 60px;
+}
+.user_email > input{
+    width: 353px;
 }
