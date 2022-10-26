@@ -5,7 +5,10 @@
 <mapper namespace="com.notax.mypage.MypageDAO">
     <update id="updateMemberMdfById" resultType="MemberMdfVO">
         UPDATE user_tb
-        SET email=#{email}, id=#{id},  nickname=#{nickname}, address=#{address}, profileImg=#{profileImg}
-        WHERE ID=#{id}
+
+        SET user_name=#{name},user_pass=#{pass}
+        WHERE user_id=#{id}
+
+
     </update>
 </mapper>

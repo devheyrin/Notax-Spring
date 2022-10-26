@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="UTF-8">
+
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="../js/tabscroll.js"></script>
-  <link rel="stylesheet" href="../css/mypage-sample.css">
+  <link rel="stylesheet"  th:src="@{/css/mypage.css}">
+
   <title>Title</title>
   <style>
 
@@ -20,31 +22,16 @@
     <section data-tabscroll="one" style="">
       <div class="join-wrapper">
 
+
+        <form name="joinform" id="join_form" method="post" action="#one">
+
         <form name="joinform" id="join_form" method="post" action="">
-          <div class="id_box">
-            <label>아이디</label>
-            <input type="text" id="id" name="id" value="${user_id}"/>
-            <span></span>
-          </div>
 
 
-          <div class="pass_box">
-            <label>비밀번호</label>
-            <input type="password"/>
-            <span></span>
-          </div>
+            <input type="text" id="name" value="${user_id}" readonly/>
 
-
-          <div class="passSearch_box">
-            <label>비밀번호 재확인</label>
-            <input type="password"/>
-            <span></span>
-          </div>
-
-
-          <div class="name_box">
-            <label>이름</label>
             <input type="text"/>
+
             <div class="gender_select">
               <input type="radio" name="gender" id="man"/>
               <label for="man">남</label>

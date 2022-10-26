@@ -59,11 +59,12 @@
     padding-right: 46px;
 }
 
-.groupC > label {
-    margin-top: 10px;
-    display: inline-block;
-    width: 30px;
-    padding-right: 68px;
+.name_box > label {
+    width: 353px;
+    padding: 10px 0;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: #F8F8F8;
 }
 .bir_wrap > label {
     padding-right: 47px;
@@ -74,7 +75,7 @@
     border-radius: 6px;
     margin-bottom: 14px;
     background-color: #F8F8F8;
-    padding: 10px 0 10px 10px;
+    padding: 10px 74px 10px;
 }
 
 
@@ -84,19 +85,19 @@
 .gender_select input[type=radio]+label{
     display: inline-block;
     cursor: pointer;
-    width: 90px;
+    width: 50px;
     border: 2px solid #333;
     line-height: 24px;
     text-align: center;
     font-weight:bold;
     font-size:13px;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 .gender_select input[type=radio]+label{
     background-color: #fff;
     color: #333;
-    height: 28px;
-    padding-top: 8px;
+    height: 25px;
+    padding-top: 5px;
     font-size: medium;
 }
 .gender_select input[type=radio]:checked+label{
