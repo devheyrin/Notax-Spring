@@ -15,4 +15,22 @@
         FROM PRODUCTS_TB pt
         where pd_no = #{pd_no}
     </select>
+
+    <select id="selectPriceByDFS" parameterType="int" resultType="ProductByDFSVO">
+        SELECT
+            min(DFST.dfs_no) dfs_no,
+            dfst.DFS_NAME,
+            min(PBDFST.pd_by_dfs_price) price,
+            min(PBDFST.pd_by_dfs_sale) sale_percent,
+            min(PBDFST.pd_by_dfs_price)*(1 - min(PBDFST.pd_by_dfs_sale)/100) total_price
+        FROM
+            PRODUCTS_BY_DUTY_FREE_SHOP_TB pbdfst,
+            DUTY_FREE_SHOP_TB dfst
+        WHERE
+            pbdfst.dfs_no = dfst.DFS_NO AND
+            PBDFST.pd_no = 1
+        GROUP BY DFST.DFS_NAME
+        ORDER BY dfs_no
+    </select>
+
 </mapper>

@@ -1,29 +1,30 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<!--    <%&#45;&#45; 슬라이더 &#45;&#45;%>-->
+    <!--    <%&#45;&#45; 슬라이더 &#45;&#45;%>-->
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <!--체크박스 !-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
-<!--    <%&#45;&#45; 셀렉트박스 시작 &#45;&#45;%>-->
+    <!--    <%&#45;&#45; 셀렉트박스 시작 &#45;&#45;%>-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/flatly/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/feastSelect.css" th:href="@{/css/feastSelect.css}">
+    <link rel="stylesheet" href="../static/css/feastSelect.css" th:href="@{/css/feastSelect.css}">
     <!-- Bootstrap  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
             crossorigin="anonymous"></script>
     <!-- Required stuff -->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <link rel="stylesheet" href="../css/tranquil-heart.min.css" th:href="@{/css/tranquil-heart.min.css}">
+    <link rel="stylesheet" href="../static/css/tranquil-heart.min.css" th:href="@{/css/tranquil-heart.min.css}">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../css/style.css" th:href="@{/css/style.css}">
-    <script src="../js/feastSelect.js" th:src="@{/js/feastSelect.js}"></script>
-<!--    <%&#45;&#45; 셀렉트박스 끝 &#45;&#45;%>-->
-    <script src="../js/detail.js" th:src="@{/js/detail.js}"></script>
-    <link rel="stylesheet" href="../css/detail.css" th:href="@{/css/detail.css}">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <script src="../static/js/feastSelect.js" th:src="@{/js/feastSelect.js}"></script>
+    <!--    <%&#45;&#45; 셀렉트박스 끝 &#45;&#45;%>-->
+    <script src="../static/js/detail.js" th:src="@{/js/detail.js}"></script>
+    <link rel="stylesheet" href="../static/css/detail.css" th:href="@{/css/detail.css}">
     <title>상품 상세 페이지</title>
 </head>
 <body>
@@ -42,13 +43,13 @@
 <!--<%&#45;&#45;상품 분류 페이지 이동 영역 끝&#45;&#45;%>-->
 <!--<%&#45;&#45;상품 상세 영역 시작 &#45;&#45;%>-->
 <div class="product-detail-container">
-<!--    <%&#45;&#45;    카테고리 내비게이터 시작&#45;&#45;%>-->
+    <!--    <%&#45;&#45;    카테고리 내비게이터 시작&#45;&#45;%>-->
     <div class="navigator category-nav">
         <div class="home-container nav-item">
-            <img class="home-icon" src="../img/home-icon.png"/>
+            <img class="home-icon" src="../static/img/home-icon.png" th:src="@{/img/home-icon.png}"/>
             <a href="/" class="home">홈</a>
         </div>
-        <img class="arrow-right-icon" src="../img/noun-arrow-right.png"/>
+        <img class="arrow-right-icon" src="../static/img/noun-arrow-right.png" th:src="@{/img/noun-arrow-right.png}"/>
         <div class="form-group nav-item">
             <select class="form-control example2 main-category" name="example-2">
                 <option value="10031760">스킨케어</option>
@@ -67,7 +68,7 @@
                 <option value="10035150">Adult (19)</option>
             </select>
         </div>
-        <img class="arrow-right-icon" src="../img/noun-arrow-right.png"/>
+        <img class="arrow-right-icon" src="../static/img/noun-arrow-right.png" th:src="@{/img/noun-arrow-right.png}"/>
         <div class="form-group nav-item">
             <select class="form-control example2 middle-category" name="example-2">
                 <option value="10031972">여성시계</option>
@@ -78,7 +79,7 @@
             </select>
         </div>
     </div>
-<!--    <%&#45;&#45;    카테고리 내비게이터 끝&#45;&#45;%>-->
+    <!--    <%&#45;&#45;    카테고리 내비게이터 끝&#45;&#45;%>-->
     <div class="product-name flex-row-container">
         <div class="flex-col-container">
             <div class="brand" th:text="${product.brand_name}">펜디 FENDI</div>
@@ -94,9 +95,9 @@
     </div>
     <div class="flex-row-container product-area">
         <div class="slider photo-area">
-            <div><img src="../img/test1.jpeg"></div>
-            <div><img src="../img/test2.jpeg"></div>
-            <div><img src="../img/test3.jpeg"></div>
+            <div><img src="../static/img/test1.jpeg" th:src="@{/img/test1.jpeg}"></div>
+            <div><img src="../static/img/test2.jpeg" th:src="@{/img/test2.jpeg}"></div>
+            <div><img src="../static/img/test3.jpeg" th:src="@{/img/test3.jpeg}"></div>
         </div>
         <div class="info-area">
             <div class="duty-free-shop">
@@ -111,261 +112,46 @@
                     <span>$0,000</span>
                 </div>
             </div>
-            <div class="duty-free-shop">
-                <div>롯데면세점</div>
-                <div>
-                    $<span class="final-price">1048.5</span>
-                    <span class="toggle-btn">
+            <div th:each="price : ${priceList}">
+                <div class="duty-free-shop" >
+                    <div th:text="${price.dfs_name}">롯데면세점</div>
+                    <div>
+                        <span class="sale-percent" th:text="${price.sale_percent}+'%'">50%</span>
+                        $<span class="final-price" th:text="${price.total_price}">1048.5</span>
+                        <span class="toggle-btn" th:id="'toggle' + ${price.dfs_no}">
                         <svg class="ep8sdhl8 css-plf4nv e1tthaaa0" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 28 16"><g fill="none" fill-rule="evenodd" stroke="#a0a0a0" stroke-width="3"><path
                                 d="M28 1L13.97 15 0 1.058"></path></g></svg>
                     </span>
+                    </div>
                 </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역      &#45;&#45;%>-->
-            <div class="coupons">
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg"
-                                 src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>100</label>
+                <!--            <%&#45;&#45;      쿠폰 영역      &#45;&#45;%>-->
+                <div class="coupons" th:id="'coupon' + ${price.dfs_no}">
+                    <div class="coupon-container">
+                        <div>쿠폰이름</div>
+                        <div class="pretty p-svg p-plain">
+                            <input type="checkbox" class="ck-discount"/>
+                            <div class="state">
+                                <img class="svg"
+                                     src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
+                                <label>100</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coupon-container">
+                        <div>쿠폰이름</div>
+                        <div class="pretty p-svg p-plain">
+                            <input type="checkbox" class="ck-discount"/>
+                            <div class="state">
+                                <img class="svg"
+                                     src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
+                                <label>90</label>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>90</label>
-                        </div>
-                    </div>
-                </div>
+                <!--            <%&#45;&#45;      쿠폰 영역 끝     &#45;&#45;%>-->
             </div>
-<!--            <%&#45;&#45;      쿠폰 영역 끝     &#45;&#45;%>-->
-            <script>
-
-            </script>
-            <div class="duty-free-shop">
-                <div>제주공항면세점</div>
-                <div>
-                    $<span class="final-price">1030</span>
-                    <span class="toggle-btn">
-                        <svg class="ep8sdhl8 css-plf4nv e1tthaaa0" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 28 16"><g fill="none" fill-rule="evenodd" stroke="#a0a0a0" stroke-width="3"><path
-                                d="M28 1L13.97 15 0 1.058"></path></g></svg>
-                    </span>
-                </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역      &#45;&#45;%>-->
-            <div class="coupons">
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg"
-                                 src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>100</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>90</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역 끝     &#45;&#45;%>-->
-            <div class="duty-free-shop">
-                <div>신세계면세점</div>
-                <div>
-                    $<span class="final-price">1020</span>
-                    <span class="toggle-btn">
-                        <svg class="ep8sdhl8 css-plf4nv e1tthaaa0" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 28 16"><g fill="none" fill-rule="evenodd" stroke="#a0a0a0" stroke-width="3"><path
-                                d="M28 1L13.97 15 0 1.058"></path></g></svg>
-                    </span>
-                </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역      &#45;&#45;%>-->
-            <div class="coupons">
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg"
-                                 src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>100</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>90</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역 끝     &#45;&#45;%>-->
-            <div class="duty-free-shop">
-                <div>신라면세점</div>
-                <div>
-                    $<span class="final-price">1000</span>
-                    <span class="toggle-btn">
-                        <svg class="ep8sdhl8 css-plf4nv e1tthaaa0" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 28 16"><g fill="none" fill-rule="evenodd" stroke="#a0a0a0" stroke-width="3"><path
-                                d="M28 1L13.97 15 0 1.058"></path></g></svg>
-                    </span>
-                </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역      &#45;&#45;%>-->
-            <div class="coupons">
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg"
-                                 src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>100</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>90</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역 끝     &#45;&#45;%>-->
-            <div class="duty-free-shop">
-                <div>현대백화점면세점</div>
-                <div>
-                    $<span class="final-price">1100</span>
-                    <span class="toggle-btn">
-                        <svg class="ep8sdhl8 css-plf4nv e1tthaaa0" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 28 16"><g fill="none" fill-rule="evenodd" stroke="#a0a0a0" stroke-width="3"><path
-                                d="M28 1L13.97 15 0 1.058"></path></g></svg>
-                    </span>
-                </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역      &#45;&#45;%>-->
-            <div class="coupons">
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg"
-                                 src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>100</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>90</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역 끝     &#45;&#45;%>-->
-            <div class="duty-free-shop">
-                <div>동화면세점</div>
-                <div>
-                    $<span class="final-price">1002</span>
-                    <span class="toggle-btn">
-                        <svg class="ep8sdhl8 css-plf4nv e1tthaaa0" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 28 16"><g fill="none" fill-rule="evenodd" stroke="#a0a0a0" stroke-width="3"><path
-                                d="M28 1L13.97 15 0 1.058"></path></g></svg>
-                    </span>
-                </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역      &#45;&#45;%>-->
-            <div class="coupons">
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg"
-                                 src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>100</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>90</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역 끝     &#45;&#45;%>-->
-            <div class="duty-free-shop">
-                <div>신라아이파크면세점</div>
-                <div>
-                    $<span class="final-price">1000</span>
-                    <span class="toggle-btn">
-                        <svg class="ep8sdhl8 css-plf4nv e1tthaaa0" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 28 16"><g fill="none" fill-rule="evenodd" stroke="#a0a0a0" stroke-width="3"><path
-                                d="M28 1L13.97 15 0 1.058"></path></g></svg>
-                    </span>
-                </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역      &#45;&#45;%>-->
-            <div class="coupons">
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg"
-                                 src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>100</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="coupon-container">
-                    <div>쿠폰이름</div>
-                    <div class="pretty p-svg p-plain">
-                        <input type="checkbox" class="ck-discount"/>
-                        <div class="state">
-                            <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                            <label>90</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-<!--            <%&#45;&#45;      쿠폰 영역 끝     &#45;&#45;%>-->
         </div>
     </div>
     <div class="product-detail-area">
