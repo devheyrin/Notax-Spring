@@ -46,7 +46,7 @@
     <div class="navigator category-nav">
         <div class="home-container nav-item">
             <img class="home-icon" src="../img/home-icon.png"/>
-            <a href="/kr/" class="home">홈</a>
+            <a href="/" class="home">홈</a>
         </div>
         <img class="arrow-right-icon" src="../img/noun-arrow-right.png"/>
         <div class="form-group nav-item">
@@ -81,8 +81,8 @@
 <!--    <%&#45;&#45;    카테고리 내비게이터 끝&#45;&#45;%>-->
     <div class="product-name flex-row-container">
         <div class="flex-col-container">
-            <div class="brand">펜디 FENDI</div>
-            <div class="name">NEW QUADRO 뉴 콰드로</div>
+            <div class="brand" th:text="${product.brand_name}">펜디 FENDI</div>
+            <div class="name" th:text="${product.pd_name}">NEW QUADRO 뉴 콰드로</div>
         </div>
         <button class="e1gbu2jd0 css-1ye82b0 e10q62zt1" type="button">
             <svg class="css-abvsl5 e1gbu2jd1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">

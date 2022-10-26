@@ -5,5 +5,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface DetailDAO {
-    public ProductVO selectProductById();
+    public ProductVO selectProductById(int pd_no);
 }
