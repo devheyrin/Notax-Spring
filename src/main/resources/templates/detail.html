@@ -95,7 +95,7 @@
     </div>
     <div class="flex-row-container product-area">
         <div class="slider photo-area">
-            <div><img src="../static/img/test1.jpeg" th:src="@{/img/test1.jpeg}"></div>
+            <div><img src="../static/img/test1.jpeg" th:src="${product.pdphoto_link}"></div>
             <div><img src="../static/img/test2.jpeg" th:src="@{/img/test2.jpeg}"></div>
             <div><img src="../static/img/test3.jpeg" th:src="@{/img/test3.jpeg}"></div>
         </div>
@@ -103,7 +103,7 @@
             <div class="duty-free-shop">
                 <div>정가</div>
                 <div>
-                    <span>$1,165</span>
+                    <span th:text="${product.pd_price}">$1,165</span>
                 </div>
             </div>
             <div class="duty-free-shop">
