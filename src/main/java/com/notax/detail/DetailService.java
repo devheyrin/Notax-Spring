@@ -34,7 +34,6 @@ public class DetailService {
                 if (dfs_no == coupon_dfs_no && total_price > discount_amt) {
                     System.out.println("dfs_no = " + dfs_no);
                     System.out.println("coupon_dfs_no = " + coupon_dfs_no);
-
                     dfsCouponList.add(coupon);
                 }
             }
@@ -43,7 +42,4 @@ public class DetailService {
         return dfsPriceList;
     }
 
-//    public List<CouponVO> selectCouponList(int dfs_id) {
-//        return detailDAO.selectCouponList(dfs_id);
-//    }
 }
