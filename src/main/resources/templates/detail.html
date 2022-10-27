@@ -1,14 +1,14 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!--    <%&#45;&#45; 슬라이더 &#45;&#45;%>-->
+    <!--   슬라이더  -->
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <!--체크박스 !-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
-    <!--    <%&#45;&#45; 셀렉트박스 시작 &#45;&#45;%>-->
+    <!--    셀렉트박스 시작  -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/flatly/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/feastSelect.css" th:href="@{/css/feastSelect.css}">
@@ -22,28 +22,28 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
     <script src="../static/js/feastSelect.js" th:src="@{/js/feastSelect.js}"></script>
-    <!--    <%&#45;&#45; 셀렉트박스 끝 &#45;&#45;%>-->
+    <!--    셀렉트박스 끝  -->
     <script src="../static/js/detail.js" th:src="@{/js/detail.js}"></script>
     <link rel="stylesheet" href="../static/css/detail.css" th:href="@{/css/detail.css}">
     <title>상품 상세 페이지</title>
 </head>
 <body>
 <h1>상품 상세 페이지</h1>
-<!--<%&#45;&#45;네비게이션 영역 시작(추후 include태그로 수정)&#45;&#45;%>-->
+<!-- 네비게이션 영역 시작(추후 include태그로 수정) -->
 <a href="/login">로그인페이지로 이동</a>
 <a href="/mypage">마이페이지 - 관심상품으로 이동</a>
 <!--<%&#45;&#45;네비게이션 영역 끝&#45;&#45;%>-->
 
-<!--<%&#45;&#45;상품 분류 페이지 이동 영역 시작&#45;&#45;%>-->
+<!-- 상품 분류 페이지 이동 영역 시작 -->
 <div class="flex-row-container">
     <a href="/main-category">대분류페이지로 이동</a>
     <a href="/middle-category">중분류페이지로 이동</a>
     <a href="/sub-category">소분류페이지로 이동</a>
 </div>
-<!--<%&#45;&#45;상품 분류 페이지 이동 영역 끝&#45;&#45;%>-->
-<!--<%&#45;&#45;상품 상세 영역 시작 &#45;&#45;%>-->
+<!-- 상품 분류 페이지 이동 영역 끝 -->
+<!-- 상품 상세 영역 시작 -->
 <div class="product-detail-container">
-    <!--    <%&#45;&#45;    카테고리 내비게이터 시작&#45;&#45;%>-->
+    <!--  카테고리 내비게이터 시작 -->
     <div class="navigator category-nav">
         <div class="home-container nav-item">
             <img class="home-icon" src="../static/img/home-icon.png" th:src="@{/img/home-icon.png}"/>
@@ -79,7 +79,7 @@
             </select>
         </div>
     </div>
-    <!--    <%&#45;&#45;    카테고리 내비게이터 끝&#45;&#45;%>-->
+    <!--  카테고리 내비게이터 끝 -->
     <div class="product-name flex-row-container">
         <div class="flex-col-container">
             <div class="brand" th:text="${product.brand_name}">펜디 FENDI</div>
@@ -125,8 +125,9 @@
                     </span>
                     </div>
                 </div>
-                <!--            <%&#45;&#45;      쿠폰 영역      &#45;&#45;%>-->
+                <!--  쿠폰 영역 -->
                 <div class="coupons" th:id="'coupon' + ${price.dfs_no}">
+                    <div th:if="${#lists.isEmpty(price.coupon_list)}">적용할 수 있는 쿠폰이 없습니다.</div>
                     <div class="coupon-container" th:each="coupon : ${price.coupon_list}" >
 
                         <div class="coupon-name" th:text="${coupon.cp_name}">쿠폰이름</div>
@@ -140,14 +141,15 @@
                         </div>
                     </div>
                 </div>
-                <!--            <%&#45;&#45;      쿠폰 영역 끝     &#45;&#45;%>-->
+                <!--  쿠폰 영역 끝 -->
             </div>
         </div>
     </div>
     <div class="product-detail-area">
         <div class="product-detail-title">상세설명</div>
         <div>
-            <table class="product-detail-table">
+            <table class="product-detail-table" th:utext="${product.pd_more}">
+
                 <tr>
                     <td>소재/순도/밴드재질(시계)</td>
                     <td>Nato</td>
