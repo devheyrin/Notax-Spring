@@ -13,7 +13,7 @@
 
 <div class="login-wrapper">
 
-  <form name="loginform" method="post" action="" class="login-form" id="login-form">
+  <form name="loginform" method="post" th:action="@{/login}" class="login-form" id="login-form">
     <input type="text" placeholder="아이디" id="loginId" class="loginId" value="아이디">
     <input type="password" placeholder="비밀번호" id="loginPass" class="loginPass" value="비밀번호">
     <input type="submit" value="로그인">

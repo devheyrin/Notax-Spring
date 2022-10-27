@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.notax.user.UserDAO">
+    <select id="getId" parameterType="int" resultType="UserVO">
+        SELECT IFNULL(COUNT(*), 0) FROM USER_TB
+        WHERE ID = #{user_id}
+    </select>
+
+    <insert id="userSave">
+        <selectKey keyProperty="user_no" order="BEFORE" resultType="long">
+            select USER_TB_SEQ.NEXTVAL from dual
+        </selectKey>
+        insert into USER_TB(user_NO,USER_ID, USER_PASSWORD, USER_BIRTH_YMD, USER_GENDER, USER_NAME, USER_EMAIL)
+        VALUES (
+                #{user_no},#{user_id},#{user_pwd},#{user_birth},#{user_gender},#{user_name},#{user_email})
+    </insert>
+</mapper>
