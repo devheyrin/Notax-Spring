@@ -10,7 +10,9 @@ public class ProductVO {
 //    private int brand_no;
     private String brand_name;
     private String pd_name;
+    private int pd_price;
     private int pd_views;
     private String pd_date;
     private String pd_more;
+    private String pdphoto_link;
 }
