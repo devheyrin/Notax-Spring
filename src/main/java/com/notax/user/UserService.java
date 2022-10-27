@@ -28,9 +28,8 @@ public class UserService {
         return validatorResult;
     }
 
-    public UserVO save(UserVO vo){
-        return userdao.userSave();
+    public void save(UserVO vo){
+        userdao.userSave(vo);
     }
-
 
 }

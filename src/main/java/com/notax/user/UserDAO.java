@@ -8,5 +8,6 @@ public interface UserDAO {
     //회원 등록
 
     int getId(UserVO VO);
-    public UserVO userSave();
+    public void userSave(UserVO vo);
+
 }
