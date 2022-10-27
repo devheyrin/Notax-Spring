@@ -17,4 +17,6 @@ public interface CategoryDAO {
 
     public ArrayList<ProductCategoryVO> selectMain();
 
+    public ArrayList<ProductCategoryVO> selectProductByMiddle(int main_no, int mid_cate_no);
+
 }

@@ -18,4 +18,7 @@ public class ProductCategoryVO {
     private int pd_no;
     private int dfs_no;
     private int mid_cate_no;
+    private int pd_views;
+
+    private String order;
 }
