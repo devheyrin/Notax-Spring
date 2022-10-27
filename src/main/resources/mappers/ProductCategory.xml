@@ -5,7 +5,7 @@
 <mapper namespace="com.notax.category.CategoryDAO">
     <select id="selectProductByMain" resultType="ProductCategoryVO" parameterType="int">
         select
-            rownum, ma.main_no, b.brand_name, p.pd_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price
+            rownum, p.pd_no, ma.main_no, b.brand_name, p.pd_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price
         from
              products_tb p, sub_category_tb s, middle_category_tb mi, main_category_tb ma, products_by_duty_free_shop_tb pd, brand_tb b, products_photo_tb pp
         where ma.main_no = mi.main_no and
@@ -18,13 +18,13 @@
     </select>
     <select id="selectDuty" resultType="ProductCategoryVO">
         select
-            dfs_name
+            dfs_no, dfs_name
         from
             duty_free_shop_tb
     </select>
     <select id="selectMiddle" resultType="ProductCategoryVO" parameterType="int">
         select
-            mid_name
+            mi.mid_cate_no, mid_name
         from
             middle_category_tb mi, main_category_tb ma
         where
@@ -33,7 +33,7 @@
     </select>
     <select id="selectBrand" resultType="ProductCategoryVO" parameterType="int">
         select distinct
-            brand_name
+            b.brand_no, brand_name
         from
             middle_category_tb mi, main_category_tb ma, sub_category_tb s, products_tb p, brand_tb b
         where
