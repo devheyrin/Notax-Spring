@@ -21,6 +21,7 @@ public class DetailController {
     
     @RequestMapping("/detail/{pd_no}")
     public String detail(@PathVariable("pd_no") int pd_no, Model model) {
+        System.out.println("dd");
         ProductVO productVO = detailService.selectProductById(pd_no);
         List<ProductByDFSVO> productByDFSVOList = detailService.selectPriceByDFS(pd_no);
         System.out.println("productVO = " + productVO);

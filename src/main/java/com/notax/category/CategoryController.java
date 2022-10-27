@@ -16,7 +16,7 @@ public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
-    @RequestMapping("/main-category/{main_no}")
+    @RequestMapping("/main-category/id={main_no}")
     public String main(@PathVariable("main_no") int main_no, Model model) {
         ArrayList<ProductCategoryVO> categoryList = categoryService.selectProductByMain(main_no);
         model.addAttribute("productCategory", categoryList);
@@ -32,11 +32,22 @@ public class CategoryController {
 
         ArrayList<ProductCategoryVO> mainList = categoryService.selectMain();
         model.addAttribute("mainList", mainList);
+
         return "main-category";
     }
 
-    @RequestMapping("/middle-category")
-    public String middle() {
+    @RequestMapping("/main-category/id={main_no}/middle-category/{mid_cate_no}")
+    public String middle(@PathVariable("main_no") int main_no, @PathVariable("mid_cate_no") int mid_cate_no,Model model) {
+        ArrayList<ProductCategoryVO> selectProductByMiddle = categoryService.selectProductByMiddle(main_no, mid_cate_no);
+        model.addAttribute("ProductByMiddle", selectProductByMiddle);
+
+        ArrayList<ProductCategoryVO> mainList = categoryService.selectMain();
+        model.addAttribute("mainList", mainList);
+
+        ArrayList<ProductCategoryVO> middleList = categoryService.selectMiddle(main_no);
+        model.addAttribute("middleList", middleList);
+
+
         return "middle-category";
     }
 

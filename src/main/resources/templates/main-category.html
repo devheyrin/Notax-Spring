@@ -52,7 +52,8 @@
         <img class="arrow-right-icon" src="../img/noun-arrow-right.png"/>
         <div class="form-group nav-item">
             <select class="form-control example2 main-category" name="example-2">
-                <option th:each="mainVO : ${mainList}" th:value="${mainVO.main_no}" th:utext="${mainVO.main_name}"></option>
+                <option th:each="mainVO : ${mainList}" th:value="${mainVO.main_no}"
+                        th:utext="${mainVO.main_name}"></option>
             </select>
         </div>
     </div>
@@ -90,14 +91,24 @@
         <div><img src="../img/main-category.jpg"></div>
     </div>
 </div>
+<!-- 소분류!-->
+<div>
+    <ul class="middle-sub-category">
+        <li class="sub-category" th:each="middleList : ${middleList}">
+            <a th:href="@{/main-category/id={maid}/middle-category/{midno}(maid=${middleList.main_no}, midno=${middleList.mid_cate_no})}"  th:text="${middleList.mid_name}">메탈</a>
+        </li>
+    </ul>
+</div>
+
 <!-- 조건 선택 !-->
 <div class="choosebax">
     <table class="select-box">
         <!-- 면세점 !-->
         <tr class="select-line">
             <td class="select-topic">면세점</td>
-            <td class="select-item" >
-                <div class="pretty p-svg p-plain" th:name="dutyshop" th:each="dutyVO : ${dutyList}" th:value="${dutyVO.dfs_no}">
+            <td class="select-item">
+                <div class="pretty p-svg p-plain" th:name="dutyshop" th:each="dutyVO : ${dutyList}"
+                     th:value="${dutyVO.dfs_no}">
                     <input type="checkbox"/>
                     <div class="state">
                         <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
@@ -110,7 +121,8 @@
         <tr class="select-line">
             <td class="select-topic">중분류</td>
             <td class="select-item">
-                <div class="pretty p-svg p-plain" th:name="maincate" th:each="middleList : ${middleList}" th:value="${middleList.mid_cate_no}">
+                <div class="pretty p-svg p-plain" th:name="maincate" th:each="middleList : ${middleList}"
+                     th:value="${middleList.mid_cate_no}">
                     <input type="checkbox"/>
                     <div class="state">
                         <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
@@ -122,8 +134,9 @@
         <!-- 브랜드 !-->
         <tr class="select-line">
             <td class="select-topic">브랜드</td>
-            <td class="select-item" >
-                <div class="pretty p-svg p-plain" th:name="brandname" th:each="brandVO : ${brandList}" th:value="${brandVO.brand_no}">
+            <td class="select-item">
+                <div class="pretty p-svg p-plain" th:name="brandname" th:each="brandVO : ${brandList}"
+                     th:value="${brandVO.brand_no}">
                     <input type="checkbox"/>
                     <div class="state">
                         <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
@@ -177,13 +190,15 @@
     <button class="btn btn-outline-dark" id="reset">초기화</button>
 </div>
 <hr>
+
 <!-- 정렬 !-->
 <div class="Sort-container">
     <span style="text-align: left"></span>
     <div class="sort-value">
-        <button class="btn btn-outline-dark">구매높은순</button>
-        <button class="btn btn-outline-dark">조회수높은순</button>
-        <button class="btn btn-outline-dark">가격낮은순</button>
+        <button class="btn btn-outline-dark">가격높은순
+        </button>
+        <button th:name="order" th:value="pd_views" class="btn btn-outline-dark">조회수높은순</button>
+        <button th:name="order" th:value="pd_name" class="btn btn-outline-dark">이름순서</button>
     </div>
 </div>
 <br/>
@@ -191,7 +206,7 @@
 <div class="values-container">
     <ol>
         <li class="values" th:each="mainVO : ${productCategory}">
-            <a th:href="@{/detail(id=${mainVO.pd_no})}" >
+            <a th:href="@{/detail/{id}(id=${mainVO.pd_no})}">
                 <span class="unit_no" th:text="${mainVO.rownum}">1</span>
                 <div class="unit_img">
                     <img class="values-img" th:src="${mainVO.pdphoto_link}">

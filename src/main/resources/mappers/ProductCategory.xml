@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.notax.category.CategoryDAO">
-    <select id="selectProductByMain" resultType="ProductCategoryVO" parameterType="int">
+    <select id="selectProductByMain" resultType="ProductCategoryVO">
         select
             rownum, p.pd_no, ma.main_no, b.brand_name, p.pd_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price
         from
@@ -24,7 +24,7 @@
     </select>
     <select id="selectMiddle" resultType="ProductCategoryVO" parameterType="int">
         select
-            mi.mid_cate_no, mid_name
+            mi.mid_cate_no, mid_name, ma.main_no
         from
             middle_category_tb mi, main_category_tb ma
         where
@@ -48,5 +48,21 @@
             main_no, main_name
         from
             main_category_tb
+    </select>
+
+
+    <select id="selectProductByMiddle" resultType="ProductCategoryVO">
+        select
+            rownum, p.pd_no, ma.main_no, b.brand_name, p.pd_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price, p.pd_views
+        from
+            products_tb p, sub_category_tb s, middle_category_tb mi, main_category_tb ma, products_by_duty_free_shop_tb pd, brand_tb b, products_photo_tb pp
+        where ma.main_no = mi.main_no and
+            mi.mid_cate_no = s.mid_cate_no and
+            s.sub_no = p.sub_no and
+            p.pd_no = pd.pd_no and
+            p.brand_no = b.brand_no and
+            p.pd_no = pp.pd_no and
+            ma.main_no = #{main_no} and
+            mi.mid_cate_no = #{mid_cate_no}
     </select>
 </mapper>

@@ -32,4 +32,9 @@ public class CategoryService {
     public ArrayList<ProductCategoryVO> selectMain() {
         return categoryDAO.selectMain();
     }
+
+    public ArrayList<ProductCategoryVO> selectProductByMiddle(int main_no, int mid_cate_no) {
+        return categoryDAO.selectProductByMiddle(main_no, mid_cate_no);
+    }
+
 }
