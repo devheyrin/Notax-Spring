@@ -44,9 +44,8 @@
         </div>
         <img class="arrow-right-icon" src="../img/noun-arrow-right.png"/>
         <div class="form-group nav-item">
-            <select class="form-control example2 main-category" name="example-2">
-                <option  th:each="mainVO : ${mainList}" th:value="${mainVO.main_no}">
-                    <a th:href="@{/main-category/id={main_no}(main_no=${mainVO.main_no})}" th:utext="${mainVO.main_name}"></a>
+            <select id="main-selects" class="form-control example2 main-category" name="example-2">
+                <option  th:each="mainVO : ${mainList}" th:value="${mainVO.main_no}" th:utext="${mainVO.main_name}">
                 </option>
             </select>
         </div>
