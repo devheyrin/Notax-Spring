@@ -16,7 +16,12 @@ public class CategoryService {
     public ArrayList<ProductCategoryVO> selectProductByMain(int main_no) {
         return categoryDAO.selectProductByMain(main_no);
     }
-
+    public ArrayList<ProductCategoryVO> mainname(int main_no) {
+        return categoryDAO.mainname(main_no);
+    }
+    public ArrayList<ProductCategoryVO> middlename(int main_no, int mid_cate_no) {
+        return categoryDAO.middlename(main_no, mid_cate_no);
+    }
     public ArrayList<ProductCategoryVO> selectDuty() {
         return categoryDAO.selectDuty();
     }
@@ -35,6 +40,12 @@ public class CategoryService {
 
     public ArrayList<ProductCategoryVO> selectProductByMiddle(int main_no, int mid_cate_no) {
         return categoryDAO.selectProductByMiddle(main_no, mid_cate_no);
+    }
+    public ArrayList<ProductCategoryVO> selectSub(int main_no, int mid_cate_no) {
+        return categoryDAO.selectSub(main_no, mid_cate_no);
+    }
+    public ArrayList<ProductCategoryVO> selectProductBySub(int main_no, int mid_cate_no, int sub_no) {
+        return categoryDAO.selectProductBySub(main_no, mid_cate_no, sub_no);
     }
 
 }
