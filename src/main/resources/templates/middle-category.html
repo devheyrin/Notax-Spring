@@ -22,7 +22,7 @@
     <!-- Required stuff -->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
-    <link rel="stylesheet" href="../css/tranquil-heart.min.css" th:href="@{/js/tranquil-heart.min.css}">
+    <link rel="stylesheet" href="../css/tranquil-heart.min.css" th:href="@{/css/tranquil-heart.min.css}">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../css/style.css" th:href="@{/css/style.css}">
     <script src="../js/feastSelect.js" th:src="@{/js/feastSelect.js}"></script>
@@ -52,24 +52,30 @@
         </div>
         <img class="arrow-right-icon" src="../img/noun-arrow-right.png" th:src="@{/img/noun-arrow-right.png}"/>
         <div class="form-group nav-item">
-            <select class="form-control example2 main-category" name="example-2">
+            <select class="form-control example2 middle-category" name="example-2">
                 <option th:each="middleL : ${middleList}" th:value="${middleL.mid_cate_no}"
                         th:utext="${middleL.mid_name}"></option>
             </select>
         </div>
     </div>
     <!-- 카테고리 이름!-->
-    <script type="text/javascript">
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        let mainname=[[${mainname}]];
+        let mid_name=[[${mid_name}]];
+        console.log(mainname);
+        console.log(mid_name);
         $('.main-category').FeastSelect({
-            btnText: '시계/주얼리', // 선택한 분류 가져와서 지정
+            btnText: mainname, // 선택한 분류 가져와서 지정
             btnClass: 'my-custtom-btn',
             hideOriginal: true
         });
         $('.middle-category').FeastSelect({
-            btnText: '남성시계', // 선택한 분류 가져와서 지정
+            btnText: mid_name   , // 선택한 분류 가져와서 지정
             btnClass: 'my-custtom-btn',
             hideOriginal: true
         });
+        /*]]*/
     </script>
     <!--검색박스 !-->
     <div class="search">
@@ -82,7 +88,7 @@
     </div>
 </div>
 <div>
-    <h1 style="text-align: center"th:each="names:${name}" th:text="${names.mid_name}">123</h1>
+    <h1 style="text-align: center" th:text="${mid_name}">123</h1>
 </div>
 <!-- 소분류!-->
 <div>
@@ -93,159 +99,9 @@
     </ul>
 </div>
 <br/>
-<!-- 조건 선택 !-->
-<div class="choosebax">
-    <table class="select-box">
-        <!-- 면세점 !-->
-        <tr class="select-line">
-            <td class="select-topic">면세점</td>
-            <td class="select-item">
-                <div class="pretty p-svg p-plain">
-                    <input type="checkbox"/>
-                    <div class="state">
-                        <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                        <label>신라</label>
-                    </div>
-                </div>
-            </td>
-            <td class="select-item">
-                <div class="pretty p-svg p-plain">
-                    <input type="checkbox"/>
-                    <div class="state">
-                        <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                        <label>롯데</label>
-                    </div>
-                </div>
-            </td>
-            <td class="select-item">
-                <div class="pretty p-svg p-plain">
-                    <input type="checkbox"/>
-                    <div class="state">
-                        <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                        <label>어딘가</label>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <!-- 소분류 !-->
-        <tr class="select-line">
-            <td class="select-topic">소분류</td>
-            <td class="select-item">
-                <div class="pretty p-svg p-plain">
-                    <input type="checkbox"/>
-                    <div class="state">
-                        <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                        <label>메탈</label>
-                    </div>
-                </div>
-            </td>
-            <td class="select-item">
-                <div class="pretty p-svg p-plain">
-                    <input type="checkbox"/>
-                    <div class="state">
-                        <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                        <label>가죽</label>
-                    </div>
-                </div>
-            </td>
-            <td class="select-item">
-                <div class="pretty p-svg p-plain">
-                    <input type="checkbox"/>
-                    <div class="state">
-                        <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                        <label>세라믹/티타늄</label>
-                    </div>
-                </div>
-            </td>
-            <td class="select-item">
-                <div class="pretty p-svg p-plain">
-                    <input type="checkbox"/>
-                    <div class="state">
-                        <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                        <label>패브릭/플라스틱</label>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <!-- 브랜드 !-->
-        <tr class="select-line">
-            <td class="select-topic">브랜드</td>
-            <td class="select-item">
-                <div class="pretty p-svg p-plain">
-                    <input type="checkbox"/>
-                    <div class="state">
-                        <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                        <label>브랜드1</label>
-                    </div>
-                </div>
-            </td>
-            <td class="select-item">
-                <div class="pretty p-svg p-plain">
-                    <input type="checkbox"/>
-                    <div class="state">
-                        <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                        <label>브랜드2</label>
-                    </div>
-                </div>
-            </td>
-            <td class="select-item">
-                <div class="pretty p-svg p-plain">
-                    <input type="checkbox"/>
-                    <div class="state">
-                        <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                        <label>브랜드3</label>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <!-- 가격 !-->
-        <tr class="select-line">
-            <td class="select-topic">가격</td>
-            <td style="margin-left : 14px;">
-                <input type="text" id="amount" readonly style="border:0; color:black; font-weight:bold;">
-                <div id="slider-range"></div>
-            </td>
-        </tr>
-        <!--가격 슬라이더 !-->
-        <script>
-            $(function () {
-                $("#slider-range").slider({
-                    range: true,
-                    min: 0,
-                    max: 500,
-                    values: [75, 300],
-                    slide: function (event, ui) {
-                        $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-                    }
-                });
-                $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-                    " - $" + $("#slider-range").slider("values", 1));
-            });
-        </script>
-        <!-- 품질여부 !-->
-        <tr class="select-line">
-            <td class="select-topic">품절여부</td>
-            <td colspan="2" class="select-item">
-                <div class="pretty p-svg p-plain">
-                    <input type="checkbox"/>
-                    <div class="state">
-                        <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                        <label>품절제외</label>
-                    </div>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <br/>
-</div>
-<!--초기화 버튼 !-->
-<div class="reset-container">
-    <button class="btn btn-outline-dark" id="reset">초기화</button>
-</div>
 <hr>
 <!-- 정렬 !-->
 <div class="Sort-container">
-    <span style="text-align: left">총개수 : 100</span>
     <div class="sort-value">
         <button class="btn btn-outline-dark">구매높은순</button>
         <button class="btn btn-outline-dark">조회수높은순</button>

@@ -52,7 +52,7 @@
         </div>
         <img class="arrow-right-icon" src="../img/noun-arrow-right.png" th:src="@{/img/noun-arrow-right.png}"/>
         <div class="form-group nav-item">
-            <select class="form-control example2 main-category" name="example-2">
+            <select class="form-control example2 middle-category" name="example-2">
                 <option th:each="middleL : ${middleList}" th:value="${middleL.mid_cate_no}"
                         th:utext="${middleL.mid_name}"></option>
             </select>
@@ -65,22 +65,30 @@
         </div>
     </div>
     <!-- 카테고리 이름!-->
-    <script type="text/javascript">
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        let mainname=[[${mainname}]];
+        let mid_name=[[${mid_name}]];
+        let sub_name=[[${sub_name}]]
+        console.log(mainname);
+        console.log(mid_name);
+        console.log(sub_name);
         $('.main-category').FeastSelect({
-            btnText: '시계/주얼리', // 선택한 분류 가져와서 지정
+            btnText: mainname, // 선택한 분류 가져와서 지정
             btnClass: 'my-custtom-btn',
             hideOriginal: true
         });
         $('.middle-category').FeastSelect({
-            btnText: '남성시계', // 선택한 분류 가져와서 지정
+            btnText: mid_name   , // 선택한 분류 가져와서 지정
             btnClass: 'my-custtom-btn',
             hideOriginal: true
         });
         $('.sub-category').FeastSelect({
-            btnText: '메탈', // 선택한 분류 가져와서 지정
+            btnText: sub_name   , // 선택한 분류 가져와서 지정
             btnClass: 'my-custtom-btn',
             hideOriginal: true
         });
+        /*]]*/
     </script>
     <!--검색박스 !-->
     <div class="search">
@@ -94,7 +102,7 @@
 </div>
 <br/>
 <div>
-    <h1 style="text-align: center" th:each="names:${name}" th:text="${names.sub_name}">123</h1>
+    <h1 style="text-align: center" th:text="${sub_name}">123</h1>
 </div>
 <br/>
 <!-- 소분류!-->
@@ -110,7 +118,6 @@
 <hr>
 <!-- 정렬 !-->
 <div class="Sort-container">
-    <span style="text-align: left">총개수 : 100</span>
     <div class="sort-value">
         <button class="btn btn-outline-dark">구매높은순</button>
         <button class="btn btn-outline-dark">조회수높은순</button>
