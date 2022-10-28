@@ -2,6 +2,7 @@ package com.notax.detail;
 
 import com.notax.vo.CouponVO;
 import com.notax.vo.ProductByDFSVO;
+import com.notax.vo.ProductPhotoVO;
 import com.notax.vo.ProductVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,10 @@ public class DetailService {
             dfs.setCoupon_list(dfsCouponList);
         }
         return dfsPriceList;
+    }
+
+    public List<ProductPhotoVO> selectProductPhotoList(int pd_no) {
+        return detailDAO.selectProductPhotoList(pd_no);
     }
 
 }

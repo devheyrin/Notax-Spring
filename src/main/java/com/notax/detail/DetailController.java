@@ -2,6 +2,7 @@ package com.notax.detail;
 
 import com.notax.vo.CouponVO;
 import com.notax.vo.ProductByDFSVO;
+import com.notax.vo.ProductPhotoVO;
 import com.notax.vo.ProductVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,9 +25,11 @@ public class DetailController {
         System.out.println("dd");
         ProductVO productVO = detailService.selectProductById(pd_no);
         List<ProductByDFSVO> productByDFSVOList = detailService.selectPriceByDFS(pd_no);
+        List<ProductPhotoVO> productPhotoVOList = detailService.selectProductPhotoList(pd_no);
 
         model.addAttribute("product", productVO);
         model.addAttribute("priceList", productByDFSVOList);
+        model.addAttribute("productPhotoList", productPhotoVOList);
         return "detail";
     }
 }

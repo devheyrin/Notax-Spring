@@ -16,14 +16,14 @@ public class CategoryService {
     public ArrayList<ProductCategoryVO> selectProductByMain(int main_no) {
         return categoryDAO.selectProductByMain(main_no);
     }
-    public ArrayList<ProductCategoryVO> mainname(int main_no) {
+    public String mainname(int main_no) {
         return categoryDAO.mainname(main_no);
     }
-    public ArrayList<ProductCategoryVO> middlename(int main_no, int mid_cate_no) {
-        return categoryDAO.middlename(main_no, mid_cate_no);
+    public String mid_name(int main_no, int mid_cate_no) {
+        return categoryDAO.mid_name(main_no, mid_cate_no);
     }
-    public ArrayList<ProductCategoryVO> subname(int main_no, int mid_cate_no, int sub_no) {
-        return categoryDAO.subname(main_no, mid_cate_no, sub_no);
+    public String sub_name(int main_no, int mid_cate_no, int sub_no) {
+        return categoryDAO.sub_name(main_no, mid_cate_no, sub_no);
     }
     public ArrayList<ProductCategoryVO> selectDuty() {
         return categoryDAO.selectDuty();

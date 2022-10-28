@@ -95,9 +95,9 @@
     </div>
     <div class="flex-row-container product-area">
         <div class="slider photo-area">
-            <div><img src="../static/img/test1.jpeg" th:src="${product.pdphoto_link}"></div>
-            <div><img src="../static/img/test2.jpeg" th:src="@{/img/test2.jpeg}"></div>
-            <div><img src="../static/img/test3.jpeg" th:src="@{/img/test3.jpeg}"></div>
+            <div th:each="photo : ${productPhotoList}">
+                <img src="../static/img/test1.jpeg" th:src="${photo.pdphoto_link}">
+            </div>
         </div>
         <div class="info-area">
             <div class="duty-free-shop">
