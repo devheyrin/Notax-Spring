@@ -28,8 +28,6 @@ public class UserController {
 
 
     @GetMapping("/join")
-    public String dispjoin(UserVO vo, Model model){
-        model.addAttribute("vo", vo);
     public String dispjoin(UserVO vo){
         return "join";
     }
