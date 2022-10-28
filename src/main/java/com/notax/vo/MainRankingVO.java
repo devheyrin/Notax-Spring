@@ -10,4 +10,5 @@ public class MainRankingVO {
     private int PD_BY_DFS_SALE;
     private int PD_PRICE;
     private int PD_SALE_PRICE;
+    private String PDPHOTO_LINK;
 }
