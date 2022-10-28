@@ -22,6 +22,9 @@ public class CategoryService {
     public ArrayList<ProductCategoryVO> middlename(int main_no, int mid_cate_no) {
         return categoryDAO.middlename(main_no, mid_cate_no);
     }
+    public ArrayList<ProductCategoryVO> subname(int main_no, int mid_cate_no, int sub_no) {
+        return categoryDAO.subname(main_no, mid_cate_no, sub_no);
+    }
     public ArrayList<ProductCategoryVO> selectDuty() {
         return categoryDAO.selectDuty();
     }

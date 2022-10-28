@@ -88,7 +88,7 @@
 <div>
     <ul class="middle-sub-category">
         <li class="sub-category" th:each="subVO : ${subList}">
-            <a th:href="@{/main-category/id={main_no}/middle-category/{mid_cate_no}/sub-category/{sub_no}(main_no=${subVO.main_no}, mid_cate_no=${subVO.mid_cate_no}, sub_no=${subVO.sub_no})}"  th:text="${subVO.sub_name}">메탈</a>
+            <a th:href="@{/main-category/id={main_no}/middle-category/id={mid_cate_no}/sub-category/id={sub_no}(main_no=${subVO.main_no}, mid_cate_no=${subVO.mid_cate_no}, sub_no=${subVO.sub_no})}"  th:text="${subVO.sub_name}">메탈</a>
         </li>
     </ul>
 </div>
