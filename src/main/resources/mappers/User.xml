@@ -18,13 +18,4 @@
     <select id="login" parameterType="LoginVO" resultType="LoginVO">
         select USER_ID, USER_PASSWORD FROM USER_TB WHERE USER_ID = #{user_id} AND USER_PASSWORD = #{user_pwd}
     </select>
-
-    <insert id="userSave">
-        <selectKey keyProperty="user_no" order="BEFORE" resultType="long">
-            select USER_TB_SEQ.NEXTVAL from dual
-        </selectKey>
-        insert into USER_TB(user_NO,USER_ID, USER_PASSWORD, USER_BIRTH_YMD, USER_GENDER, USER_NAME, USER_EMAIL)
-        VALUES (
-                #{user_no},#{user_id},#{user_pwd},#{user_birth},#{user_gender},#{user_name},#{user_email})
-    </insert>
 </mapper>
