@@ -3,7 +3,9 @@ package com.notax.main;
 import com.notax.vo.MainRankingVO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.ArrayList;
+
 @Mapper
 public interface MainDAO {
-    public MainRankingVO selectRank();
+    public ArrayList<MainRankingVO> selectRank();
 }

@@ -47,7 +47,7 @@
                 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="10000">
-                            살려줘
+                            살려줘 그만해줘
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
                             죽을거같아
@@ -123,13 +123,6 @@
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                             content.</p>
                     </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                            content.</p>
-                    </div>
 
                 </div>
                 <div class="card" style="width: 18rem;">
@@ -166,59 +159,17 @@
 
         <h1>신상품</h1>
         <section class="regular slider">
-            <div class="card" style="width: 18rem;">
+            <div class="card" th:each="disRank : ${disRank}" >
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                </div>
+                    <p class="card-text" th:text="${disRank.pd_name}"></p>
+                    <p class="card-text" th:text="${disRank.PD_BY_DFS_SALE}"></p>
+                    <p class="card-text" th:text="${disRank.PD_PRICE}"></p>
+                    <p class="card-text" th:text="${disRank.PD_SALE_PRICE}"></p>
 
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
                 </div>
-
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                </div>
-
             </div>
 
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                </div>
-            </div>
         </section>
 
 
