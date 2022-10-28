@@ -18,4 +18,5 @@
     <select id="login" parameterType="LoginVO" resultType="LoginVO">
         select USER_ID, USER_PASSWORD FROM USER_TB WHERE USER_ID = #{user_id} AND USER_PASSWORD = #{user_pwd}
     </select>
+
 </mapper>
