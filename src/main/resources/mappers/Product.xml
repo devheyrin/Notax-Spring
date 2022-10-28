@@ -12,8 +12,7 @@
             pd_price,
             pd_views,
             pd_date,
-            pd_more,
-            (SELECT PDPHOTO_LINK FROM PRODUCTS_PHOTO_TB ppt WHERE PPT.pd_no = pt.PD_NO) PDPHOTO_LINK
+            pd_more
         FROM PRODUCTS_TB pt
         where pd_no = #{pd_no}
     </select>
@@ -45,6 +44,12 @@
             COUPON c, COUPON_TYPE_TB ctt
         WHERE
             c.CP_TYPE_NO = ctt.CP_TYPE_NO
+    </select>
+
+    <select id="selectProductPhotoList" resultType="ProductPhotoVO" parameterType="int">
+        SELECT PDPHOTO_LINK, PD_NO, PHOTO_TYPE_NO
+        FROM PRODUCTS_PHOTO_TB ppt
+        WHERE PD_NO = #{pd_no}
     </select>
 
 </mapper>

@@ -2,6 +2,7 @@ package com.notax.detail;
 
 import com.notax.vo.CouponVO;
 import com.notax.vo.ProductByDFSVO;
+import com.notax.vo.ProductPhotoVO;
 import com.notax.vo.ProductVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,4 +13,5 @@ public interface DetailDAO {
     public ProductVO selectProductById(int pd_no);
     public List<ProductByDFSVO> selectPriceByDFS(int pd_no);
     public List<CouponVO> selectCouponList();
+    public List<ProductPhotoVO> selectProductPhotoList(int pd_no);
 }
