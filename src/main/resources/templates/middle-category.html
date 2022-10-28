@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="../css/middle-category.css">
+    <link rel="stylesheet" href="../css/middle-category.css" th:href="@{/css/middle-category.css}">
     <!-- 슬라이더 !-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <!--체크박스 !-->
@@ -13,7 +13,7 @@
     <!--셀렉트 박스 !-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/flatly/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/feastSelect.css">
+    <link rel="stylesheet" href="../css/feastSelect.css"  th:href="@{/css/feastSelect.css}">
     <!-- Bootstrap  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
@@ -22,23 +22,16 @@
     <!-- Required stuff -->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 
-    <link rel="stylesheet" href="../css/tranquil-heart.min.css">
+    <link rel="stylesheet" href="../css/tranquil-heart.min.css" th:href="@{/js/tranquil-heart.min.css}">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/feastSelect.js"></script>
+    <link rel="stylesheet" href="../css/style.css" th:href="@{/css/style.css}">
+    <script src="../js/feastSelect.js" th:src="@{/js/feastSelect.js}"></script>
 
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <script src="../js/middle-category.js"></script>
+    <script src="../js/middle-category.js" th:src="@{/js/middle-category.js}"></script>
     <title>중분류 페이지</title>
 </head>
 <body class="mainscreen">
-<h1>중분류 페이지</h1>
-<a href="login">로그인페이지로 이동</a>
-<a href="mypage">마이페이지 - 관심상품으로 이동</a>
-<a href="main-category">대분류페이지로 이동</a>
-<a href="sub-category">소분류페이지로 이동</a>
-<a href="detail">상품 상세 페이지로 이동</a>
-
 <br/>
 <!-- 조건 창 !-->
 <hr style="margin:0 auto;">
@@ -47,17 +40,17 @@
     <div class="category-name">
         <div class="home-container nav-item">
             <a href="/" class="home">
-                <img class="home-icon" src="../img/home-icon.png"/>홈
+                <img class="home-icon" src="../img/home-icon.png" th:src="@{/img/home-icon.png}"/>홈
             </a>
         </div>
-        <img class="arrow-right-icon" src="../img/noun-arrow-right.png"/>
+        <img class="arrow-right-icon" src="../img/noun-arrow-right.png" th:src="@{/img/noun-arrow-right.png}"/>
         <div class="form-group nav-item">
             <select class="form-control example2 main-category" name="example-2">
                 <option th:each="mainVO : ${mainList}" th:value="${mainVO.main_no}"
                         th:utext="${mainVO.main_name}"></option>
             </select>
         </div>
-        <img class="arrow-right-icon" src="../img/noun-arrow-right.png"/>
+        <img class="arrow-right-icon" src="../img/noun-arrow-right.png" th:src="@{/img/noun-arrow-right.png}"/>
         <div class="form-group nav-item">
             <select class="form-control example2 main-category" name="example-2">
                 <option th:each="middleL : ${middleList}" th:value="${middleL.mid_cate_no}"
@@ -88,16 +81,15 @@
         </form>
     </div>
 </div>
-<br/>
-<h1 style="text-align: center">남성시계</h1>
-<br/>
+<div>
+    <h1 style="text-align: center"th:each="names:${name}" th:text="${names.mid_name}">123</h1>
+</div>
 <!-- 소분류!-->
 <div>
     <ul class="middle-sub-category">
-        <li class="sub-category"><a href="">메탈</a></li>
-        <li class="sub-category"><a href="">가죽</a></li>
-        <li class="sub-category"><a href="">세라믹/티타늄</a></li>
-        <li class="sub-category"><a href="">패브릭/플라스틱</a></li>
+        <li class="sub-category" th:each="subVO : ${subList}">
+            <a th:href="@{/main-category/id={main_no}/middle-category/{mid_cate_no}/sub-category/{sub_no}(main_no=${subVO.main_no}, mid_cate_no=${subVO.mid_cate_no}, sub_no=${subVO.sub_no})}"  th:text="${subVO.sub_name}">메탈</a>
+        </li>
     </ul>
 </div>
 <br/>
