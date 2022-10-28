@@ -1,6 +1,8 @@
 package com.notax.user;
 
+
 import com.notax.vo.LoginVO;
+
 import com.notax.vo.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -10,5 +12,11 @@ public interface UserDAO {
     void userSave(UserVO vo);
     //로그인
     LoginVO login(LoginVO loginVO);
+
+    //회원 등록
+
+    int getId(UserVO VO);
+    public void userSave(UserVO vo);
+
 
 }

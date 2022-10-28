@@ -16,10 +16,13 @@ public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
-    @RequestMapping("/main-category/{main_no}")
+    @RequestMapping("/main-category/id={main_no}")
     public String main(@PathVariable("main_no") int main_no, Model model) {
         ArrayList<ProductCategoryVO> categoryList = categoryService.selectProductByMain(main_no);
         model.addAttribute("productCategory", categoryList);
+
+        ArrayList<ProductCategoryVO> mainname = categoryService.mainname(main_no);
+        model.addAttribute("name", mainname);
 
         ArrayList<ProductCategoryVO> dutyList = categoryService.selectDuty();
         model.addAttribute("dutyList", dutyList);
@@ -32,16 +35,48 @@ public class CategoryController {
 
         ArrayList<ProductCategoryVO> mainList = categoryService.selectMain();
         model.addAttribute("mainList", mainList);
+
         return "main-category";
     }
 
-    @RequestMapping("/middle-category")
-    public String middle() {
+    @RequestMapping("/main-category/id={main_no}/middle-category/id={mid_cate_no}")
+    public String middle(@PathVariable("main_no") int main_no, @PathVariable("mid_cate_no") int mid_cate_no, Model model) {
+        ArrayList<ProductCategoryVO> selectProductByMiddle = categoryService.selectProductByMiddle(main_no, mid_cate_no);
+        model.addAttribute("ProductByMiddle", selectProductByMiddle);
+
+        ArrayList<ProductCategoryVO> middlename = categoryService.middlename(main_no, mid_cate_no);
+        model.addAttribute("name", middlename);
+
+        ArrayList<ProductCategoryVO> mainList = categoryService.selectMain();
+        model.addAttribute("mainList", mainList);
+
+        ArrayList<ProductCategoryVO> middleList = categoryService.selectMiddle(main_no);
+        model.addAttribute("middleList", middleList);
+
+        ArrayList<ProductCategoryVO> subList = categoryService.selectSub(main_no, mid_cate_no);
+        model.addAttribute("subList", subList);
+
         return "middle-category";
     }
 
-    @RequestMapping("/sub-category")
-    public String sub() {
+    @RequestMapping("/main-category/id={main_no}/middle-category/id={mid_cate_no}/sub-category/id={sub_no}")
+    public String sub(@PathVariable("main_no") int main_no, @PathVariable("mid_cate_no") int mid_cate_no,
+                      @PathVariable("sub_no") int sub_no, Model model) {
+        ArrayList<ProductCategoryVO> selectProductBySub = categoryService.selectProductBySub(main_no, mid_cate_no, sub_no);
+        model.addAttribute("selectProductBySub", selectProductBySub);
+
+        ArrayList<ProductCategoryVO> subname = categoryService.subname(main_no, mid_cate_no, sub_no);
+        model.addAttribute("name", subname);
+
+        ArrayList<ProductCategoryVO> mainList = categoryService.selectMain();
+        model.addAttribute("mainList", mainList);
+
+        ArrayList<ProductCategoryVO> middleList = categoryService.selectMiddle(main_no);
+        model.addAttribute("middleList", middleList);
+
+        ArrayList<ProductCategoryVO> subList = categoryService.selectSub(main_no, mid_cate_no);
+        model.addAttribute("subList", subList);
+
         return "sub-category";
     }
 

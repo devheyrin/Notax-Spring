@@ -46,7 +46,22 @@
     flex-direction: row;
     justify-content: space-between;
 }
-
+.middle-sub-category{
+    max-width: 2000px;
+    min-width: 900px;
+    margin-left:200px;
+    margin-right:200px;
+    padding: 10px 200px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 3px solid black;
+}
+.sub-category{
+    margin-right:30px;
+    float:left;
+    margin-bottom:10px;
+}
 
 .select-box {
     margin: auto;

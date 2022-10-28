@@ -9,9 +9,11 @@
             (SELECT sub_name FROM SUB_CATEGORY_TB sct WHERE sct.SUB_NO = pt.sub_no) SUB_NAME,
             (SELECT brand_name FROM BRAND_TB bt WHERE bt.BRAND_NO = pt.BRAND_NO) brand_name,
             pd_name,
+            pd_price,
             pd_views,
             pd_date,
-            pd_more
+            pd_more,
+            (SELECT PDPHOTO_LINK FROM PRODUCTS_PHOTO_TB ppt WHERE PPT.pd_no = pt.PD_NO) PDPHOTO_LINK
         FROM PRODUCTS_TB pt
         where pd_no = #{pd_no}
     </select>

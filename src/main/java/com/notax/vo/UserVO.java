@@ -22,6 +22,7 @@ public class UserVO {
     private String user_pwd;
 
     @NotBlank(message = "생년월일을 입력해주세요")
+
     private String user_birth;
 
     private String user_gender;
@@ -35,6 +36,7 @@ public class UserVO {
 
     @Builder
     public UserVO(String user_id, String user_pwd, String user_birth,String user_gender, String user_name, String user_email){
+
         this.user_id = user_id;
         this.user_pwd = user_pwd;
         this.user_birth = user_birth;
@@ -42,4 +44,5 @@ public class UserVO {
         this.user_name = user_name;
         this.user_email = user_email;
     }
+
 }
