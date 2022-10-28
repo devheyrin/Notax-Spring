@@ -2,52 +2,62 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="../js/tabscroll.js"></script>
-  <link rel="stylesheet"  th:src="@{/css/mypage.css}">
+  <script src="../js/tabscroll.js"></script><!-- th:src="@{/js/tabscroll.js}"-->>
+  <link rel="stylesheet" href="../css/update.css"> <!--th:src="@{/css/mypage-sample.css}"-->
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<div class="flex-row-container mypage-main">
+  <ul data-tabscrollnavcontainer="">
+    <li class="tabscroll_activeNavi" data-tabscrollnavi="one"><a href="#one">회원정보수정</a></li>
+    <li data-tabscrollnavi="two"><a href="#two">멤버쉽 변경</a></li>
+    <li data-tabscrollnavi="three"><a href="#three">관심상품조회</a></li>
+  </ul>
 <article>
   <section data-tabscroll="one" style="">
     <div class="join-wrapper">
 
-      <form name="joinform" id="join_form" method="post" action="#one">
+      <form name="updateForm" id="join_form" method="post" action="/update">
         <div class="id_box">
           <label>아이디</label>
-          <input type="text" id="id" name="id" value="${user_id}"/>
+          <input type="id" name="user_id" id="user_id" th:value="${memberid.user_id}"/>
           <span></span>
         </div>
 
-
         <div class="pass_box">
           <label>비밀번호</label>
-          <input type="password"/>
+          <input type="password"  name="user_password" id="user_password" th:value="${memberid.user_password}"/>
           <span></span>
         </div>
 
 
         <div class="passSearch_box">
           <label>비밀번호 재확인</label>
-          <input type="password"/>
+          <input type="password"  name="user_password" th:value="${memberid.user_password}"/>
           <span></span>
         </div>
 
+        <div class="email_box">
+          <label>이메일</label>
+          <input type="text" name="user_email"  th:value="${memberid.user_email}" />
+          <span></span>
+        </div>
 
         <div class="name_box">
           <label>이름</label>
-          <input type="text" id="name" value="${user_id}" readonly/>
+          <input type="text"  name="user_name" th:value="${memberid.user_name}" readonly/>
           <div class="gender_select">
-            <input type="radio" name="gender" id="man"/>
-            <label for="man">남</label>
-            <input type="radio" name="gender" id="woman"/>
-            <label for="woman">여</label>
+            <input type="radio" name="user_gender" id="male"  value="male" th:value="${memberid.user_gender}"/>
+            <label for="male">남</label>
+            <input type="radio" name="user_gender" id="female"  value="female" th:value="${memberid.user_gender}"/>
+            <label for="female">여</label>
           </div>
         </div>
 
         <div class="bir_wrap">
           <label>생년월일</label>
-          <input type="text">
+          <input type="text" name="user_birth_ymd"  th:value="${memberid.user_birth_ymd}" readonly/>
         </div>
         <input type="submit" value="수정"/>
 
@@ -57,5 +67,21 @@
     </div>
   </section>
 </article>
+<!--  <script th:inline="javascript">
+    const update = () => {
+      const user_pass = [[${memberid.user_password}]];
+      const pwconfirm = document.getElementById("user_password").value;
+      if(pw==pwconfirm) {
+        updateForm.submit();
+      } else{
+        alert("비밀번호가 틀립니다!!");
+
+      }
+    }
+
+
+
+  </script>-->
+</div>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="../js/tabscroll.js"></script>
-  <link rel="stylesheet"  th:src="@{/css/mypage.css}">
+  <link rel="stylesheet"  href="../css/mypage-sample.css">
 
   <title>Title</title>
   <style>
@@ -19,35 +19,62 @@
     <li data-tabscrollnavi="three"><a href="#three">관심상품조회</a></li>
   </ul>
   <article>
-    <section data-tabscroll="one" style="">
-      <div class="join-wrapper">
+  <section data-tabscroll="one" style="">
+    <div class="join-wrapper">
+      <div class="table-box-type-1">
+        <table>
+          <body>
+
+          <tr>
+            <th>로그인아이디</th>
+            <td th:text="${member.user_id}">
+            </td>
+          </tr>
+
+          <tr>
+            <th>비밀번호</th>
+            <td th:text="${member.user_password}">
+            </td>
+          </tr>
+
+          <tr>
+            <th>비밀번호 재확인</th>
+            <td th:text="${member.user_password}">
+            </td>
+          </tr>
+
+          <tr>
+            <th>이름</th>
+            <td th:text=" ${member.user_name}">
+            </td>
+          </tr>
+
+          <tr>
+          <th>이메일</th>
+          <td th:text=" ${member.user_email}">
+          </td>
+          </tr>
 
 
-        <form name="joinform" id="join_form" method="post" action="#one">
+          <tr>
+            <th>성별</th>
+            <td th:text=" ${member.user_gender}">
+            </td>
+          </tr>
 
-        <form name="joinform" id="join_form" method="post" action="">
-
-
-            <input type="text" id="name" value="${user_id}" readonly/>
-
-            <input type="text"/>
-
-            <div class="gender_select">
-              <input type="radio" name="gender" id="man"/>
-              <label for="man">남</label>
-              <input type="radio" name="gender" id="woman"/>
-              <label for="woman">여</label>
-            </div>
-          </div>
-
-          <div class="bir_wrap">
-            <label>생년월일</label>
-            <input type="text">
-          </div>
-          <input type="submit" value="수정"/>
-
-        </form>
-
+          <tr>
+            <th>생년월일</th>
+            <td th:text="${member.user_birth_ymd}">
+              <a href="" class="btn btn-primary">회원정보수정</a>
+              <button type="button" class="btn btn-outline btn-secondary" onclick="history.back();">뒤로가기</button>
+            </td>
+          </tr>
+          </body>
+        </table>
+      </div>
+    </div>
+  </section>
+  </article>
 
       </div>
     </section>
