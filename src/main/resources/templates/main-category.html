@@ -52,9 +52,12 @@
         </div>
     </div>
     <!-- 카테고리 이름!-->
-    <script type="text/javascript">
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        let mainname=[[${name}]];
+        console.log(mainname);
         $('.main-category').FeastSelect({
-            btnText: '시계/주얼리', // 선택한 분류 가져와서 지정
+            btnText: mainname, // 선택한 분류 가져와서 지정
             btnClass: 'my-custtom-btn',
             hideOriginal: true
         });
@@ -63,6 +66,7 @@
             btnClass: 'my-custtom-btn',
             hideOriginal: true
         });
+        /*]]*/
     </script>
     <!--검색박스 !-->
     <div class="search">
@@ -76,7 +80,7 @@
 </div>
 <br/>
 <div>
-    <h1 style="text-align: center" th:each="names:${name}" th:text="${names.main_name}">123</h1>
+    <h1 style="text-align: center" th:text="${name}">123</h1>
 </div>
 <br/>
 <!-- 메인 슬라이드 !-->

@@ -21,7 +21,7 @@ public class CategoryController {
         ArrayList<ProductCategoryVO> categoryList = categoryService.selectProductByMain(main_no);
         model.addAttribute("productCategory", categoryList);
 
-        ArrayList<ProductCategoryVO> mainname = categoryService.mainname(main_no);
+        String mainname = categoryService.mainname(main_no);
         model.addAttribute("name", mainname);
 
         ArrayList<ProductCategoryVO> dutyList = categoryService.selectDuty();
@@ -44,8 +44,11 @@ public class CategoryController {
         ArrayList<ProductCategoryVO> selectProductByMiddle = categoryService.selectProductByMiddle(main_no, mid_cate_no);
         model.addAttribute("ProductByMiddle", selectProductByMiddle);
 
-        ArrayList<ProductCategoryVO> middlename = categoryService.middlename(main_no, mid_cate_no);
-        model.addAttribute("name", middlename);
+        String mainname = categoryService.mainname(main_no);
+        model.addAttribute("mainname", mainname);
+
+        String mid_name = categoryService.mid_name(main_no, mid_cate_no);
+        model.addAttribute("mid_name", mid_name);
 
         ArrayList<ProductCategoryVO> mainList = categoryService.selectMain();
         model.addAttribute("mainList", mainList);
@@ -65,8 +68,14 @@ public class CategoryController {
         ArrayList<ProductCategoryVO> selectProductBySub = categoryService.selectProductBySub(main_no, mid_cate_no, sub_no);
         model.addAttribute("selectProductBySub", selectProductBySub);
 
-        ArrayList<ProductCategoryVO> subname = categoryService.subname(main_no, mid_cate_no, sub_no);
-        model.addAttribute("name", subname);
+        String mainname = categoryService.mainname(main_no);
+        model.addAttribute("mainname", mainname);
+
+        String mid_name = categoryService.mid_name(main_no, mid_cate_no);
+        model.addAttribute("mid_name", mid_name);
+
+        String sub_name = categoryService.sub_name(main_no, mid_cate_no, sub_no);
+        model.addAttribute("sub_name", sub_name);
 
         ArrayList<ProductCategoryVO> mainList = categoryService.selectMain();
         model.addAttribute("mainList", mainList);

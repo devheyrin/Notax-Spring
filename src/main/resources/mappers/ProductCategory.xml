@@ -14,19 +14,20 @@
               p.pd_no = pd.pd_no and
               p.brand_no = b.brand_no and
               p.pd_no = pp.pd_no and
-              ma.main_no = #{main_no}
+              ma.main_no = #{main_no} and
+              pp.photo_type_no = 1
     </select>
-    <select id="mainname"  resultType="ProductCategoryVO">
+    <select id="mainname"  resultType="String">
         select
-            main_name, main_no
+            main_name
         from
             main_category_tb
         where
             main_no = #{main_no}
     </select>
-    <select id="middlename"  resultType="ProductCategoryVO">
+    <select id="mid_name"  resultType="String">
         select
-            main_name, ma.main_no, mid_name
+            mid_name
         from
             main_category_tb ma, middle_category_tb mi
         where
@@ -34,9 +35,9 @@
             ma.main_no = #{main_no} and
             mi.mid_cate_no = #{mid_cate_no}
     </select>
-    <select id="subname"  resultType="ProductCategoryVO">
+    <select id="sub_name"  resultType="String">
         select
-            main_name, ma.main_no, mid_name, sub_name
+            sub_name
         from
             main_category_tb ma, middle_category_tb mi, sub_category_tb s
         where
@@ -103,7 +104,8 @@
             p.brand_no = b.brand_no and
             p.pd_no = pp.pd_no and
             ma.main_no = #{main_no} and
-            mi.mid_cate_no = #{mid_cate_no}
+            mi.mid_cate_no = #{mid_cate_no} and
+            pp.photo_type_no = 1
     </select>
     <select id="selectProductBySub" resultType="ProductCategoryVO">
         select
@@ -118,6 +120,7 @@
             p.pd_no = pp.pd_no and
             ma.main_no = #{main_no} and
             mi.mid_cate_no = #{mid_cate_no} and
-            s.sub_no = #{sub_no}
+            s.sub_no = #{sub_no} and
+            pp.photo_type_no = 1
     </select>
 </mapper>
