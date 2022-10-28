@@ -1,24 +1,35 @@
 package com.notax.user;
 
+
+import com.notax.vo.LoginVO;
 import com.notax.vo.UserVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Map;
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.validation.Valid;
-import java.util.Map;
 
 @Controller
 public class UserController {
+
+    @Autowired
     UserService userService;
 
 
     @GetMapping("/join")
+    public String dispjoin(UserVO vo, Model model){
+        model.addAttribute("vo", vo);
     public String dispjoin(UserVO vo){
         return "join";
     }
@@ -36,6 +47,7 @@ public class UserController {
             System.out.println("model = " + model);
         }
         return "join";
+
         }
         userService.save(vo);
         return "login";
@@ -43,6 +55,16 @@ public class UserController {
     @GetMapping("/login")
     public String login() {
         return "login";
+    }
+    @PostMapping("/login")
+    public String login(@Valid @ModelAttribute LoginVO loginVO,  BindingResult bindingResult){
+        System.out.println("login");
+        if(bindingResult.hasErrors()){
+            return "login";
+            }
+            
+
+        return "join-complete";
     }
 
 }

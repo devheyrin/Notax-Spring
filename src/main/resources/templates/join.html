@@ -14,7 +14,7 @@
 <h1 class="jointit">회원가입</h1>
 <div class="join-wrapper">
 
-  <form th:action="@{join}" th:object="${vo}" id="join_form" method="post" modelAttribute="vo" action="/join">
+  <form th:object="${vo}" id="join_form" method="post" modelAttribute="vo" action="/join">
     <div class="id_box">
       <label>아이디</label>
       <input type="text" name="user_id" th:value="${vo?.user_id}" th:field="*{user_id}"/>
@@ -38,11 +38,12 @@
 
     <div class="groupC">
       <label>이름</label>
-      <input type="text" name="user_name" th:value="${vo?.user_name}"th:field="*{user_name}"/>
+      <input type="text" name="user_name" th:value="${vo?.user_name}" th:field="*{user_name}"/>
+
       <div class="gender_select">
-        <input type="radio" name="gender" id="man"/>
+        <input type="radio" name="gender" id="man" value="man"th:field="*{user_gender}"/>
         <label for="man">남</label>
-        <input type="radio" name="gender" id="woman"/>
+        <input type="radio" name="gender" id="woman" value="woman" th:field="*{user_gender}"/>
         <label for="woman">여</label>
       </div>
     </div>
@@ -55,7 +56,9 @@
 
     <div class="user_email">
       <label>이메일</label>
-      <input type="email"th:value="${vo?.user_email}" th:field="*{user_email}"/>
+
+      <input type="email" th:value="${vo?.user_email}" th:field="*{user_email}"/>
+
     </div>
 
     <input type="submit" value="회원가입"/>
