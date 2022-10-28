@@ -45,8 +45,9 @@
         <img class="arrow-right-icon" src="../img/noun-arrow-right.png"/>
         <div class="form-group nav-item">
             <select class="form-control example2 main-category" name="example-2">
-                <option th:each="mainVO : ${mainList}" th:value="${mainVO.main_no}"  th:href="@{/main-category/id={main_no}(main_no=${mainVO.main_no})}"
-                        th:utext="${mainVO.main_name}"></option>
+                <option  th:each="mainVO : ${mainList}" th:value="${mainVO.main_no}">
+                    <a th:href="@{/main-category/id={main_no}(main_no=${mainVO.main_no})}" th:utext="${mainVO.main_name}"></a>
+                </option>
             </select>
         </div>
     </div>
@@ -75,7 +76,7 @@
 </div>
 <br/>
 <div>
-    <h1 style="text-align: center"th:each="names:${name}" th:text="${names.main_name}">123</h1>
+    <h1 style="text-align: center" th:each="names:${name}" th:text="${names.main_name}">123</h1>
 </div>
 <br/>
 <!-- 메인 슬라이드 !-->
@@ -90,7 +91,7 @@
 <div>
     <ul class="middle-sub-category">
         <li class="sub-category" th:each="middleList : ${middleList}">
-            <a th:href="@{/main-category/id={maid}/middle-category/{midno}(maid=${middleList.main_no}, midno=${middleList.mid_cate_no})}"
+            <a th:href="@{/main-category/id={maid}/middle-category/id={midno}(maid=${middleList.main_no}, midno=${middleList.mid_cate_no})}"
                th:text="${middleList.mid_name}">메탈</a>
         </li>
     </ul>

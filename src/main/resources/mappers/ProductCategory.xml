@@ -34,6 +34,18 @@
             ma.main_no = #{main_no} and
             mi.mid_cate_no = #{mid_cate_no}
     </select>
+    <select id="subname"  resultType="ProductCategoryVO">
+        select
+            main_name, ma.main_no, mid_name, sub_name
+        from
+            main_category_tb ma, middle_category_tb mi, sub_category_tb s
+        where
+            ma.main_no = mi.main_no and
+            mi.mid_cate_no = s.mid_cate_no and
+            ma.main_no = #{main_no} and
+            mi.mid_cate_no = #{mid_cate_no} and
+            s.sub_no = #{sub_no}
+    </select>
     <select id="selectDuty" resultType="ProductCategoryVO">
         select
             dfs_no, dfs_name
@@ -70,7 +82,7 @@
 
     <select id="selectSub" resultType="ProductCategoryVO" parameterType="int">
         select
-            mi.mid_cate_no, mid_name, ma.main_no, s.sub_no, s.sub_name
+            mi.mid_cate_no, ma.main_no, s.sub_no, s.sub_name
         from
             middle_category_tb mi, main_category_tb ma, sub_category_tb s
         where
@@ -95,7 +107,7 @@
     </select>
     <select id="selectProductBySub" resultType="ProductCategoryVO">
         select
-            rownum, p.pd_no, ma.main_no, b.brand_name, p.pd_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price, p.pd_views, mi.mid_cate_no, s.sub_no, s.sub_name, m.mid_name
+            rownum, p.pd_no, ma.main_no, b.brand_name, p.pd_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price, p.pd_views, mi.mid_cate_no, s.sub_no, s.sub_name, mi.mid_name
         from
             products_tb p, sub_category_tb s, middle_category_tb mi, main_category_tb ma, products_by_duty_free_shop_tb pd, brand_tb b, products_photo_tb pp
         where ma.main_no = mi.main_no and
