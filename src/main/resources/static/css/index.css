@@ -6,6 +6,7 @@
 }
 body{
     background-color: rgba(63, 63, 63, 0.18);
+    min-width: 930px;
 }
 
 #titlebar{
@@ -102,7 +103,7 @@ body{
     margin-left: 20px;
 }
 .navbtn a{
-    color: #3a3a3a;
+    color: #7a7a7a;
     text-decoration: none;
 }
 #mainslide{
@@ -124,8 +125,14 @@ body{
     z-index: 899;
 }
 .subpage{
+    padding-top: 50px;
     width: 100%;
+    min-width: 950px;
     height: 800px;
+    text-align: center;
+}
+h1{
+    margin: 70px auto;
 }
 /*메인슬라이드 부분---------------------------------------------------*/
 #mainadd{
@@ -144,12 +151,12 @@ body{
 #inner{
     position: absolute;
     width: 100%;
-    height: 600px;
+    height: 500px;
     display: flex;
     flex-direction: row;
 }
 #sidebar{
-    height: 600px;
+    height: 500px;
     width: 160px;
     /*max-width: 160px;*/
     background-color: #0a0a0a;
@@ -159,7 +166,7 @@ body{
 }
 
 #sidecategory{
-    height: 600px;
+    height: 500px;
     background-color: #d98d8d;
     flex-grow: 1;
     display: none;
@@ -179,7 +186,7 @@ ul{
     padding-left: 10px;
     padding-top: 10px;
     text-decoration: none;
-    color: #3a3a3a;
+    color: #7a7a7a;
     vertical-align: center;
 
 }
@@ -207,8 +214,15 @@ ul{
 
 /*랭킹 css--------------------------------------------------------------*/
 .card{
-    width: 200px;
-    max-width: 200px;
+    width: 230px;
+    min-width: 230px;
+    height: 400px;
+    min-height: 400px;
+}
+.card img{
+
+    min-width: 200px;
+    height: 200px;
 }
 .slider {
     width: 80%;
@@ -226,16 +240,6 @@ ul{
 .slick-prev:before,
 .slick-next:before {
     color: black;
-}
-
-
-.slick-slide {
-    transition: all ease-in-out .3s;
-    opacity: .2;
-}
-
-.slick-active {
-    opacity: .5;
 }
 
 .slick-current {
