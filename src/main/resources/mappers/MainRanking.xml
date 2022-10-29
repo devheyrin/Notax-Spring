@@ -4,13 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.notax.main.MainDAO">
     <select id="selectRank" resultType="MainRankingVO">
-        SELECT DISTINCT (pd_name) AS pd_name ,p.PD_NO  , p.PD_BY_DFS_SALE, pt.PD_PRICE , ppt.PDPHOTO_LINK,
-                        pt.PD_PRICE - (pt.PD_PRICE * p.PD_BY_DFS_SALE/100) AS PD_SALE_PRICE
+<![CDATA[
+        SELECT * FROM (
+        SELECT  DISTINCT (pd_name) AS pd_name ,p.PD_NO  , p.PD_BY_DFS_SALE, pt.PD_PRICE , PDPHOTO_LINK , pt.PD_PRICE - (pt.PD_PRICE * p.PD_BY_DFS_SALE/100) AS PD_SALE_PRICE
         FROM PRODUCTS_BY_DUTY_FREE_SHOP_TB p ,PRODUCTS_TB pt ,PRODUCTS_PHOTO_TB ppt
         WHERE p.PD_BY_DFS_SALE > 0
-          AND p.PD_NO = pt.PD_NO
-          AND p.pd_NO = ppt.PD_NO
-          AND ppt.PHOTO_TYPE_NO =1
-        ORDER BY 3 desc
+        AND p.PD_NO = pt.PD_NO
+        AND p.pd_NO = ppt.PD_NO
+        AND ppt.PHOTO_TYPE_NO =1
+        ORDER BY 3 DESC)
+        WHERE rownum <= 10
+        ]]>
     </select>
+
 </mapper>
