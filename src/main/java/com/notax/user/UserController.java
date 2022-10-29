@@ -36,7 +36,6 @@ public class UserController {
     @GetMapping ("/join")
     public String dispjoin(UserVO vo,Model model){
         model.addAttribute("vo", vo);
-
         return "join";
     }
 
@@ -59,33 +58,46 @@ public class UserController {
         return "login";
     }
     @GetMapping("/login")
-    public String login(LoginVO loginVO,Model model) {
+    public String login(LoginVO loginVO,Model model,HttpSession session) {
         model.addAttribute("loginVO",loginVO);
         return "login";
     }
     @PostMapping("/login")
-    public String login(@Valid @ModelAttribute LoginVO loginVO, BindingResult bindingResult, HttpSession session, HttpServletRequest request){
+    public String login(@ModelAttribute("loginVO") @Valid LoginVO loginVO, BindingResult bindingResult, HttpSession session, HttpServletRequest request,Model model, Errors errors){
         System.out.println("login");
+        if(errors.hasErrors()) {
+            // 로그인 실패
+            model.addAttribute("loginVO", loginVO);
 
-        if(bindingResult.hasErrors()){
-            return "login";
+            // 유효성 통과 못한 필드와 메시지를 핸들링
+            Map<String, String> validatorResult = userService.validateHandling(errors);
+            for (String key : validatorResult.keySet()) {
+                model.addAttribute(key, validatorResult.get(key));
+                System.out.println("model = " + model);
             }
+            return "login";
+        }
+
        LoginVO loginMember = userService.login(loginVO);
 
         if(loginMember == null){
             bindingResult.reject("LoginFail","아이디 또는 비밀번호가 맞지 않습니다.");
             return "login";
         }
-        session = request.getSession();
-        session.setAttribute("SS_userId",loginVO.getUser_id());
+            session = request.getSession();
+            session.setAttribute("SS_userId",loginVO.getUser_id());
 
         log.info("session: " + session);
         log.info("loginVO : " + loginVO);
 
-        userService.login(loginVO);
-        return "index";
+        //userService.login(loginVO);
+        return "redirect:/";
     }
-
-
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest servletRequest, HttpSession session){
+        session = servletRequest.getSession();
+        session.invalidate();
+        return "redirect:/";
+    }
 
 }
