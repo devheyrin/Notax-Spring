@@ -37,6 +37,8 @@
 <hr style="margin:0 auto;">
 <div class="cateHeader-container">
     <!-- 카테고리 이름 !-->
+    <input type="hidden" id="main_no" th:value="${main_no}">
+
     <div class="category-name">
         <div class="home-container nav-item">
             <a href="/" class="home">
@@ -45,14 +47,14 @@
         </div>
         <img class="arrow-right-icon" src="../img/noun-arrow-right.png" th:src="@{/img/noun-arrow-right.png}"/>
         <div class="form-group nav-item">
-            <select class="form-control example2 main-category" name="example-2">
+            <select id="main-selects" class="form-control example2 main-category" name="example-2">
                 <option th:each="mainVO : ${mainList}" th:value="${mainVO.main_no}"
                         th:utext="${mainVO.main_name}"></option>
             </select>
         </div>
         <img class="arrow-right-icon" src="../img/noun-arrow-right.png" th:src="@{/img/noun-arrow-right.png}"/>
         <div class="form-group nav-item">
-            <select class="form-control example2 middle-category" name="example-2">
+            <select id="middle-selects" class="form-control example2 middle-category" name="example-2">
                 <option th:each="middleL : ${middleList}" th:value="${middleL.mid_cate_no}"
                         th:utext="${middleL.mid_name}"></option>
             </select>
