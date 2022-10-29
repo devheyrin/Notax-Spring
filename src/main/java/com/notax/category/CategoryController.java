@@ -44,6 +44,8 @@ public class CategoryController {
         ArrayList<ProductCategoryVO> selectProductByMiddle = categoryService.selectProductByMiddle(main_no, mid_cate_no, value);
         model.addAttribute("ProductByMiddle", selectProductByMiddle);
 
+        model.addAttribute("main_no", main_no);
+
         String mainname = categoryService.mainname(main_no);
         model.addAttribute("mainname", mainname);
 
@@ -67,6 +69,8 @@ public class CategoryController {
                       @PathVariable("sub_no") int sub_no,@PathVariable("value") int value, Model model) {
         ArrayList<ProductCategoryVO> selectProductBySub = categoryService.selectProductBySub(main_no, mid_cate_no, sub_no, value);
         model.addAttribute("selectProductBySub", selectProductBySub);
+
+        model.addAttribute("main_no", main_no);
 
         String mainname = categoryService.mainname(main_no);
         model.addAttribute("mainname", mainname);
