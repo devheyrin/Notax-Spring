@@ -5,7 +5,8 @@ import com.notax.vo.ProductCategoryVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.*;
+import java.util.LinkedList;
 
 @Service
 public class CategoryService {
@@ -13,8 +14,8 @@ public class CategoryService {
     @Autowired
     CategoryDAO categoryDAO;
 
-    public ArrayList<ProductCategoryVO> selectProductByMain(int main_no) {
-        return categoryDAO.selectProductByMain(main_no);
+    public LinkedList<ProductCategoryVO> selectProductByMain(int main_no, int value) {
+        return categoryDAO.selectProductByMain(main_no, value);
     }
     public String mainname(int main_no) {
         return categoryDAO.mainname(main_no);
@@ -41,14 +42,14 @@ public class CategoryService {
         return categoryDAO.selectMain();
     }
 
-    public ArrayList<ProductCategoryVO> selectProductByMiddle(int main_no, int mid_cate_no) {
-        return categoryDAO.selectProductByMiddle(main_no, mid_cate_no);
+    public ArrayList<ProductCategoryVO> selectProductByMiddle(int main_no, int mid_cate_no, int value) {
+        return categoryDAO.selectProductByMiddle(main_no, mid_cate_no, value);
     }
     public ArrayList<ProductCategoryVO> selectSub(int main_no, int mid_cate_no) {
         return categoryDAO.selectSub(main_no, mid_cate_no);
     }
-    public ArrayList<ProductCategoryVO> selectProductBySub(int main_no, int mid_cate_no, int sub_no) {
-        return categoryDAO.selectProductBySub(main_no, mid_cate_no, sub_no);
+    public ArrayList<ProductCategoryVO> selectProductBySub(int main_no, int mid_cate_no, int sub_no, int value) {
+        return categoryDAO.selectProductBySub(main_no, mid_cate_no, sub_no, value);
     }
 
 }

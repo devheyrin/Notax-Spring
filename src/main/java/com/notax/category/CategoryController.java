@@ -16,9 +16,9 @@ public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
-    @RequestMapping("/main-category/id={main_no}")
-    public String main(@PathVariable("main_no") int main_no, Model model) {
-        ArrayList<ProductCategoryVO> categoryList = categoryService.selectProductByMain(main_no);
+    @RequestMapping("/main-category/id={main_no}/select/id={value}")
+    public String main(@PathVariable("main_no") int main_no, @PathVariable("value") int value,Model model) {
+        LinkedList<ProductCategoryVO> categoryList = categoryService.selectProductByMain(main_no, value);
         model.addAttribute("productCategory", categoryList);
 
         String mainname = categoryService.mainname(main_no);
@@ -38,10 +38,10 @@ public class CategoryController {
 
         return "main-category";
     }
-
-    @RequestMapping("/main-category/id={main_no}/middle-category/id={mid_cate_no}")
-    public String middle(@PathVariable("main_no") int main_no, @PathVariable("mid_cate_no") int mid_cate_no, Model model) {
-        ArrayList<ProductCategoryVO> selectProductByMiddle = categoryService.selectProductByMiddle(main_no, mid_cate_no);
+    @RequestMapping("/main-category/id={main_no}/middle-category/id={mid_cate_no}/select/id={value}")
+    public String middle(@PathVariable("main_no") int main_no, @PathVariable("mid_cate_no") int mid_cate_no,
+                         @PathVariable("value") int value,Model model) {
+        ArrayList<ProductCategoryVO> selectProductByMiddle = categoryService.selectProductByMiddle(main_no, mid_cate_no, value);
         model.addAttribute("ProductByMiddle", selectProductByMiddle);
 
         String mainname = categoryService.mainname(main_no);
@@ -62,10 +62,10 @@ public class CategoryController {
         return "middle-category";
     }
 
-    @RequestMapping("/main-category/id={main_no}/middle-category/id={mid_cate_no}/sub-category/id={sub_no}")
+    @RequestMapping("/main-category/id={main_no}/middle-category/id={mid_cate_no}/sub-category/id={sub_no}/select/id={value}")
     public String sub(@PathVariable("main_no") int main_no, @PathVariable("mid_cate_no") int mid_cate_no,
-                      @PathVariable("sub_no") int sub_no, Model model) {
-        ArrayList<ProductCategoryVO> selectProductBySub = categoryService.selectProductBySub(main_no, mid_cate_no, sub_no);
+                      @PathVariable("sub_no") int sub_no,@PathVariable("value") int value, Model model) {
+        ArrayList<ProductCategoryVO> selectProductBySub = categoryService.selectProductBySub(main_no, mid_cate_no, sub_no, value);
         model.addAttribute("selectProductBySub", selectProductBySub);
 
         String mainname = categoryService.mainname(main_no);

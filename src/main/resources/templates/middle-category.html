@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <!--체크박스 !-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
-    <!--가격 슬라이더 바!-->WWWWW
+    <!--가격 슬라이더 바!-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -94,7 +94,7 @@
 <div>
     <ul class="middle-sub-category">
         <li class="sub-category" th:each="subVO : ${subList}">
-            <a th:href="@{/main-category/id={main_no}/middle-category/id={mid_cate_no}/sub-category/id={sub_no}(main_no=${subVO.main_no}, mid_cate_no=${subVO.mid_cate_no}, sub_no=${subVO.sub_no})}"  th:text="${subVO.sub_name}">메탈</a>
+            <a th:href="@{/main-category/id={main_no}/middle-category/id={mid_cate_no}/sub-category/id={sub_no}/select/id=1(main_no=${subVO.main_no}, mid_cate_no=${subVO.mid_cate_no}, sub_no=${subVO.sub_no})}"  th:text="${subVO.sub_name}">메탈</a>
         </li>
     </ul>
 </div>
@@ -103,9 +103,22 @@
 <!-- 정렬 !-->
 <div class="Sort-container">
     <div class="sort-value">
-        <button class="btn btn-outline-dark">구매높은순</button>
-        <button class="btn btn-outline-dark">조회수높은순</button>
-        <button class="btn btn-outline-dark">가격낮은순</button>
+        <button id="orders1" value="pd_by_dfs_sale" class="btn btn-outline-dark">가격높은순</button>
+        <button id="orders2" value="pd_views" class="btn btn-outline-dark">최신날짜</button>
+        <button id="orders3" value="pd_name" class="btn btn-outline-dark">이름순서</button>
+        <script th:inline="javascript">
+            let mainnumber=[[${main_no}]];
+            let middlenumber=[[${mid_cate_no}]];
+            $('#orders1').click(function (){
+                location.href = `/main-category/id=${mainnumber}/middle-category/id=${middlenumber}/select/id=7`
+            });
+            $('#orders2').click(function (){
+                location.href = `/main-category/id=${mainnumber}/middle-category/id=${middlenumber}/select/id=5`
+            })
+            ;$('#orders3').click(function (){
+                location.href = `/main-category/id=${mainnumber}/middle-category/id=${middlenumber}/select/id=1`
+            });
+        </script>
     </div>
 </div>
 <!-- 제품목록 !-->
@@ -113,7 +126,6 @@
     <ol>
         <li class="values" th:each="middleVO : ${ProductByMiddle}">
             <a th:href="@{/detail/{id}(id=${middleVO.pd_no})}">
-                <span class="unit_no" th:text="${middleVO.rownum}">1</span>
                 <div class="unit_img">
                     <img class="values-img" th:src="${middleVO.pdphoto_link}">
                 </div>
