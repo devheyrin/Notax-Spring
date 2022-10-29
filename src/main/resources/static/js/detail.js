@@ -13,6 +13,9 @@ $(document).ready(function () {
    $('.slider').bxSlider({
       auto: true,
       slideWidth: 430,
+      onSliderLoad : function () {
+         $("#edd").css("visibility", "visible").animate({opacity:1});
+      }
    });
 });
 

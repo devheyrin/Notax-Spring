@@ -32,6 +32,8 @@ public class DetailService {
             for (CouponVO coupon : couponList) {
                 int coupon_dfs_no = coupon.getDfs_no();
                 int discount_amt = coupon.getDiscount_amt();
+                System.out.println("coupon = " + coupon.getCp_unit());
+
                 if (dfs_no == coupon_dfs_no && total_price > discount_amt) {
                     System.out.println("dfs_no = " + dfs_no);
                     System.out.println("coupon_dfs_no = " + coupon_dfs_no);
