@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="../static/css/tranquil-heart.min.css" th:href="@{/css/tranquil-heart.min.css}">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
-    <script src="../static/js/feastSelect.js" th:src="@{/js/feastSelect.js}"></script>
+    <script src="../js/feastSelect.js" th:src="@{/js/feastSelect.js}"></script>
     <!--    셀렉트박스 끝  -->
     <script src="../static/js/detail.js" th:src="@{/js/detail.js}"></script>
     <link rel="stylesheet" href="../static/css/detail.css" th:href="@{/css/detail.css}">
@@ -93,23 +93,25 @@
             <span class="css-go3bbb e1gbu2jd2">16822<!-- 찜하기 숫자 --></span>
         </button>
     </div>
-    <div class="flex-row-container product-area">
+    <div class="flex-row-container product-area" id="edd">
         <div class="slider photo-area">
             <div th:each="photo : ${productPhotoList}">
                 <img src="../static/img/test1.jpeg" th:src="${photo.pdphoto_link}">
             </div>
         </div>
-        <div class="info-area">
+        <div class="info-area" th:with="dollar=1420">
             <div class="duty-free-shop">
                 <div>정가</div>
                 <div>
-                    <span th:text="${product.pd_price}">$1,165</span>
+                    <span th:text="'$' + ${product.pd_price}">$1,165</span>
+                    <span class="won" th:text="${dollar * product.pd_price} + '원'"></span>
                 </div>
             </div>
             <div class="duty-free-shop">
                 <div>최저가</div>
                 <div>
                     <span>$0,000</span>
+                    <span class="won" th:text="${dollar * product.pd_price} + '원'"></span>
                 </div>
             </div>
             <div th:each="price : ${priceList}">
@@ -118,6 +120,7 @@
                     <div>
                         <span class="sale-percent" th:text="${price.sale_percent}+'%'">50%</span>
                         $<span class="final-price" th:text="${price.total_price}">1048.5</span>
+                        <span class="won" th:text="${dollar * price.total_price} + '원'"></span>
                         <span class="toggle-btn" th:id="'toggle' + ${price.dfs_no}">
                         <svg class="ep8sdhl8 css-plf4nv e1tthaaa0" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 28 16"><g fill="none" fill-rule="evenodd" stroke="#a0a0a0" stroke-width="3"><path

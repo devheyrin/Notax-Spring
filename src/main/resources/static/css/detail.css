@@ -22,7 +22,7 @@
 .product-name {
     margin: 0 auto;
     max-width: 1300px;
-    min-width: 900px;
+    min-width: 930px;
     padding: 20px 50px 0;
     justify-content: space-between;
 }
@@ -42,7 +42,7 @@
 .product-area {
     margin: 0 auto;
     max-width: 1300px;
-    min-width: 900px;
+    min-width: 930px;
     padding: 20px 50px 0;
 
 }
@@ -92,6 +92,11 @@
 
 .sale-percent {
     color: red;
+    font-size: 1rem;
+}
+
+.won {
+    color: #838383;
     font-size: 1rem;
 }
 
@@ -186,7 +191,7 @@ button:hover path {
 .category-nav {
     margin: 0 auto;
     max-width: 1300px;
-    min-width: 900px;
+    min-width: 930px;
     padding: 20px 50px 0;
 }
 
@@ -228,7 +233,7 @@ button:hover path {
 /* 상품 상세설명 */
 .product-detail-area {
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 930px;
     padding: 20px 50px 50px 50px;
 
 }
