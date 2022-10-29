@@ -3,11 +3,11 @@ package com.notax.category;
 import com.notax.vo.ProductCategoryVO;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.ArrayList;
+import java.util.*;
 
 @Mapper
 public interface CategoryDAO {
-    public ArrayList<ProductCategoryVO> selectProductByMain(int main_no);
+    public LinkedList<ProductCategoryVO> selectProductByMain(int main_no, int value);
     public String mainname(int main_no);
     public String mid_name(int main_no, int mid_cate_no);
     public String sub_name(int main_no, int mid_cate_no, int sub_no);
@@ -19,7 +19,7 @@ public interface CategoryDAO {
 
     public ArrayList<ProductCategoryVO> selectMain();
 
-    public ArrayList<ProductCategoryVO> selectProductByMiddle(int main_no, int mid_cate_no);
+    public ArrayList<ProductCategoryVO> selectProductByMiddle(int main_no, int mid_cate_no, int value);
     public ArrayList<ProductCategoryVO> selectSub(int main_no, int mid_cate_no);
-    public ArrayList<ProductCategoryVO> selectProductBySub(int main_no, int mid_cate_no, int sub_no);
+    public ArrayList<ProductCategoryVO> selectProductBySub(int main_no, int mid_cate_no, int sub_no, int value);
 }
