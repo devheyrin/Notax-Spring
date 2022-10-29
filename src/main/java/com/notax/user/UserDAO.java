@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserDAO {
     //회원가입
     //로그인
-    LoginVO login(LoginVO loginVO);
+    public LoginVO login(LoginVO loginVO);
 
     //회원 등록
 

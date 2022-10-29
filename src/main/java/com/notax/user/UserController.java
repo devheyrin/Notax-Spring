@@ -3,7 +3,11 @@ package com.notax.user;
 
 import com.notax.vo.LoginVO;
 import com.notax.vo.UserVO;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.javassist.compiler.ast.Member;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,19 +19,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
+@Slf4j
 @Controller
+@RequiredArgsConstructor
 public class UserController {
 
     @Autowired
     UserService userService;
 
     @GetMapping ("/join")
-    public String dispjoin(){
+    public String dispjoin(UserVO vo,Model model){
+        model.addAttribute("vo", vo);
+
         return "join";
     }
 
@@ -50,16 +59,31 @@ public class UserController {
         return "login";
     }
     @GetMapping("/login")
-    public String login() {
+    public String login(LoginVO loginVO,Model model) {
+        model.addAttribute("loginVO",loginVO);
         return "login";
     }
     @PostMapping("/login")
-    public String login(@Valid @ModelAttribute LoginVO loginVO,  BindingResult bindingResult){
+    public String login(@Valid @ModelAttribute LoginVO loginVO, BindingResult bindingResult, HttpSession session, HttpServletRequest request){
         System.out.println("login");
+
         if(bindingResult.hasErrors()){
             return "login";
             }
-        return "join-complete";
+        Member loginMember = userService.login(loginVO.getUser_id(),loginVO.getUser_pwd();
+
+        if(loginMember == null){
+            bindingResult.reject("LoginFail","아이디 또는 비밀번호가 맞지 않습니다.");
+            return "login";
+        }
+        session = request.getSession();
+        session.setAttribute();
+
+        log.info("session: " + session);
+        log.info("loginVO : " + loginVO);
+
+        userService.login(loginVO);
+        return "index";
     }
 
 }
