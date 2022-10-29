@@ -5,6 +5,7 @@ import com.notax.vo.LoginVO;
 
 import com.notax.vo.UserVO;
 import lombok.AllArgsConstructor;
+import org.apache.ibatis.javassist.compiler.ast.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
@@ -42,5 +43,4 @@ public class UserService {
     public LoginVO login(@Valid LoginVO loginVO){
         return userdao.login(loginVO);
     }
-
 }

@@ -22,11 +22,12 @@ public class UserVO {
     private String user_pwd;
 
     @NotBlank(message = "생년월일을 입력해주세요")
-
     private String user_birth;
+
 
     private String user_gender;
 
+    @NotBlank(message = "이름을 입력하세요")
     private String user_name;
 
     @NotBlank(message = "이메일은 필수 입력 값입니다")
