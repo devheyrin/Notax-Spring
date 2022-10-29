@@ -25,6 +25,14 @@
     line-height: 14px;
     color: red;
 }
+#join_form > span{
+    display: block;
+    margin: -6px 110px -2px;
+    font-size: 12px;
+    line-height: 14px;
+    color: red;
+}
+
 
 .join-wrapper{
     margin: auto;
