@@ -70,14 +70,14 @@ public class UserController {
         if(bindingResult.hasErrors()){
             return "login";
             }
-        Member loginMember = userService.login(loginVO.getUser_id(),loginVO.getUser_pwd();
+       LoginVO loginMember = userService.login(loginVO);
 
         if(loginMember == null){
             bindingResult.reject("LoginFail","아이디 또는 비밀번호가 맞지 않습니다.");
             return "login";
         }
         session = request.getSession();
-        session.setAttribute();
+        session.setAttribute("SS_userId",loginVO.getUser_id());
 
         log.info("session: " + session);
         log.info("loginVO : " + loginVO);
@@ -85,5 +85,7 @@ public class UserController {
         userService.login(loginVO);
         return "index";
     }
+
+
 
 }

@@ -56,8 +56,8 @@
 
     <div class="user_email">
       <label>이메일</label>
-
       <input type="email" th:value="${vo?.user_email}" th:field="*{user_email}"/>
+      <span th:text="${valid_user_email}"></span>
 
     </div>
 
