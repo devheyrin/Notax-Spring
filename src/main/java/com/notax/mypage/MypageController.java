@@ -29,25 +29,15 @@ public class MypageController {
     @GetMapping("/update")
     public String updateform(Model model) {
         // db에 있는 아이디 - 나중에 세션에서 얻어오기
-
-
         String memberid = "first";
 
         MemberMdfVO memberMdfVO= mypageDAO.selectMemberfindById(memberid);
 
-
-
         model.addAttribute("memberid",memberMdfVO);
-
-
-
         // 1. service에서 아이디와 일치하는 회원정보 조회 메소드 호출 -> vo
         // 2. vo를 받아서 model 객체에 addAttribute ("member", vo)
         return "update";
     }
-
-
-
     @PostMapping("/update")
     public String update(@ModelAttribute MemberMdfVO memberMdfVO, Model model){
         System.out.println(memberMdfVO);
