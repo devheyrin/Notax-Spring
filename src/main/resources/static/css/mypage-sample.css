@@ -166,7 +166,7 @@ article {
     border-color: black;
     border-style: solid;
     width: 100%;
-    padding: 200px;
+    padding: 160px;
 }
 
 /*selectbox*/
@@ -183,6 +183,7 @@ article {
     cursor: pointer;
     border-color: black;
     border-style: solid;
+    font-size: 20px;
 }
 
 /*selectbox option*/
