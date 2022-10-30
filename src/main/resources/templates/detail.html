@@ -25,22 +25,20 @@
     <!--    셀렉트박스 끝  -->
     <script src="../static/js/detail.js" th:src="@{/js/detail.js}"></script>
     <link rel="stylesheet" href="../static/css/detail.css" th:href="@{/css/detail.css}">
+
+    <!--  navbar css/js 시작 -->
+    <link rel="stylesheet" href="../css/index.css" th:href="@{/css/index.css}">
+    <script src="../js/index.js" th:src="@{/js/index.js}"></script>
+    <!--  navbar css/js 끝  -->
+
     <title>상품 상세 페이지</title>
 </head>
 <body>
-<h1>상품 상세 페이지</h1>
-<!-- 네비게이션 영역 시작(추후 include태그로 수정) -->
-<a href="/login">로그인페이지로 이동</a>
-<a href="/mypage">마이페이지 - 관심상품으로 이동</a>
-<!--<%&#45;&#45;네비게이션 영역 끝&#45;&#45;%>-->
 
-<!-- 상품 분류 페이지 이동 영역 시작 -->
-<div class="flex-row-container">
-    <a href="/main-category">대분류페이지로 이동</a>
-    <a href="/middle-category">중분류페이지로 이동</a>
-    <a href="/sub-category">소분류페이지로 이동</a>
-</div>
-<!-- 상품 분류 페이지 이동 영역 끝 -->
+<!-- 탑 내비게이션바 -->
+<div th:replace="top-navbar :: navbar"></div>
+<!-- 탑 내비게이션바 끝 -->
+<div>
 <!-- 상품 상세 영역 시작 -->
 <div class="product-detail-container">
     <!--  카테고리 내비게이터 시작 -->
