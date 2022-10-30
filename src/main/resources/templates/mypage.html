@@ -16,223 +16,221 @@
     <li data-tabscrollnavi="three"><a href="#three">관심상품조회</a></li>
   </ul>
   <article>
-  <section data-tabscroll="one" style="">
-    <div class="join-wrapper">
-      <div class="table-box-type-1">
-        <table>
+    <section data-tabscroll="one" style="">
+      <div class="join-wrapper">
 
-          <tr>
-            <th>로그인아이디</th>
-            <td th:text="${member.user_id}">
-            </td>
-          </tr>
+        <form name="updateForm" id="join_form" method="post" action="/update">
+          <div class="id_box">
+            <label>아이디</label>
+            <input type="id" name="user_id" id="user_id" th:value="${member?.user_id}"/>
+            <span></span>
+          </div>
 
-          <tr>
-            <th>비밀번호</th>
-            <td th:text="${member.user_password}">
-            </td>
-          </tr>
-
-          <tr>
-            <th>비밀번호 재확인</th>
-            <td th:text="${member.user_password}">
-            </td>
-          </tr>
-
-          <tr>
-            <th>이름</th>
-            <td th:text=" ${member.user_name}">
-            </td>
-          </tr>
-
-          <tr>
-          <th>이메일</th>
-          <td th:text=" ${member.user_email}">
-          </td>
-          </tr>
+          <div class="pass_box">
+            <label>비밀번호</label>
+            <input type="password"  name="user_password" id="user_password" th:value="${member?.user_password}"/>
+            <span></span>
+          </div>
 
 
-          <tr>
-            <th>성별</th>
-            <td th:text=" ${member.user_gender}">
-            </td>
-          </tr>
+          <div class="passSearch_box">
+            <label>비밀번호 재확인</label>
+            <input type="password"  th:value="${member?.user_password}"/>
+            <span></span>
+          </div>
 
-          <tr>
-            <th>생년월일</th>
-            <td th:text="${member.user_birth_ymd}">
-              <a href="" class="btn btn-primary">회원정보수정</a>
-              <button type="button" class="btn btn-outline btn-secondary" onclick="history.back();">뒤로가기</button>
-            </td>
-          </tr>
-        </table>
+          <div class="email_box">
+            <label>이메일</label>
+            <input type="text" name="user_email"  th:value="${member?.user_email}" />
+            <span></span>
+          </div>
+
+          <div class="name_box">
+            <label>이름</label>
+            <input type="text"  name="user_name" th:value="${member?.user_name}" readonly/>
+            <div class="gender_select">
+              <input type="radio" name="user_gender" id="male"  value="male" th:value="${member?.user_gender}"/>
+              <label for="male">남</label>
+              <input type="radio" name="user_gender" id="female"  value="female" th:value="${member?.user_gender}"/>
+              <label for="female">여</label>
+            </div>
+          </div>
+
+          <div class="bir_wrap">
+            <label>생년월일</label>
+            <input type="text" name="user_birth_ymd"  th:value="${member?.user_birth_ymd}" readonly/>
+          </div>
+          <input type="submit" value="수정">
+
+        </form>
+
+
       </div>
+    </section>
+
+
+  <section data-tabscroll="two" style="">
+    <div id="select_form">
+      <!--롯데백화점 등급지정-->
+      <div class="select_box1">
+        <h2>롯데백화점</h2>
+        <div class="right-select">
+          <select name="lotte-rating" class="select">
+            <option disabled selected>등급</option>
+            <option class="select_option1" value="blue" th:selected="${dfs_no1?.dfs_rating_name} == 'blue'">blue</option>
+            <option class="select_option2" value="red" th:selected="${dfs_no1?.dfs_rating_name} == 'red'">red</option>
+            <option class="select_option3" value="purple" th:selected="${dfs_no1?.dfs_rating_name} == 'purple'">purple</option>
+            <option class="select_option4" value="black" th:selected="${dfs_no1?.dfs_rating_name} == 'black'">black</option>
+          </select>
+        </div>
+      </div>
+
+      <!--제주공항면세점 등급지정-->
+      <div class="select_box2">
+        <h2>제주공항면세점</h2>
+        <div class="right-select">
+          <select name="jeju-rating" class="select">
+            <option disabled selected>등급</option>
+            <option value="silver" th:selected="${dfs_no2?.dfs_rating_name} == 'silver'">silver</option>
+            <option value="gold" th:selected="${dfs_no2?.dfs_rating_name} == 'gold'">gold</option>
+            <option value="diamond" th:selected="${dfs_no2?.dfs_rating_name} == 'diamond'">diamond</option>
+            <option value="diamond plus" th:selected="${dfs_no2?.dfs_rating_name} == 'diamond plus'">diamond plus</option>
+          </select>
+        </div>
+      </div>
+
+      <!--신세계면세점 등급지정-->
+      <div class="select_box3">
+        <h2>신세계면세점</h2>
+        <div class="right-select">
+          <select name="shinsegae-rating" class="select">
+            <option disabled selected>등급</option>
+            <option value="tier1" th:selected="${dfs_no3?.dfs_rating_name} == 'tier1'">tier1</option>
+            <option value="tier2" th:selected="${dfs_no3?.dfs_rating_name} == 'tier2'">tier2</option>
+            <option value="tier3" th:selected="${dfs_no3?.dfs_rating_name} == 'tier3'">tier3</option>
+            <option value="tier4" th:selected="${dfs_no3?.dfs_rating_name} == 'tier4'">tier4</option>
+          </select>
+        </div>
+      </div>
+
+      <!--신라면세점 등급지정-->
+      <div class="select_box4">
+        <h2>신라면세점</h2>
+        <div class="right-select">
+          <select name="shilla-rating" class="select">
+            <option disabled selected>등급</option>
+            <option value="bronze" th:selected="${dfs_no4?.dfs_rating_name} == 'bronze'">bronze</option>
+            <option value="silver" th:selected="${dfs_no4?.dfs_rating_name} == 'silver'">silver</option>
+            <option value="gold" th:selected="${dfs_no4?.dfs_rating_name} == 'gold'">gold</option>
+            <option value="s.black" th:selected="${dfs_no4?.dfs_rating_name} == 's.black'">s.black</option>
+          </select>
+        </div>
+      </div>
+
+      <!--현대백화점면세점 등급지정-->
+      <div class="select_box5">
+        <h2>현대백화점면세점</h2>
+        <div class="right-select">
+          <select name="hyundai-rating" class="select">
+            <option disabled selected>등급</option>
+            <option value="silver" th:selected="${dfs_no5?.dfs_rating_name} == 'silver'">silver</option>
+            <option value="gold" th:selected="${dfs_no5?.dfs_rating_name} == 'gold'">gold</option>
+            <option value="black" th:selected="${dfs_no5?.dfs_rating_name} == 'black'">black</option>
+            <option value="prestige" th:selected="${dfs_no5?.dfs_rating_name} == 'prestige'">prestige</option>
+          </select>
+        </div>
+      </div>
+
+      <!--동화면세점 등급지정-->
+      <div class="select_box6">
+        <h2>동화면세점</h2>
+        <div class="right-select">
+          <select name="donghwa-rating" class="select">
+            <option disabled selected>등급</option>
+            <option value="bronze" th:selected="${dfs_no6?.dfs_rating_name} == 'bronze'">bronze</option>
+            <option value="silver" th:selected="${dfs_no6?.dfs_rating_name} == 'silver'">silver</option>
+            <option value="gold" th:selected="${dfs_no6?.dfs_rating_name} == 'gold'">gold</option>
+            <option value="diamond" th:selected="${dfs_no6?.dfs_rating_name} == 'diamond'">diamond</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 신라아이파크면세점 등급지정-->
+      <div class="select_box7">
+        <h2>신라아이파크면세점</h2>
+        <div class="right-select">
+          <select name="shillaipark-rating" class="select">
+            <option disabled selected>등급</option>
+            <option value="silver" th:selected="${dfs_no7?.dfs_rating_name} == 'silver'">silver</option>
+            <option value="gold" th:selected="${dfs_no7?.dfs_rating_name} == 'gold'">gold</option>
+            <option value="black" th:selected="${dfs_no7?.dfs_rating_name} == 'black'">black</option>
+            <option value="black prestige" th:selected="${dfs_no7?.dfs_rating_name} == 'black prestige'">black prestige</option>
+          </select>
+        </div>
+      </div>
+
+
+      <!-- 수정버튼 -->
+      <button class="modify_btn">수정</button>
     </div>
   </section>
+
+  <section data-tabscroll="three" style="">
+    <div class="cart_size">
+      <table class="subject_table">
+        <tbody>
+        <tr>
+          <th>
+            <div>
+              <input type="checkbox" name="check" checked="checked"/>
+            </div>
+          </th>
+          <th class="th_product">상품정보</th>
+          <th class="th_price">가격</th>
+        </tr>
+        </tbody>
+      </table>
+      <table class="cart_table">
+        <tbody>
+        <tr>
+          <td class="cart_check">
+            <div>
+              <input type="checkbox" name="check" checked="checked">
+            </div>
+          </td>
+          <td class="cart_T">
+            <div class="product-Item">
+              <div class="cart_img">
+                <img src="" alt="">
+                <div class="product_btn">
+                  <button>
+                    상품정보
+                  </button>
+                </div>
+              </div>
+
+              <div class="cart_info">
+                <div class="card_brand">
+                  <strong>브랜드명</strong>
+                </div>
+                <div class="cart_product">
+                  <p>상품명</p>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="priceArea">
+            <div class="cart_Price">
+              <span>$ 100</span>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
   </article>
-
-    <section data-tabscroll="two" style="">
-      <div id="select_form">
-        <!--롯데백화점 등급지정-->
-        <div class="select_box1">
-          <h2>롯데백화점</h2>
-          <div class="right-select">
-            <select name="lotte-rating" class="select">
-              <option >등급</option>
-              <option class="select_option1" value="blue">blue</option>
-              <option class="select_option2" value="red">red</option>
-              <option class="select_option3" value="purple">purple</option>
-              <option class="select_option4" value="black">black</option>
-            </select>
-          </div>
-        </div>
-
-        <!--제주공항면세점 등급지정-->
-        <div class="select_box2">
-          <h2>제주공항면세점</h2>
-          <div class="right-select">
-            <select name="jeju-rating" class="select">
-              <option disabled selected>등급</option>
-              <option value="apple"></option>
-              <option value="orange"></option>
-              <option value="grape"></option>
-              <option value="melon"></option>
-            </select>
-          </div>
-        </div>
-
-       <!--신세계면세점 등급지정-->
-        <div class="select_box3">
-          <h2>신세계면세점</h2>
-          <div class="right-select">
-            <select name="shinsegae-rating" class="select">
-              <option disabled selected>등급</option>
-              <option value="apple"></option>
-              <option value="orange"></option>
-              <option value="grape"></option>
-              <option value="melon"></option>
-            </select>
-          </div>
-        </div>
-
-        <!--신라면세점 등급지정-->
-        <div class="select_box4">
-          <h2>신라면세점</h2>
-          <div class="right-select">
-            <select name="shilla-rating" class="select">
-              <option disabled selected>등급</option>
-              <option value="apple"></option>
-              <option value="orange"></option>
-              <option value="grape"></option>
-              <option value="melon"></option>
-            </select>
-          </div>
-        </div>
-
-        <!--현대백화점면세점 등급지정-->
-        <div class="select_box5">
-          <h2>현대백화점면세점</h2>
-          <div class="right-select">
-            <select name="hyundai-rating" class="select">
-              <option disabled selected>등급</option>
-              <option value="apple"></option>
-              <option value="orange"></option>
-              <option value="grape"></option>
-              <option value="melon"></option>
-            </select>
-          </div>
-        </div>
-
-       <!--동화면세점 등급지정-->
-        <div class="select_box6">
-          <h2>동화면세점</h2>
-          <div class="right-select">
-            <select name="donghwa-rating" class="select">
-              <option disabled selected>등급</option>
-              <option value="apple"></option>
-              <option value="orange"></option>
-              <option value="grape"></option>
-              <option value="melon"></option>
-            </select>
-          </div>
-        </div>
-
-       <!-- 신라아이파크면세점 등급지정-->
-        <div class="select_box7">
-          <h2>신라아이파크면세점</h2>
-          <div class="right-select">
-            <select name="shillaipark-rating" class="select">
-              <option disabled selected>등급</option>
-              <option value="apple"></option>
-              <option value="orange"></option>
-              <option value="grape"></option>
-              <option value="melon"></option>
-            </select>
-          </div>
-        </div>
-
-
-       <!-- 수정버튼 -->
-        <button class="modify_btn">수정</button>
-      </div>
-    </section>
-
-    <section data-tabscroll="three" style="">
-      <div class="cart_size">
-        <table class="subject_table">
-          <tbody>
-          <tr>
-            <th>
-              <div>
-                <input type="checkbox" name="check" checked="checked"/>
-              </div>
-            </th>
-            <th class="th_product">상품정보</th>
-            <th class="th_price">가격</th>
-          </tr>
-          </tbody>
-        </table>
-        <table class="cart_table">
-          <tbody>
-          <tr>
-            <td class="cart_check">
-              <div>
-                <input type="checkbox" name="check" checked="checked">
-              </div>
-            </td>
-            <td class="cart_T">
-              <div class="product-Item">
-                <div class="cart_img">
-                  <img src="" alt="">
-                  <div class="product_btn">
-                    <button>
-                      상품정보
-                    </button>
-                  </div>
-                </div>
-
-                <div class="cart_info">
-                  <div class="card_brand">
-                    <strong>브랜드명</strong>
-                  </div>
-                  <div class="cart_product">
-                    <p>상품명</p>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td class="priceArea">
-              <div class="cart_Price">
-                <span>$ 100</span>
-              </div>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-
-    </section>
 </div>
 </body>
 </html>
-
