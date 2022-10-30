@@ -103,8 +103,9 @@
             <div class="duty-free-shop">
                 <div>최저가</div>
                 <div>
-                    <span>$0,000</span>
-                    <span class="won" th:text="${dollar * product.pd_price} + '원'"></span>
+                    <span class="sale-percent" th:text="${sale_percent}+'%'">50%</span>
+                    <span th:text="'$' + ${min_price}">$0,000</span>
+                    <span class="won" th:text="${dollar * min_price} + '원'"></span>
                 </div>
             </div>
             <div th:each="price : ${priceList}">
