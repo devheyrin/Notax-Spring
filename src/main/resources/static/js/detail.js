@@ -99,6 +99,7 @@ $(function () {
                $('path').removeClass('disliked');
                $('path').addClass('liked');
                $('#btn-like').val("liked");
+               $('#pd_likes').text(Number($('#pd_likes').text()) + 1);
             }
          });
       } else {
@@ -111,6 +112,7 @@ $(function () {
                $('path').removeClass('liked');
                $('path').addClass('disliked');
                $('#btn-like').val("disliked");
+               $('#pd_likes').text(Number($('#pd_likes').text()) - 1);
             }
          });
       }
