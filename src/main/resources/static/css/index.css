@@ -96,7 +96,7 @@ body{
     height: 38px;
 
 }
-#searchbtn{
+#search-btn{
     width: 38px;
     height: 38px;
 }
@@ -163,15 +163,15 @@ body{
 
 }
 #fixbutton{
-    width: 50px;
-    height: 100px;
+    width: 70px;
+    height: 140px;
     right: 0%;
     bottom: 0%;
     position: fixed;
 }
 #fixbutton div{
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     background-color: yellow;
     z-index: 899;
 }
