@@ -1,3 +1,40 @@
+.category-nav {
+    margin: 0 auto;
+    max-width: 1300px;
+    min-width: 930px;
+    padding: 20px 50px 0;
+}
+.navigator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.nav-item {
+    margin: 0 10px;
+}
+
+.home {
+    color: black;
+
+}
+.home-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+}
+
+.home-container {
+    position: relative;
+    right: 10px;
+}
+.arrow-right-icon {
+    width: 13px;
+    height: 14px;
+    margin-right: 4px;
+    margin-bottom: 3px;
+}
+
 * {
     padding: 0;
     margin: 0;

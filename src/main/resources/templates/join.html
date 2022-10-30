@@ -19,6 +19,14 @@
 <!-- 탑 내비게이션바 -->
 <div th:replace="top-navbar :: navbar"></div>
 <!-- 탑 내비게이션바 끝 -->
+<div class="navigator category-nav" id="category">
+<div class="home-container nav-item">
+  <img class="home-icon" src="../static/img/home-icon.png" th:src="@{/img/home-icon.png}"/>
+  <a href="/" class="home">홈</a>
+</div>
+<img class="arrow-right-icon" src="../static/img/noun-arrow-right.png" th:src="@{/img/noun-arrow-right.png}"/>
+  <strong>회원가입</strong>
+</div>
   <h1 class="jointit">회원가입</h1>
   <div class="join-wrapper">
 
