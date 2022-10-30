@@ -44,38 +44,27 @@
 <!-- 상품 상세 영역 시작 -->
 <div class="product-detail-container">
     <!--  카테고리 내비게이터 시작 -->
-    <div class="navigator category-nav">
+    <input type="hidden" id="mainname" th:value="${mainname}"></input>
+    <input type="hidden" id="mid_name" th:value="${mid_name}"></input>
+    <input type="hidden" id="main_no" th:value="${main_no}">
+
+    <div class="navigator category-nav" id="category">
         <div class="home-container nav-item">
             <img class="home-icon" src="../static/img/home-icon.png" th:src="@{/img/home-icon.png}"/>
             <a href="/" class="home">홈</a>
         </div>
         <img class="arrow-right-icon" src="../static/img/noun-arrow-right.png" th:src="@{/img/noun-arrow-right.png}"/>
         <div class="form-group nav-item">
-            <select class="form-control example2 main-category" name="example-2">
-                <option value="10031760">스킨케어</option>
-                <option value="10031766">메이크업</option>
-                <option value="10031772">향수/바디/헤어</option>
-                <option value="10031778">가방/지갑</option>
-                <option value="10031784">시계/주얼리</option>
-                <option value="10031790">아이웨어/잡화</option>
-                <option value="10031796">패션/슈즈</option>
-                <option value="10031802">스포츠/레져</option>
-                <option value="10031808">건강/가공식품</option>
-                <option value="10031814">디지털/가전</option>
-                <option value="10031820">리빙/헬스케어</option>
-                <option value="10031832">키즈/베이비</option>
-                <option value="10039167">주류예약</option>
-                <option value="10035150">Adult (19)</option>
+            <select id="main-selects" class="form-control example2 main-category" name="example-2" th:value="main">
+                <option th:each="mainVO : ${mainList}" th:value="${mainVO.main_no}" th:utext="${mainVO.main_name}">
+                </option>
             </select>
         </div>
         <img class="arrow-right-icon" src="../static/img/noun-arrow-right.png" th:src="@{/img/noun-arrow-right.png}"/>
         <div class="form-group nav-item">
-            <select class="form-control example2 middle-category" name="example-2">
-                <option value="10031972">여성시계</option>
-                <option value="10031978">남성시계</option>
-                <option value="10031984">캐릭터/아동시계</option>
-                <option value="10031990">주얼리</option>
-                <option value="10031996">브로치/기타</option>
+            <select id="middle-selects" class="form-control example2 middle-category" name="example-2">
+                <option th:each="middleL : ${middleList}" th:value="${middleL.mid_cate_no}"
+                        th:utext="${middleL.mid_name}"></option>
             </select>
         </div>
     </div>
@@ -152,7 +141,6 @@
         <div class="product-detail-title">상세설명</div>
         <div>
             <table class="product-detail-table" th:utext="${product.pd_more}">
-
                 <tr>
                     <td>소재/순도/밴드재질(시계)</td>
                     <td>Nato</td>

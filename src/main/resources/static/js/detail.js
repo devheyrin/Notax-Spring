@@ -21,17 +21,39 @@ $(document).ready(function () {
 
 /* 카테고리 내비게이터 */
 $(function () {
+   let $main_name = $('#mainname').attr('value');
+   let $middle_name = $('#mid_name').attr('value');
+   console.log($main_name);
+   console.log($middle_name);
+
    $('.main-category').FeastSelect({
-      btnText: '시계/주얼리', // 선택한 분류 가져와서 지정
+      btnText: $main_name, // 선택한 분류 가져와서 지정
       btnClass: 'my-custtom-btn',
       hideOriginal: true
    });
    $('.middle-category').FeastSelect({
-      btnText: '여성시계', // 선택한 분류 가져와서 지정
+      btnText: $middle_name, // 선택한 분류 가져와서 지정
       btnClass: 'my-custtom-btn',
       hideOriginal: true
    });
 });
+
+$(function () {
+   $('#main-selects').siblings().eq(1).find('li').click(function () {
+      console.log($(this).attr('id'));
+      location.href = `/main-category/id=${$(this).attr('id')}`;
+   });
+
+   $('#middle-selects').siblings().eq(1).find('li').click(function () {
+      console.log($(this).attr('id'));
+      let main_no = $('#main_no').val();
+
+      //location.href=`/main-category/id=${$('#main-selects option:selected').val()}/middle-category/id=${$(this).attr('id')}/select/id=1`;
+      location.href = `/main-category/id=${main_no}/middle-category/id=${$(this).attr('id')}/select/id=1`;
+   });
+
+});
+
 
 
 /*  쿠폰 체크 */
