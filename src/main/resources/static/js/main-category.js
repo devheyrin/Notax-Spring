@@ -9,6 +9,13 @@ $(document).ready(function () {
         location.href = `/main-category/id=${$(this).attr('id')}/select/id=1`;
     });
 
+    $('#reset').click(function () {
+        let mainnumber = $('#main_no').val();
+
+        location.href = `/main-category/id=${mainnumber}/select/id=1`;
+    });
+
+
     $('#search').keydown(function (key) {
         let text = document.getElementById('search').value;
         let mainnumber = $('#main_no').val();
