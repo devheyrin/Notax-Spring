@@ -44,7 +44,7 @@ public class DetailController {
         if (user_id != null) liked = detailService.isLiked(pd_no, user_id);
 
         Map<String, Integer> minPriceMap = minPrice(productByDFSVOList);
-   
+
         int min_price = minPriceMap.get("min_price");
         int sale_percent = minPriceMap.get("sale_percent");
         String mainname = categoryService.mainname(main_no);

@@ -15,4 +15,5 @@ public class ProductVO {
     private String pd_date;
     private String pd_more;
     private String pdphoto_link;
+    private int pd_likes;
 }
