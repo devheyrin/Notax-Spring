@@ -158,13 +158,16 @@ img {
     padding: 10px 200px 0;
 
 }
-
+a{
+    color:black;
+}
 .values {
     display: flex;
     height: 350px;
     width: 250px;
     float: left;
     font-size: 12px;
+    font-color:black;
     text-align: center;
 }
 

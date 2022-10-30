@@ -4,8 +4,15 @@ $(document).ready(function () {
     });
 
     /* 이동 */
-    $('.feastSelect_example-2 li').click(function () {
+    $('#main-selects').siblings().eq(1).find('li').click(function(){
         console.log($(this).attr('id'));
-        location.href = `/main-category/id=${$(this).attr('id')}/select/id=1`;
+        location.href= `/main-category/id=${$(this).attr('id')}/select/id=1`;
+    }) ;
+
+    $('#searchBTN').click(function() {
+        let text = document.getElementById('search').value;
+        let mainnumber=$('#main_no').val();
+
+        location.href = `/main-category/id=${mainnumber}/search/${text}/select/id=1`;
     });
 });

@@ -17,6 +17,21 @@
               pp.photo_type_no = 1
               order by ${value} desc
     </select>
+    <select id="searchProductByMain" resultType="ProductCategoryVO">
+        select DISTINCT (pd_name) AS pd_name, p.pd_no, ma.main_no,ma.main_name, b.brand_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price, mi.mid_cate_no, s.sub_no
+        from
+            products_tb p, sub_category_tb s, middle_category_tb mi, main_category_tb ma, products_by_duty_free_shop_tb pd, brand_tb b, products_photo_tb pp
+        where ma.main_no = mi.main_no and
+            mi.mid_cate_no = s.mid_cate_no and
+            s.sub_no = p.sub_no and
+            p.pd_no = pd.pd_no and
+            p.brand_no = b.brand_no and
+            p.pd_no = pp.pd_no and
+            ma.main_no = #{main_no} and
+            pp.photo_type_no = 1 and
+            pd_name like '%${text}%'
+            order by ${value} desc
+    </select>
     <select id="mainname"  resultType="String">
         select
             main_name
@@ -108,6 +123,23 @@
             pp.photo_type_no = 1
             order by ${value} desc
     </select>
+    <select id="searchProductByMiddle" resultType="ProductCategoryVO">
+        select
+            DISTINCT (pd_name) AS pd_name, p.pd_no, ma.main_no, b.brand_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price, p.pd_views
+        from
+            products_tb p, sub_category_tb s, middle_category_tb mi, main_category_tb ma, products_by_duty_free_shop_tb pd, brand_tb b, products_photo_tb pp
+        where ma.main_no = mi.main_no and
+            mi.mid_cate_no = s.mid_cate_no and
+            s.sub_no = p.sub_no and
+            p.pd_no = pd.pd_no and
+            p.brand_no = b.brand_no and
+            p.pd_no = pp.pd_no and
+            ma.main_no = #{main_no} and
+            mi.mid_cate_no = #{mid_cate_no} and
+            pp.photo_type_no = 1 AND
+            pd_name like '%${text}%'
+        order by ${value} desc
+    </select>
     <select id="selectProductBySub" resultType="ProductCategoryVO">
         select
             DISTINCT (pd_name) AS pd_name, p.pd_no, ma.main_no, b.brand_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price, p.pd_views, mi.mid_cate_no, s.sub_no, s.sub_name, mi.mid_name
@@ -123,6 +155,24 @@
             mi.mid_cate_no = #{mid_cate_no} and
             s.sub_no = #{sub_no} and
             pp.photo_type_no = 1
+        order by ${value} desc
+    </select>
+    <select id="searchProductBySub" resultType="ProductCategoryVO">
+        select
+            DISTINCT (pd_name) AS pd_name, p.pd_no, ma.main_no, b.brand_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price, p.pd_views, mi.mid_cate_no, s.sub_no, s.sub_name, mi.mid_name
+        from
+            products_tb p, sub_category_tb s, middle_category_tb mi, main_category_tb ma, products_by_duty_free_shop_tb pd, brand_tb b, products_photo_tb pp
+        where ma.main_no = mi.main_no and
+            mi.mid_cate_no = s.mid_cate_no and
+            s.sub_no = p.sub_no and
+            p.pd_no = pd.pd_no and
+            p.brand_no = b.brand_no and
+            p.pd_no = pp.pd_no and
+            ma.main_no = #{main_no} and
+            mi.mid_cate_no = #{mid_cate_no} and
+            s.sub_no = #{sub_no} and
+            pp.photo_type_no = 1 AND
+            pd_name like '%${text}%'
         order by ${value} desc
     </select>
 </mapper>
