@@ -6,9 +6,12 @@
   <script src="../js/tabscroll.js"></script>
   <link rel="stylesheet"  href="../css/mypage-sample.css">
   <link rel="stylesheet" href="../static/css/mypage-cart.css">
+  <link rel="stylesheet" href="../css/index.css" th:href="@{/css/index.css}">
+  <script src="../js/index.js" th:src="@{/js/index.js}"></script>
   <title>Title</title>
 </head>
 <body>
+<div th:replace="top-navbar :: navbar"></div>
 <div class="flex-row-container mypage-main">
   <ul data-tabscrollnavcontainer="">
     <li class="tabscroll_activeNavi" data-tabscrollnavi="one"><a href="#one">회원정보수정</a></li>
