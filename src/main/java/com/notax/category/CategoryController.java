@@ -42,22 +42,7 @@ public class CategoryController {
         ArrayList<ProductCategoryVO> selectProductByMiddle = categoryService.selectProductByMiddle(main_no, mid_cate_no, value);
         model.addAttribute("ProductByMiddle", selectProductByMiddle);
 
-        model.addAttribute("main_no", main_no);
-
-        String mainname = categoryService.mainname(main_no);
-        model.addAttribute("mainname", mainname);
-
-        String mid_name = categoryService.mid_name(main_no, mid_cate_no);
-        model.addAttribute("mid_name", mid_name);
-
-        ArrayList<ProductCategoryVO> mainList = categoryService.selectMain();
-        model.addAttribute("mainList", mainList);
-
-        ArrayList<ProductCategoryVO> middleList = categoryService.selectMiddle(main_no);
-        model.addAttribute("middleList", middleList);
-
-        ArrayList<ProductCategoryVO> subList = categoryService.selectSub(main_no, mid_cate_no);
-        model.addAttribute("subList", subList);
+        productMiddleList(main_no, mid_cate_no, model);
 
         return "middle-category";
     }
@@ -79,25 +64,7 @@ public class CategoryController {
         ArrayList<ProductCategoryVO> selectProductBySub = categoryService.selectProductBySub(main_no, mid_cate_no, sub_no, value);
         model.addAttribute("selectProductBySub", selectProductBySub);
 
-        model.addAttribute("main_no", main_no);
-
-        String mainname = categoryService.mainname(main_no);
-        model.addAttribute("mainname", mainname);
-
-        String mid_name = categoryService.mid_name(main_no, mid_cate_no);
-        model.addAttribute("mid_name", mid_name);
-
-        String sub_name = categoryService.sub_name(main_no, mid_cate_no, sub_no);
-        model.addAttribute("sub_name", sub_name);
-
-        ArrayList<ProductCategoryVO> mainList = categoryService.selectMain();
-        model.addAttribute("mainList", mainList);
-
-        ArrayList<ProductCategoryVO> middleList = categoryService.selectMiddle(main_no);
-        model.addAttribute("middleList", middleList);
-
-        ArrayList<ProductCategoryVO> subList = categoryService.selectSub(main_no, mid_cate_no);
-        model.addAttribute("subList", subList);
+        productSubList(main_no, mid_cate_no, sub_no, model);
 
         return "sub-category";
     }
