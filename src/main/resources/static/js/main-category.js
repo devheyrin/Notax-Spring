@@ -4,14 +4,23 @@ $(document).ready(function () {
     });
 
     /* 이동 */
-    $('#main-selects').siblings().eq(1).find('li').click(function(){
+    $('#main-selects').siblings().eq(1).find('li').click(function () {
         console.log($(this).attr('id'));
-        location.href= `/main-category/id=${$(this).attr('id')}/select/id=1`;
-    }) ;
+        location.href = `/main-category/id=${$(this).attr('id')}/select/id=1`;
+    });
 
-    $('#searchBTN').click(function() {
+    $('#search').keydown(function (key) {
         let text = document.getElementById('search').value;
-        let mainnumber=$('#main_no').val();
+        let mainnumber = $('#main_no').val();
+        if (key.keyCode == 13) {
+            key.preventDefault();
+            location.href = `/main-category/id=${mainnumber}/search/${text}/select/id=1`;
+        }
+    });
+
+    $('#searchBTN').click(function () {
+        let text = document.getElementById('search').value;
+        let mainnumber = $('#main_no').val();
 
         location.href = `/main-category/id=${mainnumber}/search/${text}/select/id=1`;
     });

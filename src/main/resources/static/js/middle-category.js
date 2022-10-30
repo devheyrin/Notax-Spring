@@ -11,6 +11,15 @@ $(document).ready(function () {
             location.href=`/main-category/id=${mainnumber}/middle-category/id=${$(this).attr('id')}/select/id=1`;
        }) ;
     });
+    $('#search').keydown(function (key) {
+        let text = document.getElementById('search').value;
+        let mainnumber = $('#main_no').val();
+        let middlenumber=$('#middle_no').val();
+        if (key.keyCode == 13) {
+            key.preventDefault();
+            location.href = `/main-category/id=${mainnumber}/middle-category/id=${middlenumber}/search/${text}/select/id=1`;
+        }
+    });
     $('#searchBTN').click(function() {
         let text = document.getElementById('search').value;
         let mainnumber=$('#main_no').val();

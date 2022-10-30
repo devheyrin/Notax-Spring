@@ -109,7 +109,7 @@
     </select>
     <select id="selectProductByMiddle" resultType="ProductCategoryVO">
         select
-            DISTINCT (pd_name) AS pd_name, p.pd_no, ma.main_no, b.brand_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price, p.pd_views
+            DISTINCT (pd_name) AS pd_name, p.pd_no, ma.main_no, b.brand_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price, p.pd_views, mi.mid_cate_no
         from
             products_tb p, sub_category_tb s, middle_category_tb mi, main_category_tb ma, products_by_duty_free_shop_tb pd, brand_tb b, products_photo_tb pp
         where ma.main_no = mi.main_no and
@@ -125,7 +125,7 @@
     </select>
     <select id="searchProductByMiddle" resultType="ProductCategoryVO">
         select
-            DISTINCT (pd_name) AS pd_name, p.pd_no, ma.main_no, b.brand_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price, p.pd_views
+            DISTINCT (pd_name) AS pd_name, p.pd_no, ma.main_no, b.brand_name, p.pd_date, pp.pdphoto_link, pd.pd_by_dfs_price, p.pd_views, mi.mid_cate_no
         from
             products_tb p, sub_category_tb s, middle_category_tb mi, main_category_tb ma, products_by_duty_free_shop_tb pd, brand_tb b, products_photo_tb pp
         where ma.main_no = mi.main_no and
