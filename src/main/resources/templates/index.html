@@ -55,6 +55,7 @@
                 <li><a href="/join">회원가입</a></li>
             </th:block>
             <li th:if="${session?.SS_userId}" th:text="${session.SS_userId}"></li>
+            <li th:if="${session?.SS_userId}"><a href="/mypage">마이페이지</a></li>
             <li th:if="${session?.SS_userId}"><a href="/logout">로그아웃</a></li>
         </ul>
     </nav>
