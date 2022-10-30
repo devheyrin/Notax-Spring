@@ -22,6 +22,7 @@
                     <li><a href="/join">회원가입</a></li>
                 </th:block>
                 <li th:if="${session?.SS_userId}" th:text="${session.SS_userId}"></li>
+                <li th:if="${session?.SS_userId}"><a href="/mypage">마이페이지</a></li>
                 <li th:if="${session?.SS_userId}"><a href="/logout">로그아웃</a></li>
             </ul>
         </div>
@@ -61,37 +62,44 @@
     <div id="mainslide">
 
         <div id="mainadd">
-            <section class="fade slider">
-                <div>
-                    <img src="/img/mainslide1.jpg">
-                </div>
-                <div>
-                    <img src="/img/mainslide2.jpg">
-                </div>
-                <div>
-                    <img src="/img/mainslide3.jpg">
-                </div>
-            </section>
+            <img src="/img/mainslide1.jpg">
         </div>
         <div id="inner">
             <div id="sidebar">
-                <ul>
-                    <li><a href="#">스킨케어</a></li>
-                    <li><a href="#">향수/바디/헤어</a></li>
-                    <li><a href="#">가방/지갑</a></li>
-                    <li><a href="#">시계/주얼리</a></li>
-                    <li><a href="#">아이웨어/잡화</a></li>
-                    <li><a href="#">패션/슈즈</a></li>
-                    <li><a href="#">스포츠/레져</a></li>
-                    <li><a href="#">건강/가공식품</a></li>
-                    <li><a href="#">디지털/가전</a></li>
-                    <li><a href="#">리빙/헬스케어</a></li>
-                    <li><a href="#">키즈/베이비</a></li>
+                <ul class="main-category">
+                    <li><a href="/main-category/id=1/select/id=1">스킨케어</a></li>
+                    <li><a href="/main-category/id=2/select/id=1">메이크업</a></li>
+                    <li><a href="/main-category/id=3/select/id=1">향수/바디/헤어</a></li>
+                    <li><a href="/main-category/id=4/select/id=1">가방/지갑</a></li>
+                    <li><a href="/main-category/id=5/select/id=1">시계/주얼리</a></li>
+                    <li><a href="/main-category/id=6/select/id=1">아이웨어/잡화</a></li>
+                    <li><a href="/main-category/id=7/select/id=1">패션/슈즈</a></li>
+                    <li><a href="/main-category/id=8/select/id=1">스포츠/레져</a></li>
+                    <li><a href="/main-category/id=9/select/id=1">건강/가공식품</a></li>
+                    <li><a href="/main-category/id=10/select/id=1">디지털/가전</a></li>
+                    <li><a href="/main-category/id=11/select/id=1">리빙/헬스케어</a></li>
+                    <li><a href="/main-category/id=12/select/id=1">키즈/베이비</a></li>
                 </ul>
+<!--                <table class="category-list ta1">-->
+<!--                    <th><a href="#">페이스</a></th>-->
+<!--                    <th><a href="#">아이</a></th>-->
+<!--                    <th><a href="#">립</a></th>-->
+<!--                    <th><a href="#">메이크업Tool/케이스</a></th>-->
+<!--                    <th><a href="#">네일/타투</a></th>-->
+<!--                    <tr>-->
+<!--                        <td><a href="#">파운데이션</a></td>-->
+<!--                        <td><a href="#">BB/CC크림</a></td>-->
+<!--                        <td><a href="#">쿠션/팩트</a></td>-->
+<!--                        <td><a href="#">파우더</a></td>-->
+<!--                        <td><a href="#">프라이머/베이스</a></td>-->
+<!--                        <td><a href="#">컨실러</a></td>-->
+<!--                        <td><a href="#">블러셔/쉐딩/하이라이터</a></td>-->
+<!--                        <td><a href="#">맨즈</a></td>-->
+<!--                        <td><a href="#">메이크업세트</a></td>-->
+<!--                    </tr>-->
+<!--                </table>-->
             </div>
-            <div id="sidecategory">
 
-            </div>
 
 
         </div>
