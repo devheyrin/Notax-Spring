@@ -14,4 +14,10 @@ public interface DetailDAO {
     public List<ProductByDFSVO> selectPriceByDFS(int pd_no);
     public List<CouponVO> selectCouponList();
     public List<ProductPhotoVO> selectProductPhotoList(int pd_no);
+
+    public void saveInterestedItem(int pd_no, String userid);
+
+    public boolean isLiked(int pd_no, String user_id);
+
+    public void deleteInterestedItem(int pd_no, String userid);
 }
