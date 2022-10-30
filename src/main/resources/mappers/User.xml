@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.notax.user.UserDAO">
-    <select id="getId" parameterType="int" resultType="UserVO">
-        SELECT IFNULL(COUNT(*), 0) FROM USER_TB
-        WHERE ID = #{user_id}
+    <select id="checkId" resultType="int">
+        SELECT COUNT(*) FROM USER_TB
+        WHERE USER_ID = #{user_id}
     </select>
 
 
