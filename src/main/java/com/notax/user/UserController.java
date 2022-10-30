@@ -14,16 +14,12 @@ import org.springframework.validation.BindingResult;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @Controller
@@ -39,9 +35,10 @@ public class UserController {
         return "join";
     }
 
+
     @PostMapping ("/join")
     public String execJoin(@ModelAttribute("vo") @Valid UserVO vo, Errors errors, Model model) {
-        System.out.println("join");
+
         if(errors.hasErrors()) {
             // 회원가입 실패시, 입력 데이터를 유지
             model.addAttribute("vo", vo);
@@ -54,16 +51,35 @@ public class UserController {
             }
             return "join";
         }
-        userService.save(vo);
-        return "login";
+            userService.save(vo);
+            return "redirect:/login";
     }
+    @ResponseBody
+    @PostMapping ("/join-duplicate")
+    public String duplicateJoin(@RequestBody String account){
+        System.out.println("join");
+        System.out.println("param : " + account);
+        int checkNum = userService.checkId(account);
+        System.out.println("checkNum : " + checkNum);
+        if(checkNum == 1) {
+            System.out.println("아이디가 중복되었다.");
+            return "duplicated";
+        }else {
+            System.out.println("아이디 사용 가능");
+            return "available";
+        }
+    }
+
+
+
     @GetMapping("/login")
     public String login(LoginVO loginVO,Model model,HttpSession session) {
         model.addAttribute("loginVO",loginVO);
         return "login";
     }
     @PostMapping("/login")
-    public String login(@ModelAttribute("loginVO") @Valid LoginVO loginVO, BindingResult bindingResult, HttpSession session, HttpServletRequest request,Model model, Errors errors){
+    public String login(@ModelAttribute("loginVO") @Valid LoginVO loginVO, HttpSession session, HttpServletRequest request,Model model, Errors errors){
+
         System.out.println("login");
         if(errors.hasErrors()) {
             // 로그인 실패
@@ -77,13 +93,8 @@ public class UserController {
             }
             return "login";
         }
-
        LoginVO loginMember = userService.login(loginVO);
 
-        if(loginMember == null){
-            bindingResult.reject("LoginFail","아이디 또는 비밀번호가 맞지 않습니다.");
-            return "login";
-        }
             session = request.getSession();
             session.setAttribute("SS_userId",loginVO.getUser_id());
 

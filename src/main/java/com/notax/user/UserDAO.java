@@ -14,7 +14,7 @@ public interface UserDAO {
 
     //회원 등록
 
-    int getId(UserVO VO);
+    public int checkId(String account);
     public void userSave(UserVO vo);
 
 }
