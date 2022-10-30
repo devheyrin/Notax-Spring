@@ -26,8 +26,8 @@
 
     <div class="pass_box">
       <label>비밀번호</label>
-      <input type="password" name="user_pwd" th:value="${vo?.user_pwd}" th:field="*{user_pwd}"/>
-      <span th:text="${valid_user_pwd}"></span>
+      <input id="user_pwd" type="password" name="user_pwd" th:value="${vo?.user_pwd}" th:field="*{user_pwd}"/>
+      <span th:text="${valid_user_pwd}" id="pwdChk"></span>
     </div>
 
     <div class="passSearch_box">
@@ -38,8 +38,8 @@
 
 
     <div class="groupC">
-      <label>이름</label>
-      <input type="text" name="user_name" th:value="${vo?.user_name}" th:field="*{user_name}"/>
+      <label style="padding-right: 76px;">이름</label>
+      <input style="padding-right: 40px; padding-left: 40px; margin-right: 20px;" type="text" name="user_name" th:value="${vo?.user_name}" th:field="*{user_name}"/>
 
       <div class="gender_select">
         <input type="radio" name="gender" id="man" value="man"th:field="*{user_gender}"/>

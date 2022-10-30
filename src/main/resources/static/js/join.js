@@ -1,9 +1,9 @@
 $(function (){
     const getIdCheck = RegExp(/^[a-zA-Z0-9]{4,14}$/);
-    let chk1 = false;
+    let chk1 = false, chk2 = false;
 
     $('#user_id').keyup(function() {
-        if($(this).val() === '' ) {//지금 발생하는 이곳이 빈 문자열이니?
+        if($(this).val() === '' ) {//지금 발생하는 이곳이 빈 문자열
             $(this).css('background-color', 'pink');
             $('#idChk').html('<b style="font-size: 14px; color: red">[아이디는 필수값입니다.]</b>');//텍스트를 집어넣을거야
             chk1 = false;
