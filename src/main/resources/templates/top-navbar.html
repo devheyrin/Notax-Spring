@@ -2,9 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/index.css" th:href="@{/css/index.css}">
 </head>
-<body>
+<body >
+<div th:fragment="navbar">
 <div id="titlebar">
     <div id="topbar">
         <p id="exchange">오늘의 환율 $1=1,418.1원</p>
@@ -49,5 +50,6 @@
         <li th:if="${session?.SS_userId}"><a href="/logout">로그아웃</a></li>
     </ul>
 </nav>
+</div>
 </body>
 </html>
