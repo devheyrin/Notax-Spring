@@ -29,15 +29,21 @@
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="../js/main-category.js" th:src="@{/js/main-category.js}"></script>
     <title>대분류 페이지</title>
+
+    <!--  navbar css/js 시작 -->
+    <link rel="stylesheet" href="../css/index.css" th:href="@{/css/index.css}">
+    <script src="../js/index.js" th:src="@{/js/index.js}"></script>
+    <!--  navbar css/js 끝  -->
 </head>
 <body>
-<br/>
+<!-- 탑 내비게이션바 -->
+<div th:replace="top-navbar :: navbar"></div>
+<!-- 탑 내비게이션바 끝 -->
 <!-- 조건 창 !-->
 <hr style="margin:0 auto;">
 <div class="cateHeader-container">
     <!-- 카테고리 이름 !-->
     <input type="hidden" id="main_no" th:value="${main_no}">
-
     <div class="category-name">
         <div class="home-container nav-item">
             <a href="/" class="home">
@@ -79,11 +85,7 @@
         </form>
     </div>
 </div>
-<br/>
-<div>
     <h1 style="text-align: center" th:text="${name}">123</h1>
-</div>
-<br/>
 <!-- 메인 슬라이드 !-->
 <div class="main-container">
     <div class="slider photo-area" id="slider">
@@ -119,20 +121,6 @@
                 </div>
             </td>
         </tr>
-        <!-- 카테고리 !-->
-        <tr class="select-line">
-            <td class="select-topic">중분류</td>
-            <td class="select-item">
-                <div class="pretty p-svg p-plain" th:name="maincate" th:each="middleList : ${middleList}"
-                     th:value="${middleList.mid_cate_no}">
-                    <input type="checkbox"/>
-                    <div class="state">
-                        <img class="svg" src="https://lokesh-coder.github.io/pretty-checkbox/svg/open-iconic/task.svg">
-                        <label th:text="${middleList.mid_name}">신라</label>
-                    </div>
-                </div>
-            </td>
-        </tr>
         <!-- 브랜드 !-->
         <tr class="select-line">
             <td class="select-topic">브랜드</td>
@@ -151,7 +139,7 @@
         <tr class="select-line">
             <td class="select-topic">가격</td>
             <td style="margin-left : 14px;">
-                <input type="text" id="amount" readonly style="border:0; color:black; font-weight:bold;">
+                <input type="text" id="amount" readonly style="border:0; color:black; font-weight:bold; background-color:gainsboro;">
                 <div id="slider-range"></div>
             </td>
         </tr>
@@ -215,11 +203,12 @@
     </div>
 </div>
 <br/>
+<div style="height:70px;"> </div>
 <!-- 제품목록 !-->
 <div class="values-container">
     <ol>
         <li class="values" th:each="mainVO : ${productCategory}">
-            <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${mainVO.main_no}, mid_cate_no=${mainVO.mid_cate_no}, pd_no=${mainVO.pd_no})}">
+            <a class="product-box" th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${mainVO.main_no}, mid_cate_no=${mainVO.mid_cate_no}, pd_no=${mainVO.pd_no})}">
                 <div class="unit_img">
                     <img class="values-img" th:src="${mainVO.pdphoto_link}">
                 </div>
