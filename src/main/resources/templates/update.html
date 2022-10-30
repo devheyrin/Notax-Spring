@@ -10,9 +10,9 @@
 <body>
 <div class="flex-row-container mypage-main">
   <ul data-tabscrollnavcontainer="">
-    <li class="tabscroll_activeNavi" data-tabscrollnavi="one"><a href="">회원정보수정</a></li>
-    <li data-tabscrollnavi="two"><a href="">멤버쉽 변경</a></li>
-    <li data-tabscrollnavi="three"><a href="">관심상품조회</a></li>
+    <li class="tabscroll_activeNavi" data-tabscrollnavi="one"><a href="#one">회원정보수정</a></li>
+    <li data-tabscrollnavi="two"><a href="#two">멤버쉽 변경</a></li>
+    <li data-tabscrollnavi="three"><a href="#three">관심상품조회</a></li>
   </ul>
 <article>
   <section data-tabscroll="one" style="">
@@ -59,7 +59,7 @@
           <label>생년월일</label>
           <input type="text" name="user_birth_ymd"  th:value="${memberid.user_birth_ymd}" readonly/>
         </div>
-        <input type="submit" value="수정"  th:href="@{mypage.html}">
+        <input type="submit" value="수정"/>
 
       </form>
 

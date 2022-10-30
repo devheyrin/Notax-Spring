@@ -5,8 +5,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="../js/tabscroll.js"></script>
   <link rel="stylesheet"  href="../css/mypage-sample.css">
-  <link rel="stylesheet" href="../static/css/mypage-cart.css">
+
   <title>Title</title>
+  <style>
+
+  </style>
 </head>
 <body>
 <div class="flex-row-container mypage-main">
@@ -20,6 +23,7 @@
     <div class="join-wrapper">
       <div class="table-box-type-1">
         <table>
+          <body>
 
           <tr>
             <th>로그인아이디</th>
@@ -65,24 +69,27 @@
               <button type="button" class="btn btn-outline btn-secondary" onclick="history.back();">뒤로가기</button>
             </td>
           </tr>
+          </body>
         </table>
       </div>
     </div>
   </section>
   </article>
 
-    <section data-tabscroll="two" style="">
+      </div>
+    </section>
+    <section data-tabscroll="two" style="display: none;">
       <div id="select_form">
         <!--롯데백화점 등급지정-->
         <div class="select_box1">
           <h2>롯데백화점</h2>
           <div class="right-select">
             <select name="lotte-rating" class="select">
-              <option >등급</option>
-              <option class="select_option1" value="blue">blue</option>
-              <option class="select_option2" value="red">red</option>
-              <option class="select_option3" value="purple">purple</option>
-              <option class="select_option4" value="black">black</option>
+              <option disabled selected>등급</option>
+              <option value="apple"></option>
+              <option value="orange"></option>
+              <option value="grape"></option>
+              <option value="melon"></option>
             </select>
           </div>
         </div>
@@ -171,13 +178,12 @@
           </div>
         </div>
 
-
        <!-- 수정버튼 -->
         <button class="modify_btn">수정</button>
+
       </div>
     </section>
-
-    <section data-tabscroll="three" style="">
+    <section data-tabscroll="three" style="display: none;">
       <div class="cart_size">
         <table class="subject_table">
           <tbody>
@@ -232,7 +238,9 @@
       </div>
 
     </section>
+  </article>
 </div>
+
 </body>
 </html>
 

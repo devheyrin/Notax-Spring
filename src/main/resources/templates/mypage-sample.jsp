@@ -98,7 +98,7 @@
                     <div class="right-select">
                         <select name="jeju-rating" class="select">
                             <option disabled selected>등급</option>
-                            <option id="5" value="apple">tier1</option>
+                            <option value="apple"></option>
                             <option value="orange"></option>
                             <option value="grape"></option>
                             <option value="melon"></option>
