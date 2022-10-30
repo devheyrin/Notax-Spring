@@ -14,7 +14,7 @@
                 <li><a href="/login">로그인</a></li>
                 <li><a href="/join">회원가입</a></li>
             </th:block>
-            <li th:if="${session?.SS_userId}" th:text="${session.SS_userId}님 환영합니다!"></li>
+            <li th:if="${session?.SS_userId}" th:text="${session.SS_userId} + '님 환영합니다!'"></li>
             <li th:if="${session?.SS_userId}"><a href="/mypage">마이페이지</a></li>
             <li th:if="${session?.SS_userId}"><a href="/logout">로그아웃</a></li>
         </ul>
@@ -33,14 +33,16 @@
     </div>
 </div>
 <nav id="navbar">
+
     <div class="logo">
         <img src="/img/mainlogo.png">
     </div>
+
     <ul class="navul">
-        <li class="navbtn"><a href="#ranking">랭킹</a></li>
-        <li class="navbtn"><a href="#newproduct">신상품</a></li>
-        <li class="navbtn"><a href="#topsale">최고할인</a></li>
-        <li class="navbtn"><a href="#timesale">타임세일</a></li>
+        <li class="navbtn"><a href="/#ranking">랭킹</a></li>
+        <li class="navbtn"><a href="/#newproduct">신상품</a></li>
+        <li class="navbtn"><a href="/#topsale">최고할인</a></li>
+        <li class="navbtn"><a href="/#timesale">타임세일</a></li>
     </ul>
     <ul class="topul">
         <th:block th:if="!${session?.SS_userId}">

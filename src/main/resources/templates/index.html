@@ -54,7 +54,7 @@
                 <li><a href="/login">로그인</a></li>
                 <li><a href="/join">회원가입</a></li>
             </th:block>
-            <li th:if="${session?.SS_userId}" th:text="${session.SS_userId}"></li>
+            <li th:if="${session?.SS_userId}" th:text="${session.SS_userId} + '님 환영합니다!'"></li>
             <li th:if="${session?.SS_userId}"><a href="/mypage">마이페이지</a></li>
             <li th:if="${session?.SS_userId}"><a href="/logout">로그아웃</a></li>
         </ul>
@@ -119,7 +119,9 @@
     <div class="subpage">
         <h1>랭킹</h1>
         <section class="regular slider">
+
             <div class="card" th:each="disRank : ${disRank}">
+                <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${disRank.MAIN_NO}, mid_cate_no=${disRank.MID_CATE_NO}, pd_no=${disRank.PD_NO})}">
                 <img th:src="${disRank.PDPHOTO_LINK}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text" th:text="${disRank.pd_name}"></p>
@@ -128,6 +130,7 @@
                     <p class="card-text" th:text="${disRank.PD_SALE_PRICE}"></p>
 
                 </div>
+                </a>
             </div>
 
         </section>
@@ -140,14 +143,16 @@
         <h1>신상품</h1>
         <section class="regular slider">
             <div class="card" th:each="disRank : ${disRank}">
-                <img th:src="${disRank.PDPHOTO_LINK}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text" th:text="${disRank.pd_name}"></p>
-                    <p class="card-text" th:text="${disRank.PD_BY_DFS_SALE}"></p>
-                    <p class="card-text" th:text="${disRank.PD_PRICE}"></p>
-                    <p class="card-text" th:text="${disRank.PD_SALE_PRICE}"></p>
+                <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${disRank.MAIN_NO}, mid_cate_no=${disRank.MID_CATE_NO}, pd_no=${disRank.PD_NO})}">
+                    <img th:src="${disRank.PDPHOTO_LINK}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text" th:text="${disRank.pd_name}"></p>
+                        <p class="card-text" th:text="${disRank.PD_BY_DFS_SALE}"></p>
+                        <p class="card-text" th:text="${disRank.PD_PRICE}"></p>
+                        <p class="card-text" th:text="${disRank.PD_SALE_PRICE}"></p>
 
-                </div>
+                    </div>
+                </a>
             </div>
 
         </section>
@@ -159,14 +164,16 @@
         <h1>최고할인</h1>
         <section class="regular slider">
             <div class="card" th:each="disRank : ${disRank}">
-                <img th:src="${disRank.PDPHOTO_LINK}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text" th:text="${disRank.pd_name}"></p>
-                    <p class="card-text" th:text="${disRank.PD_BY_DFS_SALE}"></p>
-                    <p class="card-text" th:text="${disRank.PD_PRICE}"></p>
-                    <p class="card-text" th:text="${disRank.PD_SALE_PRICE}"></p>
+                <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${disRank.MAIN_NO}, mid_cate_no=${disRank.MID_CATE_NO}, pd_no=${disRank.PD_NO})}">
+                    <img th:src="${disRank.PDPHOTO_LINK}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text" th:text="${disRank.pd_name}"></p>
+                        <p class="card-text" th:text="${disRank.PD_BY_DFS_SALE}"></p>
+                        <p class="card-text" th:text="${disRank.PD_PRICE}"></p>
+                        <p class="card-text" th:text="${disRank.PD_SALE_PRICE}"></p>
 
-                </div>
+                    </div>
+                </a>
             </div>
 
         </section>
