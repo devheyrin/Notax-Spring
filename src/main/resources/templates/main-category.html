@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="../css/main-category.css" th:href="@{/css/main-category.css}">
     <!-- 슬라이더 !-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <!--체크박스 !-->
@@ -13,6 +12,7 @@
     <!--셀렉트 박스 !-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main-category.css" th:href="@{/css/main-category.css}">
     <link rel="stylesheet" href="../css/feastSelect.css" th:href="@{/css/feastSelect.css}">
     <!-- Bootstrap  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="../css/style.css" th:href="@{/css/style.css}">
     <script src="../js/feastSelect.js" th:src="@{/js/feastSelect.js}"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <script src="../js/main-category.js"  th:src="@{/js/main-category.js}"></script>
+    <script src="../js/main-category.js" th:src="@{/js/main-category.js}"></script>
     <title>대분류 페이지</title>
 </head>
 <body>
@@ -36,6 +36,8 @@
 <hr style="margin:0 auto;">
 <div class="cateHeader-container">
     <!-- 카테고리 이름 !-->
+    <input type="hidden" id="main_no" th:value="${main_no}">
+
     <div class="category-name">
         <div class="home-container nav-item">
             <a href="/" class="home">
@@ -45,7 +47,7 @@
         <img class="arrow-right-icon" src="../img/noun-arrow-right.png" th:src="@{/img/noun-arrow-right.png}"/>
         <div class="form-group nav-item">
             <select id="main-selects" class="form-control example2 main-category" name="example-2">
-                <option  th:each="mainVO : ${mainList}" th:value="${mainVO.main_no}" th:utext="${mainVO.main_name}">
+                <option th:each="mainVO : ${mainList}" th:value="${mainVO.main_no}" th:utext="${mainVO.main_name}">
                 </option>
             </select>
         </div>
@@ -53,7 +55,7 @@
     <!-- 카테고리 이름!-->
     <script th:inline="javascript">
         /*<![CDATA[*/
-        let mainname=[[${name}]];
+        let mainname = [[${name}]];
         console.log(mainname);
         $('.main-category').FeastSelect({
             btnText: mainname, // 선택한 분류 가져와서 지정
@@ -72,8 +74,8 @@
         <form class="search-box"
               action="../../../../../../JavaWebProjects/SpringCloneTest/NoTax/src/main/webapp/WEB-INF/views"
               method="post">
-            <input class="search-txt" type="text" placeholder="카테고리 내 상품검색">
-            <button class="btn btn-outline-dark" type="button">찾기</button>
+            <input id="search" class="search-txt" type="text" placeholder="카테고리 내 상품검색">
+            <button id="searchBTN" class="btn btn-outline-dark" type="button">찾기</button>
         </form>
     </div>
 </div>
@@ -85,7 +87,7 @@
 <!-- 메인 슬라이드 !-->
 <div class="main-container">
     <div class="slider photo-area" id="slider">
-        <div><img src="../img/main-category.jpg" th:src="@{/img/main-category.jpg}" ></div>
+        <div><img src="../img/main-category.jpg" th:src="@{/img/main-category.jpg}"></div>
         <div><img src="../img/main-category.jpg" th:src="@{/img/main-category.jpg}"></div>
         <div><img src="../img/main-category.jpg" th:src="@{/img/main-category.jpg   }"></div>
     </div>
@@ -199,14 +201,14 @@
         <button id="orders2" value="pd_views" class="btn btn-outline-dark">최신날짜</button>
         <button id="orders3" value="pd_name" class="btn btn-outline-dark">이름순서</button>
         <script th:inline="javascript">
-            let mainnumber=[[${main_no}]];
-            $('#orders1').click(function (){
+            let mainnumber = [[${main_no}]];
+            $('#orders1').click(function () {
                 location.href = `/main-category/id=${mainnumber}/select/id=8`
             });
-            $('#orders2').click(function (){
+            $('#orders2').click(function () {
                 location.href = `/main-category/id=${mainnumber}/select/id=6`
             })
-            ;$('#orders3').click(function (){
+            ;$('#orders3').click(function () {
                 location.href = `/main-category/id=${mainnumber}/select/id=1`
             });
         </script>
