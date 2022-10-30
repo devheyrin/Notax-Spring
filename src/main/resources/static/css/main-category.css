@@ -1,6 +1,5 @@
 
 .mainscreen {
-    background-color: white;
 }
 
 .category-name {
@@ -103,14 +102,13 @@
     text-align: center;
 }
 
-img {
+.mainImg {
     height: 400px;
     width: 100%;
 }
 
 .choosebax {
     display: flex;
-    background-color: white;
     margin: 5px auto;
     max-width: 2000px;
     min-width: 900px;
@@ -169,6 +167,13 @@ a{
     font-size: 12px;
     font-color:black;
     text-align: center;
+
+}
+
+.product-box{
+    background-color: white;
+    border-radius: 5px;
+    border-bottom : 5px solid gray;
 }
 
 .values-img {

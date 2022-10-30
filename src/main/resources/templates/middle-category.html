@@ -30,9 +30,16 @@
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="../js/middle-category.js" th:src="@{/js/middle-category.js}"></script>
     <title>중분류 페이지</title>
+
+    <!--  navbar css/js 시작 -->
+    <link rel="stylesheet" href="../css/index.css" th:href="@{/css/index.css}">
+    <script src="../js/index.js" th:src="@{/js/index.js}"></script>
+    <!--  navbar css/js 끝  -->
 </head>
 <body class="mainscreen">
-<br/>
+<!-- 탑 내비게이션바 -->
+<div th:replace="top-navbar :: navbar"></div>
+<!-- 탑 내비게이션바 끝 -->
 <!-- 조건 창 !-->
 <hr style="margin:0 auto;">
 <div class="cateHeader-container">
@@ -90,9 +97,7 @@
         </form>
     </div>
 </div>
-<div>
     <h1 style="text-align: center" th:text="${mid_name}">123</h1>
-</div>
 <!-- 소분류!-->
 <div>
     <ul class="middle-sub-category">
@@ -124,12 +129,13 @@
         </script>
     </div>
 </div>
+<div style="height:70px;"> </div>
 <br/>
 <!-- 제품목록 !-->
 <div class="values-container">
     <ol>
         <li class="values" th:each="middleVO : ${ProductByMiddle}">
-            <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${middleVO.main_no}, mid_cate_no=${middleVO.mid_cate_no}, pd_no=${middleVO.pd_no})}">
+            <a class="product-box" th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${middleVO.main_no}, mid_cate_no=${middleVO.mid_cate_no}, pd_no=${middleVO.pd_no})}">
                 <div class="unit_img">
                     <img class="values-img" th:src="${middleVO.pdphoto_link}">
                 </div>
