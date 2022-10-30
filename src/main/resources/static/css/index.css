@@ -39,12 +39,11 @@ body{
 }
 
 .topul li a{
-    color: #7a7a7a;
+    color: #cccccc;
     text-decoration: none;
     font-size: 10px;
 }
 .topul li a:hover{
-    color: #7a7a7a;
     text-decoration: none;
     font-size: 10px;
     font-weight: 900;
@@ -149,11 +148,10 @@ body{
     margin-left: 20px;
 }
 .navbtn a{
-    color: #7a7a7a;
+    color: #cccccc;
     text-decoration: none;
 }
 .navbtn a:hover{
-    color: #7a7a7a;
     text-decoration: none;
     font-weight: 900;
     color: white;
@@ -253,14 +251,14 @@ ul{
 
 #sidebar ul li a{
     text-decoration: none;
-    color: #7a7a7a;
+    color: #cccccc;
     vertical-align: center;
 
 }
 #sidebar ul li a:hover{
 
     font-weight: 900;
-    color: #c9c9c9;
+    color: white;
 }
 
 
