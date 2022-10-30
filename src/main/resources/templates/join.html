@@ -9,10 +9,16 @@
           type="text/javascript"
           th:src="@{/js/join.js}"
   ></script>
+  <!--  navbar css/js 시작 -->
+  <link rel="stylesheet" href="../css/index.css" th:href="@{/css/index.css}">
+  <script src="../js/index.js" th:src="@{/js/index.js}"></script>
+  <!--  navbar css/js 끝  -->
 
 </head>
 <body>
-
+<!-- 탑 내비게이션바 -->
+<div th:replace="top-navbar :: navbar"></div>
+<!-- 탑 내비게이션바 끝 -->
   <h1 class="jointit">회원가입</h1>
   <div class="join-wrapper">
 
