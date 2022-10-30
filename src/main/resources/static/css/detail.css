@@ -164,11 +164,27 @@ svg {
     margin-bottom: 7px;
 }
 
-button:hover path {
+/*button:hover path {*/
+/*    !* 찜 버튼 색상 변경 *!*/
+/*    fill: rgb(255, 72, 0);*/
+/*    fill-rule: evenodd;*/
+/*    stroke: rgb(255, 72, 0);*/
+/*    stroke-width: 0.7;*/
+/*}*/
+
+.liked {
     /* 찜 버튼 색상 변경 */
     fill: rgb(255, 72, 0);
     fill-rule: evenodd;
     stroke: rgb(255, 72, 0);
+    stroke-width: 0.7;
+}
+
+.disliked {
+    /* 찜 버튼 색상 변경 */
+    fill: rgb(255, 255, 255);
+    fill-rule: evenodd;
+    stroke: #5d5d5d;
     stroke-width: 0.7;
 }
 

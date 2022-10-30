@@ -46,4 +46,17 @@ public class DetailService {
         return detailDAO.selectProductPhotoList(pd_no);
     }
 
+    public void saveInterestedItem(int pd_no, String userid) {
+        detailDAO.saveInterestedItem(pd_no, userid);
+    }
+
+    public boolean isLiked(int pd_no, String user_id) {
+        boolean result = detailDAO.isLiked(pd_no, user_id);
+        System.out.println("result = " + result);
+        return detailDAO.isLiked(pd_no, user_id);
+    }
+
+    public void deleteInterestedItem(int pd_no, String userid) {
+        detailDAO.deleteInterestedItem(pd_no, userid);
+    }
 }

@@ -4,46 +4,40 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.notax.detail.DetailDAO">
     <select id="selectProductById" resultType="ProductVO" parameterType="int">
-        SELECT
-            pd_no,
-            (SELECT sub_name FROM SUB_CATEGORY_TB sct WHERE sct.SUB_NO = pt.sub_no) SUB_NAME,
-            (SELECT brand_name FROM BRAND_TB bt WHERE bt.BRAND_NO = pt.BRAND_NO) brand_name,
-            pd_name,
-            pd_price,
-            pd_views,
-            pd_date,
-            pd_more
+        SELECT pd_no,
+               (SELECT sub_name FROM SUB_CATEGORY_TB sct WHERE sct.SUB_NO = pt.sub_no) SUB_NAME,
+               (SELECT brand_name FROM BRAND_TB bt WHERE bt.BRAND_NO = pt.BRAND_NO)    brand_name,
+               pd_name,
+               pd_price,
+               pd_views,
+               pd_date,
+               pd_more
         FROM PRODUCTS_TB pt
         where pd_no = #{pd_no}
     </select>
 
     <select id="selectPriceByDFS" parameterType="int" resultType="ProductByDFSVO">
-        SELECT
-            min(DFST.dfs_no) dfs_no,
-            dfst.DFS_NAME,
-            min(PBDFST.pd_by_dfs_price) price,
-            min(PBDFST.pd_by_dfs_sale) sale_percent,
-            min(PBDFST.pd_by_dfs_price)*(1 - min(PBDFST.pd_by_dfs_sale)/100) total_price
-        FROM
-            PRODUCTS_BY_DUTY_FREE_SHOP_TB pbdfst,
-            DUTY_FREE_SHOP_TB dfst
-        WHERE
-            pbdfst.dfs_no = dfst.DFS_NO AND
-            PBDFST.pd_no = #{pd_no}
+        SELECT min(DFST.dfs_no)                                                     dfs_no,
+               dfst.DFS_NAME,
+               min(PBDFST.pd_by_dfs_price)                                          price,
+               min(PBDFST.pd_by_dfs_sale)                                           sale_percent,
+               min(PBDFST.pd_by_dfs_price) * (1 - min(PBDFST.pd_by_dfs_sale) / 100) total_price
+        FROM PRODUCTS_BY_DUTY_FREE_SHOP_TB pbdfst,
+             DUTY_FREE_SHOP_TB dfst
+        WHERE pbdfst.dfs_no = dfst.DFS_NO
+          AND PBDFST.pd_no = #{pd_no}
         GROUP BY DFST.DFS_NAME
         ORDER BY dfs_no
     </select>
 
     <select id="selectCouponList" resultType="CouponVO">
-        SELECT
-            c.CP_NAME,
-            ctt.CP_TYPE_NAME CP_UNIT,
-            c.DISCOUNT_AMT,
-            c.DFS_NO
-        FROM
-            COUPON c, COUPON_TYPE_TB ctt
-        WHERE
-            c.CP_TYPE_NO = ctt.CP_TYPE_NO
+        SELECT c.CP_NAME,
+               ctt.CP_TYPE_NAME CP_UNIT,
+               c.DISCOUNT_AMT,
+               c.DFS_NO
+        FROM COUPON c,
+             COUPON_TYPE_TB ctt
+        WHERE c.CP_TYPE_NO = ctt.CP_TYPE_NO
     </select>
 
     <select id="selectProductPhotoList" resultType="ProductPhotoVO" parameterType="int">
@@ -51,5 +45,30 @@
         FROM PRODUCTS_PHOTO_TB ppt
         WHERE PD_NO = #{pd_no}
     </select>
+
+    <insert id="saveInterestedItem">
+        INSERT INTO INTERESTED_ITEMS_TB
+            (INTERESTED_ITEMS_NO, PD_NO, USER_NO)
+        VALUES (INTERESTED_ITEMS_TB_SEQ.nextval,
+                #{pd_no},
+                (SELECT USER_NO FROM USER_TB ut
+                WHERE ut.USER_ID = #{userid}))
+    </insert>
+
+    <select id="isLiked" resultType="boolean">
+        SELECT COUNT(*) FROM INTERESTED_ITEMS_TB iit
+        WHERE PD_NO = #{pd_no} AND
+              USER_NO = (SELECT USER_NO
+                        FROM USER_TB ut
+                        WHERE ut.USER_ID = #{user_id})
+    </select>
+
+    <delete id="deleteInterestedItem">
+        DELETE from INTERESTED_ITEMS_TB
+        where PD_NO = #{pd_no} AND
+              USER_NO = (SELECT USER_NO
+                         FROM USER_TB ut
+                         WHERE ut.USER_ID = #{userid})
+    </delete>
 
 </mapper>

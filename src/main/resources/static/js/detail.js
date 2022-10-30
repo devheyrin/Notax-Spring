@@ -40,16 +40,14 @@ $(function () {
 
 $(function () {
    $('#main-selects').siblings().eq(1).find('li').click(function () {
-      console.log($(this).attr('id'));
-      location.href = `/main-category/id=${$(this).attr('id')}`;
+      let main_no = $(this).attr('id');
+      location.href = `/main-category/id=${main_no}/select/id=1`;
    });
 
    $('#middle-selects').siblings().eq(1).find('li').click(function () {
-      console.log($(this).attr('id'));
       let main_no = $('#main_no').val();
-
-      //location.href=`/main-category/id=${$('#main-selects option:selected').val()}/middle-category/id=${$(this).attr('id')}/select/id=1`;
-      location.href = `/main-category/id=${main_no}/middle-category/id=${$(this).attr('id')}/select/id=1`;
+      let middle_no = $(this).attr('id');
+      location.href = `/main-category/id=${main_no}/middle-category/id=${middle_no}/select/id=1`;
    });
 
 });
@@ -73,4 +71,51 @@ $(function () {
       }
 
    });
+});
+
+/* 찜하기 */
+$(function () {
+   let pd_no = $('#pd-no').val();
+   let user_id = $('#session-user-id').val();
+
+   // 로그인하지 않은 사용자인 경우
+
+
+   // 로그인한 사용자인 경우
+   $('#btn-like').click(function () {
+      if (!user_id) {
+         alert("로그인 후 사용 가능한 기능입니다.");
+         return;
+      }
+
+      console.log();
+      if ($(this).val() === 'disliked') {
+         $.ajax({
+            type : 'POST',
+            url : `/detail/${pd_no}/like`,
+            data : {'userid': user_id},
+            success : function (data) {
+               console.log("성공 : " , data);
+               $('path').removeClass('disliked');
+               $('path').addClass('liked');
+               $('#btn-like').val("liked");
+            }
+         });
+      } else {
+         $.ajax({
+            type : 'POST',
+            url : `/detail/${pd_no}/dislike`,
+            data : {'userid': user_id},
+            success : function (data) {
+               console.log("성공 : " , data);
+               $('path').removeClass('liked');
+               $('path').addClass('disliked');
+               $('#btn-like').val("disliked");
+            }
+         });
+      }
+
+
+   });
+
 });
