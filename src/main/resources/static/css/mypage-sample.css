@@ -65,10 +65,9 @@
 
 .name_box > label {
     width: 353px;
-    padding: 10px 0;
+    padding: 10px 8px;
     box-sizing: border-box;
     border-radius: 6px;
-    background-color: #F8F8F8;
 }
 .bir_wrap > label {
     padding-right: 47px;
@@ -79,7 +78,7 @@
     border-radius: 6px;
     margin-bottom: 14px;
     background-color: #F8F8F8;
-    padding: 10px 74px 10px;
+    padding: 10px 72px 10px;
 }
 
 
@@ -89,7 +88,7 @@
 .gender_select input[type=radio]+label{
     display: inline-block;
     cursor: pointer;
-    width: 50px;
+    width: 173px;
     border: 2px solid #333;
     line-height: 24px;
     text-align: center;
@@ -100,7 +99,7 @@
 .gender_select input[type=radio]+label{
     background-color: #fff;
     color: #333;
-    height: 25px;
+    height: 37px;
     padding-top: 5px;
     font-size: medium;
 }
@@ -135,19 +134,19 @@
     flex-direction: row;
 }
 
-ul li {
-    background-color: black;
+.mypage-main ul li {
     width: 250px;
     padding: 10px;
 }
 
-ul {
+.mypage-main ul {
     background-color: black;
     padding: 10px;
+    height: 100vh;
 }
 
-a, a:visited, a:active, a:hover { color: white; }
-a {
+.mypage-main a, .mypage-main a:visited, .mypage-main a:active, a:hover { color: white; }
+.mypage-main a {
     font-size: 30px;
     text-decoration-line: none;
 }
@@ -161,7 +160,7 @@ a {
 
 .tabscroll_activeNavi a, .tabscroll_activeNavi a:visited, .tabscroll_activeNavi a:active, .tabscroll_activeNavi a:hover { color: black; }
 
-article {
+.mypage-main article {
     border-width: 0px 2px 0px 2px;
     border-color: black;
     border-style: solid;
@@ -290,12 +289,12 @@ body{
     text-align: center;
 }
 
-li a:hover {
+.mypage-main li a:hover {
     background: #fff;
     color: #000;
 }
 
-li a.home {
+.mypage-main li a.home {
     background : #fff;
     color: #000;
 }
