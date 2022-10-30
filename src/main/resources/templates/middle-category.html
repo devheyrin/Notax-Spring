@@ -128,7 +128,7 @@
 <div class="values-container">
     <ol>
         <li class="values" th:each="middleVO : ${ProductByMiddle}">
-            <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${mainVO.main_no}, mid_cate_no=${mainVO.mid_cate_no}, pd_no=${mainVO.pd_no})}">
+            <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${middleVO.main_no}, mid_cate_no=${middleVO.mid_cate_no}, pd_no=${middleVO.pd_no})}">
                 <div class="unit_img">
                     <img class="values-img" th:src="${middleVO.pdphoto_link}">
                 </div>
