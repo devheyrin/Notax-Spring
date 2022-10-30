@@ -19,13 +19,8 @@ public class MypageService {
     }
 
     public MemberMdfVO selectMemberfindById(String memberid){
-      /*  log.info(this.getClass().getName() + ".MyPageService START!!!");*/
 
-        /*log.info("mypageDAO.selectMemberfindById(memberid)" + */
         mypageDAO.selectMemberfindById(memberid);
-
-       /* log.info(this.getClass().getName() + ".MyPageService END!!!");*/
-
         return mypageDAO.selectMemberfindById(memberid);
 
     }
