@@ -175,6 +175,7 @@ article {
     height: 40px;
     margin-top: 10px ;
     background-size: 20px;
+    background:#f4f4f4;
     padding: 5px 30px 5px 10px;
     border-radius: 4px;
     outline: 0 none;
@@ -185,9 +186,24 @@ article {
 }
 
 /*selectbox option*/
-.select option {
-    background: black;
-    color: #fff;
+.select_option1{
+    background:#F8F8F8;
+    color:blue;
+    padding: 3px 0;
+}
+.select_option2{
+    background:#F8F8F8;
+    color:red;
+    padding: 3px 0;
+}
+.select_option3{
+    background:#F8F8F8;
+    color:purple;
+    padding: 3px 0;
+}
+.select_option4{
+    background:#F8F8F8;
+    color:black;
     padding: 3px 0;
 }
 
@@ -256,20 +272,6 @@ body{
     margin: 0;
 }
 
-.mypage-left-bar {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
-    width: 150px;
-    background: #000;
-    height: 100%;
-    overflow: auto;
-    position: fixed;
-}
-.mypage-left-bar >ul{
-    padding: 10px 0 10px 0;
-
-}
 .cart_nav ul{
     display: flex;
 }
