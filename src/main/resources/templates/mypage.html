@@ -25,7 +25,7 @@
         <form name="updateForm" id="join_form" method="post" action="/update">
           <div class="id_box">
             <label>아이디</label>
-            <input type="id" name="user_id" id="user_id" th:value="${member?.user_id}"/>
+            <input type="id" name="user_id" id="user_id" th:value="${member?.user_id}" readonly/>
             <span></span>
           </div>
 
