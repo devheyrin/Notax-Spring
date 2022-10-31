@@ -172,8 +172,18 @@ body{
 #fixbutton div{
     width: 70px;
     height: 70px;
-    background-color: yellow;
+    background: linear-gradient(180deg, #0a0a0a 50%, rgba(10, 10, 10, 0.73));
     z-index: 899;
+    text-align: center;
+    padding-top: 25px;
+}
+#fixbutton div a{
+    color: white;
+    text-decoration: none;
+
+}
+#fixbutton div a:hover{
+    font-weight: 900;
 }
 .subpage{
     padding-top: 50px;
@@ -301,33 +311,40 @@ ul{
 }
 
 /*카드 디자인-----------------------------------------------------------*/
-.brand{
+.card-body p{
+    color: black;
+}
+
+.brand-name{
     position: absolute;
-    font-size: 10px;
+    font-size: 13px;
     top: 260px;
     left: 10px;
 }
 .pd-name{
     position: absolute;
-    font-size: 10px;
-    top: 260px;
+    font-size: 13px;
+    top: 280px;
     left: 10px;
+    float: left;
+    overflow: hidden;
 }
-.pd-sale{
+.card-body .pd-sale{
     position: absolute;
-    font-size: 10px;
-    top: 260px;
-    left: 10px;
+    font-size: 20px;
+    top: 275px;
+    right: 30px;
+    color: #a90808;
 }
 .pd-price{
     position: absolute;
-    font-size: 10px;
-    top: 260px;
-    left: 10px;
+    font-size: 16px;
+    top: 340px;
+    right: 30px;
 }
 .pd-sale-price{
     position: absolute;
-    font-size: 10px;
-    top: 260px;
-    left: 10px;
+    font-size: 16px;
+    top: 370px;
+    right: 30px;
 }
