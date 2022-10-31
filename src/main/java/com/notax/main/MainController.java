@@ -17,7 +17,9 @@ public class MainController {
     @RequestMapping("/")
     public String mainRank(Model model) {
         ArrayList<MainRankingVO> ranking = mainService.selectRank();
+        ArrayList<MainRankingVO> pdListByDate = mainService.selectPdListByDate();
         model.addAttribute("disRank", ranking);
+        model.addAttribute("pdListByDate", pdListByDate);
         return "index";
     }
 

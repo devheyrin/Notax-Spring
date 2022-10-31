@@ -6,17 +6,49 @@
     <select id="selectRank" resultType="MainRankingVO">
 <![CDATA[
         SELECT * FROM (
-                          SELECT DISTINCT (pd_name) AS pd_name ,p.PD_NO  , p.PD_BY_DFS_SALE, pt.PD_PRICE , PDPHOTO_LINK ,
+                          SELECT DISTINCT (pd_name) AS pd_name ,p.PD_NO  , p.PD_BY_DFS_SALE, bt.BRAND_NAME , pt.PD_PRICE , PDPHOTO_LINK ,
                                           pt.PD_PRICE - (pt.PD_PRICE * p.PD_BY_DFS_SALE/100) AS PD_SALE_PRICE,mct.MAIN_NO ,mct2.MID_CATE_NO
-                          FROM PRODUCTS_BY_DUTY_FREE_SHOP_TB p ,PRODUCTS_TB pt ,PRODUCTS_PHOTO_TB ppt,MAIN_CATEGORY_TB mct ,MIDDLE_CATEGORY_TB mct2 ,SUB_CATEGORY_TB sct
+                          FROM PRODUCTS_BY_DUTY_FREE_SHOP_TB p ,
+                               PRODUCTS_TB pt ,
+                               PRODUCTS_PHOTO_TB ppt,
+                               MAIN_CATEGORY_TB mct ,
+                               MIDDLE_CATEGORY_TB mct2 ,
+                               SUB_CATEGORY_TB sct,
+                               BRAND_TB bt
                           WHERE p.PD_BY_DFS_SALE > 0
                             AND pt.SUB_NO  = sct.SUB_NO
                             AND sct.MID_CATE_NO = mct2.MID_CATE_NO
                             AND mct2.MAIN_NO = mct.MAIN_NO
                             AND p.PD_NO = pt.PD_NO
                             AND p.pd_NO = ppt.PD_NO
+                            AND bt.BRAND_NO = pt.BRAND_NO
                             AND ppt.PHOTO_TYPE_NO =1
                           ORDER BY 3 DESC)
+        WHERE rownum <= 10
+        ]]>
+    </select>
+
+    <select id="selectPdListByDate" resultType="MainRankingVO">
+    <![CDATA[
+        SELECT * FROM (
+                          SELECT  DISTINCT (pd_name) AS pd_name , bt.BRAND_NAME  , pt.PD_DATE  , p.PD_NO  , p.PD_BY_DFS_SALE, pt.PD_PRICE , PDPHOTO_LINK ,
+                                           pt.PD_PRICE - (pt.PD_PRICE * p.PD_BY_DFS_SALE/100) AS PD_SALE_PRICE,mct.MAIN_NO ,mct2.MID_CATE_NO
+                          FROM PRODUCTS_BY_DUTY_FREE_SHOP_TB p ,
+                               PRODUCTS_TB pt ,
+                               PRODUCTS_PHOTO_TB ppt,
+                               MAIN_CATEGORY_TB mct ,
+                               MIDDLE_CATEGORY_TB mct2 ,
+                               SUB_CATEGORY_TB sct,
+                               BRAND_TB bt
+                          WHERE p.PD_BY_DFS_SALE > 0
+                            AND pt.SUB_NO  = sct.SUB_NO
+                            AND sct.MID_CATE_NO = mct2.MID_CATE_NO
+                            AND mct2.MAIN_NO = mct.MAIN_NO
+                            AND p.PD_NO = pt.PD_NO
+                            AND p.pd_NO = ppt.PD_NO
+                            AND bt.BRAND_NO = pt.BRAND_NO
+                            AND ppt.PHOTO_TYPE_NO =1
+                          ORDER BY pt.PD_DATE DESC)
         WHERE rownum <= 10
         ]]>
     </select>

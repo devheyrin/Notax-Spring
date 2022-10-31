@@ -8,4 +8,6 @@ import java.util.ArrayList;
 @Mapper
 public interface MainDAO {
     public ArrayList<MainRankingVO> selectRank();
+
+    public ArrayList<MainRankingVO> selectPdListByDate();
 }

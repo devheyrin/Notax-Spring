@@ -13,4 +13,6 @@ public class MainRankingVO {
     private String PDPHOTO_LINK;
     private int MAIN_NO;
     private int MID_CATE_NO;
+    private String brand_name;
+    private String pd_date;
 }

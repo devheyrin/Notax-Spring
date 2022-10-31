@@ -15,4 +15,8 @@ public class MainService {
     public ArrayList<MainRankingVO> selectRank() {
         return mainDAO.selectRank();
     }
+
+    public ArrayList<MainRankingVO> selectPdListByDate() {
+        return mainDAO.selectPdListByDate();
+    }
 }
