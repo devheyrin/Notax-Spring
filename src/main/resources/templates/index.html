@@ -92,7 +92,7 @@
 
     <div id="fixbutton">
         <div><a href="#">TOP</a></div>
-        <div>최근본상품</div>
+        <div><a href="#">최근 본</a></div>
     </div>
 </section>
 <section id="ranking">
@@ -102,15 +102,15 @@
         <h1>랭킹</h1>
         <section class="regular slider">
 
-            <div class="card" th:each="disRank : ${disRank}">
-                <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${disRank.MAIN_NO}, mid_cate_no=${disRank.MID_CATE_NO}, pd_no=${disRank.PD_NO})}">
-                <img th:src="${disRank.PDPHOTO_LINK}" class="card-img-top" alt="...">
+            <div class="card" th:each="pd : ${disRank}">
+                <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${pd.MAIN_NO}, mid_cate_no=${pd.MID_CATE_NO}, pd_no=${pd.PD_NO})}">
+                <img th:src="${pd.PDPHOTO_LINK}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text brand" th:text="${disRank.brand_name}"></p>
-                    <p class="card-text pd-name" th:text="${disRank.pd_name}"></p>
-                    <p class="card-text pd-sale" th:text="${disRank.PD_BY_DFS_SALE}"></p>
-                    <p class="card-text pd-price" th:text="${disRank.PD_PRICE}"></p>
-                    <p class="card-text pd-sale-price" th:text="${disRank.PD_SALE_PRICE}"></p>
+                    <p class="card-text brand-name" th:text="${pd.brand_name}"></p>
+                    <p class="card-text pd-name" th:text="${pd.pd_name}"></p>
+                    <p class="card-text pd-sale" th:text=" '-'+ ${pd.PD_BY_DFS_SALE} + '%'"></p>
+                    <p class="card-text pd-price" th:text="'정가 : '+${pd.PD_PRICE} +'$'"></p>
+                    <p class="card-text pd-sale-price" th:text="'할인율 적용 : '+ ${pd.PD_SALE_PRICE} +'$'"></p>
 
                 </div>
                 </a>
@@ -129,11 +129,11 @@
                 <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${pd.MAIN_NO}, mid_cate_no=${pd.MID_CATE_NO}, pd_no=${pd.PD_NO})}">
                     <img th:src="${pd.PDPHOTO_LINK}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text brand" th:text="${pd.brand_name}"></p>
+                        <p class="card-text brand-name" th:text="${pd.brand_name}"></p>
                         <p class="card-text pd-name" th:text="${pd.pd_name}"></p>
-                        <p class="card-text pd-sale" th:text="${pd.PD_BY_DFS_SALE}"></p>
-                        <p class="card-text pd-price" th:text="${pd.PD_PRICE}"></p>
-                        <p class="card-text pd-sale-price" th:text="${pd.PD_SALE_PRICE}"></p>
+                        <p class="card-text pd-sale" th:text=" '-'+ ${pd.PD_BY_DFS_SALE} + '%'"></p>
+                        <p class="card-text pd-price" th:text="'정가 : '+${pd.PD_PRICE} +'$'"></p>
+                        <p class="card-text pd-sale-price" th:text="'할인율 적용 : '+ ${pd.PD_SALE_PRICE} +'$'"></p>
 
                     </div>
                 </a>
@@ -151,11 +151,11 @@
                 <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${pd.MAIN_NO}, mid_cate_no=${pd.MID_CATE_NO}, pd_no=${pd.PD_NO})}">
                     <img th:src="${pd.PDPHOTO_LINK}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text brand" th:text="${pd.brand_name}"></p>
+                        <p class="card-text brand-name" th:text="${pd.brand_name}"></p>
                         <p class="card-text pd-name" th:text="${pd.pd_name}"></p>
-                        <p class="card-text pd-sale" th:text="${pd.PD_BY_DFS_SALE}"></p>
-                        <p class="card-text pd-price" th:text="${pd.PD_PRICE}"></p>
-                        <p class="card-text pd-sale-price" th:text="${pd.PD_SALE_PRICE}"></p>
+                        <p class="card-text pd-sale" th:text=" '-'+ ${pd.PD_BY_DFS_SALE} + '%'"></p>
+                        <p class="card-text pd-price" th:text="'정가 : '+ ${pd.PD_PRICE} +'$'"></p>
+                        <p class="card-text pd-sale-price" th:text="'할인율 적용 : '+ ${pd.PD_SALE_PRICE} +'$'"></p>
 
                     </div>
                 </a>
