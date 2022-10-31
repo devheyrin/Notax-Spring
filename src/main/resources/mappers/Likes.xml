@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.notax.detail.DetailDAO">
+    <select id="selectLikedProductList" resultType="ProductVO">
+        SELECT
+            pd_no,
+            (SELECT sub_name FROM SUB_CATEGORY_TB sct WHERE sct.SUB_NO = pt.sub_no) SUB_NAME,
+            (SELECT brand_name FROM BRAND_TB bt WHERE bt.BRAND_NO = pt.BRAND_NO)    brand_name,
+            (SELECT COUNT(*) FROM INTERESTED_ITEMS_TB iit WHERE iit.PD_NO = pt.PD_NO) pd_likes,
+            pd_name,
+            pd_price,
+            pd_views,
+            pd_date,
+            pd_more
+        FROM PRODUCTS_TB pt
+        where pd_no = #{pd_no}
+    </select>
+</mapper>

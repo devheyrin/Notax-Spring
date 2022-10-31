@@ -1,7 +1,6 @@
 /* 쿠폰 토글 */
 $(function (){
    $(".toggle-btn").click(function (){
-      console.log($(this).attr("id"));
       let dfs_id = $(this).attr("id").slice(-1);
       let coupon = $('#coupon'+dfs_id);
       coupon.toggle();
@@ -23,8 +22,6 @@ $(document).ready(function () {
 $(function () {
    let $main_name = $('#mainname').attr('value');
    let $middle_name = $('#mid_name').attr('value');
-   console.log($main_name);
-   console.log($middle_name);
 
    $('.main-category').FeastSelect({
       btnText: $main_name, // 선택한 분류 가져와서 지정
@@ -116,8 +113,5 @@ $(function () {
             }
          });
       }
-
-
    });
-
 });
