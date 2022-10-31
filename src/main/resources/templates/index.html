@@ -81,24 +81,6 @@
                     <li><a href="/main-category/id=11/select/id=1">리빙/헬스케어</a></li>
                     <li><a href="/main-category/id=12/select/id=1">키즈/베이비</a></li>
                 </ul>
-<!--                <table class="category-list ta1">-->
-<!--                    <th><a href="#">페이스</a></th>-->
-<!--                    <th><a href="#">아이</a></th>-->
-<!--                    <th><a href="#">립</a></th>-->
-<!--                    <th><a href="#">메이크업Tool/케이스</a></th>-->
-<!--                    <th><a href="#">네일/타투</a></th>-->
-<!--                    <tr>-->
-<!--                        <td><a href="#">파운데이션</a></td>-->
-<!--                        <td><a href="#">BB/CC크림</a></td>-->
-<!--                        <td><a href="#">쿠션/팩트</a></td>-->
-<!--                        <td><a href="#">파우더</a></td>-->
-<!--                        <td><a href="#">프라이머/베이스</a></td>-->
-<!--                        <td><a href="#">컨실러</a></td>-->
-<!--                        <td><a href="#">블러셔/쉐딩/하이라이터</a></td>-->
-<!--                        <td><a href="#">맨즈</a></td>-->
-<!--                        <td><a href="#">메이크업세트</a></td>-->
-<!--                    </tr>-->
-<!--                </table>-->
             </div>
 
 
@@ -124,10 +106,11 @@
                 <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${disRank.MAIN_NO}, mid_cate_no=${disRank.MID_CATE_NO}, pd_no=${disRank.PD_NO})}">
                 <img th:src="${disRank.PDPHOTO_LINK}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text" th:text="${disRank.pd_name}"></p>
-                    <p class="card-text" th:text="${disRank.PD_BY_DFS_SALE}"></p>
-                    <p class="card-text" th:text="${disRank.PD_PRICE}"></p>
-                    <p class="card-text" th:text="${disRank.PD_SALE_PRICE}"></p>
+                    <p class="card-text brand" th:text="${disRank.brand_name}"></p>
+                    <p class="card-text pd-name" th:text="${disRank.pd_name}"></p>
+                    <p class="card-text pd-sale" th:text="${disRank.PD_BY_DFS_SALE}"></p>
+                    <p class="card-text pd-price" th:text="${disRank.PD_PRICE}"></p>
+                    <p class="card-text pd-sale-price" th:text="${disRank.PD_SALE_PRICE}"></p>
 
                 </div>
                 </a>
@@ -142,14 +125,15 @@
 
         <h1>신상품</h1>
         <section class="regular slider">
-            <div class="card" th:each="disRank : ${disRank}">
-                <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${disRank.MAIN_NO}, mid_cate_no=${disRank.MID_CATE_NO}, pd_no=${disRank.PD_NO})}">
-                    <img th:src="${disRank.PDPHOTO_LINK}" class="card-img-top" alt="...">
+            <div class="card" th:each="pd : ${pdListByDate}">
+                <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${pd.MAIN_NO}, mid_cate_no=${pd.MID_CATE_NO}, pd_no=${pd.PD_NO})}">
+                    <img th:src="${pd.PDPHOTO_LINK}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text" th:text="${disRank.pd_name}"></p>
-                        <p class="card-text" th:text="${disRank.PD_BY_DFS_SALE}"></p>
-                        <p class="card-text" th:text="${disRank.PD_PRICE}"></p>
-                        <p class="card-text" th:text="${disRank.PD_SALE_PRICE}"></p>
+                        <p class="card-text brand" th:text="${pd.brand_name}"></p>
+                        <p class="card-text pd-name" th:text="${pd.pd_name}"></p>
+                        <p class="card-text pd-sale" th:text="${pd.PD_BY_DFS_SALE}"></p>
+                        <p class="card-text pd-price" th:text="${pd.PD_PRICE}"></p>
+                        <p class="card-text pd-sale-price" th:text="${pd.PD_SALE_PRICE}"></p>
 
                     </div>
                 </a>
@@ -163,14 +147,15 @@
 
         <h1>최고할인</h1>
         <section class="regular slider">
-            <div class="card" th:each="disRank : ${disRank}">
-                <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${disRank.MAIN_NO}, mid_cate_no=${disRank.MID_CATE_NO}, pd_no=${disRank.PD_NO})}">
-                    <img th:src="${disRank.PDPHOTO_LINK}" class="card-img-top" alt="...">
+            <div class="card" th:each="pd : ${disRank}">
+                <a th:href="@{/detail/main-category/{main_no}/middle-category/{mid_cate_no}/product/{pd_no}(main_no=${pd.MAIN_NO}, mid_cate_no=${pd.MID_CATE_NO}, pd_no=${pd.PD_NO})}">
+                    <img th:src="${pd.PDPHOTO_LINK}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text" th:text="${disRank.pd_name}"></p>
-                        <p class="card-text" th:text="${disRank.PD_BY_DFS_SALE}"></p>
-                        <p class="card-text" th:text="${disRank.PD_PRICE}"></p>
-                        <p class="card-text" th:text="${disRank.PD_SALE_PRICE}"></p>
+                        <p class="card-text brand" th:text="${pd.brand_name}"></p>
+                        <p class="card-text pd-name" th:text="${pd.pd_name}"></p>
+                        <p class="card-text pd-sale" th:text="${pd.PD_BY_DFS_SALE}"></p>
+                        <p class="card-text pd-price" th:text="${pd.PD_PRICE}"></p>
+                        <p class="card-text pd-sale-price" th:text="${pd.PD_SALE_PRICE}"></p>
 
                     </div>
                 </a>

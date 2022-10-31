@@ -198,7 +198,7 @@ h1{
     height: 500px;
     width: 1280px;
     object-fit: none;
-    transform: scale(1.4);
+    transform: scale(1.75);
 }
 .fade{
     z-index: 500;
@@ -298,4 +298,36 @@ ul{
 
 .slick-current {
     opacity: 1;
+}
+
+/*카드 디자인-----------------------------------------------------------*/
+.brand{
+    position: absolute;
+    font-size: 10px;
+    top: 260px;
+    left: 10px;
+}
+.pd-name{
+    position: absolute;
+    font-size: 10px;
+    top: 260px;
+    left: 10px;
+}
+.pd-sale{
+    position: absolute;
+    font-size: 10px;
+    top: 260px;
+    left: 10px;
+}
+.pd-price{
+    position: absolute;
+    font-size: 10px;
+    top: 260px;
+    left: 10px;
+}
+.pd-sale-price{
+    position: absolute;
+    font-size: 10px;
+    top: 260px;
+    left: 10px;
 }
