@@ -9,10 +9,4 @@
         where u.user_no=r.user_no and s.dfs_rating_no=r.dfs_rating_no and d.dfs_no=s.dfs_no
           and u.user_no = (select user_no from user_tb ut where ut.user_id = #{memberid})
     </select>
-
-    <update id="updateMembershipMdfById"   parameterType="MembershipMdfVO">
-        update duty_free_shop_rating_tb s
-        set s.dfs_rating_name
-        where
-    </update>
 </mapper>
